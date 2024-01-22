@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1591074726580-1">
+        <createTable tableName="bodystructures">
+            <column name="Id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Description" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591074726580-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="bodystructures"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591074750389-1">
+    <insert tableName="bodystructures">
+        <column name="Id" valueNumeric="27865001"/>
+        <column name="Description" value="Bilateral mastectomy "/>
+    </insert>
+    <insert tableName="bodystructures">
+        <column name="Id" valueNumeric="45595009"/>
+        <column name="Description" value="Laparoscopic cholecystectomy"/>
+    </insert>
+    <insert tableName="bodystructures">
+        <column name="Id" valueNumeric="80891009"/>
+        <column name="Description" value="Heart structure (body structure)"/>
+    </insert>
+</changeSet>
+</databaseChangeLog>

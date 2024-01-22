@@ -1,0 +1,49 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="mlabio" id="d0c01435-5567-11eb-b5ae-1831bf981123">
+        <sql>
+            update patientsurveys
+            set DateStart = '2021-01-12 07:57:08'
+            where id = '08d8b661-07ba-4b7e-801e-f389231c256f';
+
+            update preoperativeassessments
+            set SurgeryDate = '2021-01-12 07:45:00.000000'
+            where id = '08d8b661-0781-48be-8488-25b2e2dc1e1e';
+
+            update patientsurveys 
+            set DateStart = '2021-01-05 07:23:36'
+            where id = '08d8b0df-fbd3-4d7f-8c3d-4995fce207fc';
+
+            update patientsurveys 
+            set DateStart = '2021-01-11 07:05:40'
+            where id = '08d8b591-7362-4270-8865-8ac6832fbdd6';
+
+            update patientsurveys 
+            set DateStart = '2021-01-06T07:07:52'
+            where id = '08d8b1a2-d03e-4152-823f-f866b7294e96';
+
+            update patientsurveys 
+            set DateStart = '2021-01-06T11:29:40'
+            where id = '08d8b1b8-47e7-4b8b-853d-277a256f8d36';
+
+            update patientsurveys 
+            set DateStart = '2021-01-07T07:07:00'
+            where id = '08d8b283-a438-4f99-8c45-754df2134147';
+
+            update patientsurveys 
+            set DateStart = '2021-01-08T07:06:26'
+            where id = '08d8b349-eb1b-46b8-80af-32f5195a7bc5';
+
+            update patientsurveys 
+            set DateStart = '2021-01-08 11:22:34'
+            where id = '08d8b34c-4efc-4067-8e04-ab3f40b98c5e';
+
+            update patientsurveys 
+            set DateStart = '2021-01-11 07:05:40'
+            where id = '08d8b591-7362-4270-8865-8ac6832fbdd6';
+        </sql>
+    </changeSet>
+</databaseChangeLog>

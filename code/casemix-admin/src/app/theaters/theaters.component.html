@@ -1,0 +1,48 @@
+<div [@routerTransition]>
+  <section class="content-header page-header settings">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ "Theaters" | localize }}</h1>
+        </div>
+        <div class="col-6 text-right">
+          <a href="javascript:;" class="btn bg-yellow" (click)="onCreateClick()">
+            <i class="fa fa-plus-square"></i>
+            {{ "Create" | localize }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body ajax-dt">
+          <table [busy]="isLoading" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+            class="table table-bordered table-striped table-hover text-nowrap" id="theaters">
+            <thead>
+              <tr>
+                <td>{{ "TheaterId" | localize }}</td>
+                <td>{{ "Name" | localize }}</td>
+                <td width="1%" class="text-center">{{ "Actions" | localize }}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let theater of theaters">
+                <td>{{theater.theaterId}}</td>
+                <td>{{theater.name}}</td>
+                <td>
+                  <button type="button" class="btn btn-sm bg-secondary" (click)="onEditClick(theater.id)">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm bg-danger mx-2" (click)="onDeleteClick(theater.id)">
+                    <i class="fas fa-trash"></i>
+                  </button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

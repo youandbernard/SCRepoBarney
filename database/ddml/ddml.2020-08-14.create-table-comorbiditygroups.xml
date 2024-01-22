@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="1593421029787-1">
+        <createTable tableName="comorbiditygroups">
+            <column name="Id" type="INT">				
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Description" type="VARCHAR(100)" />
+        </createTable>
+    </changeSet>
+	<changeSet author="mel (generated)" id="1593421029787-2">
+		<loadData 
+				commentLineStartsWith="//"
+				encoding="UTF-8"  
+				file="csv/comorbiditygroups.csv"  
+				quotchar="'" 
+				relativeToChangelogFile="true" 
+				separator=";" 
+				tableName="comorbiditygroups"> 
+		  <column header="Id"  
+					 type="NUMERIC"/> 
+		  <column header="Description"  
+					 type="STRING"/>
+		</loadData>
+	</changeSet>
+</databaseChangeLog>

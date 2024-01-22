@@ -1,0 +1,22 @@
+<form class="form-horizontal" autocomplete="off" #dateTimePickerModal="ngForm" (ngSubmit)="onFormSubmit()">
+  <abp-modal-header [title]="'ChangeDateAndTime' | localize" (onCloseClick)="onCloseClick()"></abp-modal-header>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="Date" class="col-form-label">{{ 'Date' |localize }}</label>
+      <div class="input-group datetimepicker-group" (click)="dp.show()">
+        <input [(ngModel)]="date" type="text" id="Date" name="Date" placeholder="Date" [(ngModel)]="date"
+          class="form-control" #dp="bsDatepicker" bsDatepicker [bsConfig]="datePickerConfig" readonly required />
+        <div class="input-group-append">
+          <button class="btn btn-default" type="button">
+            <i class="fa fa-calendar-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Time" class="col-form-label">{{ 'Time' |localize }}</label>
+      <timepicker [(ngModel)]="time" [minuteStep]="1" id="Date" name="Date"></timepicker>
+    </div>
+  </div>
+  <abp-modal-footer (onCancelClick)="onCloseClick()"></abp-modal-footer>
+</form>

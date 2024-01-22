@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mlabio" id="44c1debd-31ea-11eb-9472-1831bf981123-1">
+        <createTable tableName="ReportingSettings">
+			<column name="Id" type="int" autoIncrement="true">
+            	<constraints primaryKey="true" nullable="false"/>
+        	</column>
+            <column name="HospitalId" type="VARCHAR(250)" />
+            <column name="IsEnabled" type="BIT" />			
+        </createTable>
+    </changeSet>
+    <changeSet author="mlabio" id="44c1debd-31ea-11eb-9472-1831bf981123-2">
+        <createIndex indexName="FK_RSettings_Hospital_HospitalId_idx" tableName="ReportingSettings">
+            <column name="HospitalId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="mlabio" id="44c1debd-31ea-11eb-9472-1831bf981123-3">
+        <addForeignKeyConstraint baseColumnNames="HospitalId" baseTableName="ReportingSettings" constraintName="FK_RSettings_Hospital_HospitalId" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="Id" referencedTableName="Hospitals"/>
+    </changeSet>
+</databaseChangeLog>

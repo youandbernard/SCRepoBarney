@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1594003595653-1">
+        <addColumn tableName="preoperativeassessments">
+            <column name="BodyStructureId" type="INT(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594003595653-2">
+        <addColumn tableName="preoperativeassessments">
+            <column name="MethodId" type="VARCHAR(100 BYTE)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594003595653-3">
+        <createIndex indexName="FK_PreOperativeAssessments_BodyStructures_BodyStructureId_idx" tableName="preoperativeassessments">
+            <column name="BodyStructureId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594003595653-4">
+        <addForeignKeyConstraint baseColumnNames="BodyStructureId" baseTableName="preoperativeassessments" constraintName="FK_PreOperativeAssessments_BodyStructures_BodyStructureId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="bodystructures"/>
+    </changeSet>
+</databaseChangeLog>

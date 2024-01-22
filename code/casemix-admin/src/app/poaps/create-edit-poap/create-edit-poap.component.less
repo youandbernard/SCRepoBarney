@@ -1,0 +1,174 @@
+.edit-procedure-input {
+  width: 70px;
+}
+.co-morbidity-tree-actions {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  button:not(:last-child) {
+    margin-right: 5px;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 59px;
+  height: 30px;
+}
+
+.switch input {
+  display: none;
+  background-color: #ccc;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 29px;
+  width: 30px;
+  left: 0px;
+  right: 0px;
+  bottom: -0.5px;
+  background-color: #2196f3;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+}
+
+.slider {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+input:checked + .slider:before {
+  transform: translateX(27px);
+}
+
+input:checked + .slider {
+  background-color: rgb(100, 189, 99);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 35px;
+  border: 1px solid #dfdfdf;
+  background-color: rgb(255, 255, 255);
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.switchStatus {
+  padding: 12px;
+  position: relative;
+  bottom: 17px;
+}
+
+
+.select-all {
+  position: absolute;
+  left: 0;
+  margin: 8px;
+}
+
+.select-all-label {
+  margin-left: 10px;
+  font-weight: unset !important;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+}
+
+.total-time {
+  text-align: right;
+  margin-top: 7px;
+}
+
+.list-search {
+  margin-bottom: 10px;
+}
+
+.diagnostic-report-selected { 
+  background-color: gray;
+}
+
+input[type="radio"] { 
+  cursor: pointer;
+}
+.save-diagnostic-report {
+  text-align: right;
+}
+
+.modal-xl .modal-lg {
+  max-width: 30%;
+}
+
+.patients-table {
+  overflow: auto !important;
+  height: 450px !important;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  background-color: white;
+}
+
+th {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.patients-table-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.margin-patients-table {
+  margin-right: 50px;
+  background-color: #28A745;
+}
+
+
+.match-demographic {
+  background-color: #28A745;
+}
+
+.patient-header {
+  padding: 3px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 25vw;
+  background: white;
+}
+
+table thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+table tbody th {
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 1;
+}
+
+.instrumentpack {
+  cursor: pointer;
+  font-size: 12px !important;
+}

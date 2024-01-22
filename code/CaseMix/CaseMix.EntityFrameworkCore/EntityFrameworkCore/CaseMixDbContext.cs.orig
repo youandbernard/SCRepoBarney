@@ -1,0 +1,39 @@
+﻿using Abp.Zero.EntityFrameworkCore;
+using CaseMix.Authorization.Roles;
+using CaseMix.Authorization.Users;
+using CaseMix.Entities;
+using CaseMix.MultiTenancy;
+using Microsoft.EntityFrameworkCore;
+
+namespace CaseMix.EntityFrameworkCore
+{
+    public class CaseMixDbContext : AbpZeroDbContext<Tenant, Role, User, CaseMixDbContext>
+    {   
+        public virtual DbSet<Hospital> Hospitals { get; set; }
+        public virtual DbSet<UserHospital> UserHospitals { get; set; }
+        public virtual DbSet<PasswordReset> PasswordResets { get; set; }
+        public virtual DbSet<BodyStructure> BodyStructures { get; set; }
+        public virtual DbSet<PatientSurgeryProgress> PatientSurgeryProgresses { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<HospitalPatient> HospitalPatients { get; set; }
+        public virtual DbSet<PreOperativeAssessment> PreOperativeAssessments { get; set; }
+        public virtual DbSet<PoapProcedure> PoapProcedures { get; set; }
+        public virtual DbSet<PoapRisk> PoapRisks { get; set; }
+        public virtual DbSet<PatientSurvey> PatientSurveys { get; set; }
+        public virtual DbSet<BodyStructureGroup> BodyStructureGroups { get; set; }
+        public virtual DbSet<Ethnicity> Ethnicities { get; set; }
+        public virtual DbSet<ComorbidityGroup> ComorbidityGroups { get; set; }
+        public virtual DbSet<Comorbidity> Comorbidities { get; set; }
+        public virtual DbSet<HospitalSpecialty> HospitalSpecialties { get; set; }
+<<<<<<< HEAD
+        public virtual DbSet<Theater> Theaters { get; set; }
+=======
+        public virtual DbSet<SurgeonSpecialty> SurgeonSpecialties { get; set; }
+>>>>>>> 5064ecc835f5a391a88479be4c80b6743bad8b97
+
+        public CaseMixDbContext(DbContextOptions<CaseMixDbContext> options)
+            : base(options)
+        {
+        }
+    }
+}

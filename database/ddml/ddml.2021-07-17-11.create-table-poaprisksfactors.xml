@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mlabio" id="62db31d4-e897-11eb-82e0-1831bf981123-1">
+        <createTable tableName="poapriskfactor">
+            <column name="Id" type="INT" autoIncrement="true">				
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="PreoperativeAssessmentId" type="CHAR(36)"/>
+			<column name="DiagnosticReportId" type="INT"/>
+			<column name="RiskId" type="CHAR(36)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

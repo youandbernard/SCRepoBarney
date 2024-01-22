@@ -1,0 +1,78 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="0632b701-cdad-11ec-afe3-1831bf981123-1">
+       <sql>
+
+        ALTER TABLE bodystructurequeries MODIFY COLUMN Title VARCHAR(256);
+
+        insert into bodystructuregroups
+        (Id, Name, DisplayOrder)
+        values
+        ('16c98e48-c775-11ec-b893-1831bf981123', 'Knee Surgery', 5);
+
+        insert into bodystructures
+        (Id, Description, BodyStructureGroupId, DisplayOrder)
+        values
+        (19063003, 'Total Endoprosthesis Placement - 3d Placement', '16c98e48-c775-11ec-b893-1831bf981123', 1),
+        (19063004, 'Total Endoprosthesis Placement - Conventional', '16c98e48-c775-11ec-b893-1831bf981123', 1);
+
+        insert into bodystructurequeries
+        (Id, Title, Query, QueryOrder, BodyStructureId)
+        values
+        (uuid(), 'Pre-Op Check list', '450729003 |WHO Surgical Safety Check List', 1, 19063003),
+        (uuid(), 'Pt positioning, Scrub, Draping (According to WHO check list)', '229824005 |Patient Positioning', 2, 19063003),
+        (uuid(), 'Skin, subcutaneous layer and muscle layers incision (Until target layer)', '34896006 |Incision', 3, 19063003),
+        (uuid(), 'Exposing the bony surface of the distal femoral joint (Removal of soft tissue etc)', '363285009 |Removal of soft tissue', 4, 19063003),
+        (uuid(), 'Testing of the sterile 3D Printed Navigator on the 3D Print Patient Model (Femoral Surface)', 'A40388003-1 |Preparation of implant (procedure)', 5, 19063003),
+        (uuid(), 'Placing of Sterile 3D Printed Patient Specific Navigator on the Distal Femoral Surface', 'A40388003-1 |Preparation of implant (procedure)', 6, 19063003),
+        (uuid(), 'Insertion of Pins according to the 3D Printed Patient specific guidance device on the distal femoral surface', 'A782902008-1 |Guidance', 7, 19063003),
+        (uuid(), 'Placing of Blocks on the distal femoral surface', '782902008 |Placement', 8, 19063003),
+        (uuid(), 'Prosthetic implantation on the distal femoral surface (Cement/w.o. Cement)', '7817008 |Knee prothesis', 9, 19063003),
+        (uuid(), 'Exposing the bony surface of the Proximal tibial joint (Removal of soft tissue etc)', '65801008 |Excision', 10, 19063003),
+        (uuid(), 'Placing of Sterile 3D Printed Patient Specific Navigator on the Proximal tibial Surface', '782902008 |Placement', 11, 19063003),
+        (uuid(), 'Testing of the sterile 3D Printed Navigator on the 3D Print Patient Model (Tibial Surface)', '360154009 |Trial fit', 12, 19063003),
+        (uuid(), 'Insertion of Pins according to the 3D Printed Patient specific guidance device on the Proximal tibial surface', '81257009 |Extremity testing for strength, dexterity or stamina (procedure)', 13, 19063003),
+        (uuid(), 'Placing of Blocks on the Proximal tibial surface', 'A67270000-1 |Test neck and head (procedure)', 14, 19063003),
+        (uuid(), 'Resection of distal femoral surface according to block templates', 'A782902008-1 |Resection', 15, 19063003),
+        (uuid(), 'Prosthetic implantation on the Proximal tibial surface (With cement)', '7817008 |Knee prothesis', 16, 19063003),
+        (uuid(), 'Prosthetic implantation on the Proximal tibial surface (Without cement)', '307819006 |Knee prothesis', 17, 19063003),
+        (uuid(), 'Testing of the implanted limb', 'A67270000-1 |Test neck and head (procedure)', 18, 19063003),
+        (uuid(), 'Bleeding and foreign body control', '10849003 |Removal of foreign body (procedure)', 19, 19063003),
+        (uuid(), 'Bleeding and foreign body control', '51241000 |Control of hemorrhage (procedure)', 20, 19063003),
+        (uuid(), 'Muscle, subcutaneous layer and skin closure', '391906003 |Closure of skin by suture (procedure)', 21, 19063003),
+        (uuid(), 'Steril bandages', '58828004 |Application of dressing, sterile (procedure)', 22, 19063003);
+
+
+        insert into bodystructurequeries
+        (Id, Title, Query, QueryOrder, BodyStructureId)
+        values
+        (uuid(), 'Pre-Op Check list', '450729003 |WHO Surgical Safety Check List', 1, 19063004),
+        (uuid(), 'Pt positioning, Scrub, Draping (According to WHO check list)', '229824005 |Patient Positioning', 2, 19063003),
+        (uuid(), 'Skin, subcutaneous layer and muscle layers incision (Until target layer)', '34896006 |Incision', 3, 19063003),
+        (uuid(), 'Exposing the bony surface of the distal femoral joint (Removal of soft tissue etc)', '363285009 |Removal of soft tissue', 4, 19063003),
+        (uuid(), 'Tibial navigator placement', '782902008 |Placement', 1, 19063004),
+        (uuid(), 'Tibial Block Placement bony surface', '782902008 |Placement', 1, 19063004),
+        (uuid(), 'Tibial bony surface resection', '9924007 |Resection', 1, 19063004),
+        (uuid(), 'Intramedullary drilling of the femur for navigator placement, Insertion of navigator', '80557002 |Drilling of bone', 1, 19063004),
+        (uuid(), 'Placement of the resection block on the intramedullary navigator', 'A40388003-1 |Preparation of implant (procedure)', 1, 19063004),
+        (uuid(), 'Resection of the distal femoral surface', '258174001 |Imaging guidance procedure (procedure)', 1, 19063004),
+        (uuid(), 'Placement of the external rotational template on resected surface?', '392238003 |Implantation', 1, 19063004),
+        (uuid(), 'Placement of the 4 in 1 resector template', '782902008 |WHO Surgical Safety Check List', 1, 19063004),
+        (uuid(), 'Resection of the distalis femoral surface according to the 4 in 1 template', '9924007 |Resection', 1, 19063004),
+        (uuid(), 'Placement of PS resector template, and resection accordingly', '782902008 |Placement', 1, 19063004),
+        (uuid(), 'Confirmation of the resection using tibial templates.', '272284003 |Template guidance', 1, 19063004),
+        (uuid(), 'Confirmation of joint components using trial templates', '272284003 |Template guidance', 1, 19063004),
+        (uuid(), 'Preparation for placement of tibial component and its insertion', 'A40388003-1 |Preparation of implant (procedure)', 1, 19063004),
+        (uuid(), 'Fixation of femoral component', '1431002 |Fixation', 1, 19063004),
+        (uuid(), 'Insertion of trial spacer on the tibial component', '360154009 |Trial fit', 1, 19063004),
+        (uuid(), 'Placement and fixation of the final tibial spacer', '119561005 |Grafting procedure (procedure)', 1, 19063004),
+        (uuid(), 'Testing of the implanted limb', 'A67270000-1 |Test neck and head (procedure)', 1, 19063004),
+        (uuid(), 'Bleeding and foreign body control', '10849003 |Removal of foreign body (procedure)', 19, 19063003),
+        (uuid(), 'Bleeding and foreign body control', '51241000 |Control of hemorrhage (procedure)', 20, 19063003),
+        (uuid(), 'Muscle, subcutaneous layer and skin closure', '391906003 |Closure of skin by suture (procedure)', 21, 19063003),
+        (uuid(), 'Steril bandages', '58828004 |Application of dressing, sterile (procedure)', 22, 19063003);
+
+       </sql>
+
+    </changeSet>
+</databaseChangeLog>

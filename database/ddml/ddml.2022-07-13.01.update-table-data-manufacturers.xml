@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="f461384d-0286-11ed-b70f-089798b0519b-1">
+        <sql>
+            insert into manufactures
+            (Id, Name, IsEnabled)
+            values
+            ('dcc88910-0286-11ed-b70f-089798b0519b', 'Abbott', 1),
+            ('e2a71671-0286-11ed-b70f-089798b0519b', 'DePuy', 1),
+            ('e8558a67-0286-11ed-b70f-089798b0519b', '3D Metal Printing', 1),
+            ('eea940cd-0286-11ed-b70f-089798b0519b', 'Terumo', 1);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

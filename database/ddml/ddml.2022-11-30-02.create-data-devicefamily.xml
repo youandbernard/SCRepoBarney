@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="b0d7ce7b-70a4-11ed-b4fb-089798b0519b-1">
+        <sql>
+            
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3)
+            VALUES
+            ('8e5849ae-70a5-11ed-b4fb-089798b0519b','Femoral components - Posterior Stabilised - Cemented','','','');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3)
+            VALUES
+            ('943a0e89-70a5-11ed-b4fb-089798b0519b','Femoral components - Cruciate Retaining - Cemented','','','');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3)
+            VALUES
+            ('99748538-70a5-11ed-b4fb-089798b0519b','Tibial Components - Fixed Bearing Stabilised','','','');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3)
+            VALUES
+            ('9eee0e6b-70a5-11ed-b4fb-089798b0519b','Tibial Insert - Fixed Bearing Curved','','','');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3)
+            VALUES
+            ('386df3ef-70a6-11ed-b4fb-089798b0519b','Tibial Tray - Titanium Cemented','','','');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3)
+            VALUES
+            ('3e03aaa1-70a6-11ed-b4fb-089798b0519b','Patella Components - Central Peg Cemented','','','');
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

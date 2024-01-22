@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="mlabio (generated)" id="5944b51c-5b83-11eb-b3b2-1831bf981123">
+        <sql>
+            INSERT INTO comorbiditygroups(Id, Description)
+            VALUES 
+                ( 10, 'ASA Class'),
+                ( 11, 'COVID-19 Classification');
+
+            INSERT INTO comorbidities(Description, ComorbidityGroupId)
+            VALUES 
+                ( 'ASA1: Normal Healthy', 10),
+                ( 'ASA2: Patient with mild systemic disease', 10),
+                ( 'ASA3: Patient with severe systemic disease', 10),
+                ( 'ASA4: Patient with severe systemic disease that is a threat to constant life', 10),
+                ( 'ASA5: Moribund patient who is not expected to survive without the operqation', 10);
+                
+                
+            INSERT INTO comorbidities(Description, ComorbidityGroupId)
+            VALUES 
+                ( 'Class 1: Previous history of COVID-19',  11),
+                ( 'Class 2: No histrory of COVID-19', 11);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

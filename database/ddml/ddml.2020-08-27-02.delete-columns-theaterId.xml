@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="root (generated)" id="1598529954969-100">
+        <sql>DELETE FROM patientsurveys;</sql>
+        <sql>DELETE FROM poapprocedures;</sql>
+        <sql>DELETE FROM poaprisks;</sql>
+        <sql>DELETE FROM preoperativeassessments;</sql>
+    </changeSet>
+    <changeSet author="root (generated)" id="1598529954969-1">
+        <dropColumn columnName="TheaterId" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="root (generated)" id="1598529954969-2">
+        <dropColumn columnName="TheaterId" tableName="preoperativeassessments"/>
+    </changeSet>
+</databaseChangeLog>

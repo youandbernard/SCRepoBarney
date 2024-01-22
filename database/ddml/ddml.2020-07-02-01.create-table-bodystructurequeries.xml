@@ -1,0 +1,282 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1593745483207-5">
+        <delete tableName="bodystructures">
+            <where>Id = 80891009</where>
+        </delete>
+        <delete tableName="bodystructures">
+            <where>Id = 27865001</where>
+        </delete>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593745483207-1">
+        <createTable tableName="bodystructurequeries">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Title" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Query" type="VARCHAR(250)"/>
+            <column name="QuerySimplified" type="VARCHAR(100)"/>
+            <column name="QueryOrder" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BodyStructureId" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593745483207-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="bodystructurequeries"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593745483207-3">
+        <createIndex indexName="FK_BodyStructureQueries_BodyStructures_BodyStructureId_idx" tableName="bodystructurequeries">
+            <column name="BodyStructureId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593745483207-4">
+        <addForeignKeyConstraint baseColumnNames="BodyStructureId" baseTableName="bodystructurequeries" constraintName="FK_BodyStructureQueries_BodyStructures_BodyStructureId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="bodystructures"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593745885068-1">
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="03726246-0289-4f2d-a2f7-42ed08b2880e"/>
+            <column name="Title" value="Prep and drape"/>
+            <column name="Query" value="450832005 |Cleansing and sterilization of skin (procedure)|"/>
+            <column name="QuerySimplified" value="450832005"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="074f8d5c-32ec-46c5-8a00-e8e6fb8dfd6d"/>
+            <column name="Title" value="Medial to lateral dissection. Identification of ileocolic artery and clipping/stapling 2"/>
+            <column name="Query" value="65392003 |Stapling of artery (procedure)|"/>
+            <column name="QuerySimplified" value="65392003"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="08816b76-c9d9-4a74-9570-d92ee19f8ee4"/>
+            <column name="Title" value="Extraction of colon, remove specimen, sew in staple gun"/>
+            <column name="Query" value="787874000 |Laparoscopic total colectomy (procedure)|"/>
+            <column name="QuerySimplified" value="787874000"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="1e928780-588c-4098-acec-584c906e5b92"/>
+            <column name="Title" value="Dissection over D1 and ascending colon mobilisation"/>
+            <column name="Query"/>
+            <column name="QuerySimplified"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="231231a7-4096-4714-88da-dc8dfa5bed66"/>
+            <column name="Title" value="Extraction of specimen and stapling of TC"/>
+            <column name="Query"/>
+            <column name="QuerySimplified"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2a6801e2-f54d-4cce-af5e-f6e91777b547"/>
+            <column name="Title" value="Anastomosis and leak test 1"/>
+            <column name="Query" value="315326006 |Sigmoid colectomy with anastomosis (procedure)|"/>
+            <column name="QuerySimplified" value="315326006"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2f409146-57da-45c1-9d07-3ed9fe384bbb"/>
+            <column name="Title" value="Washout closure of ports - 5-20 minutes - depends on BMI"/>
+            <column name="Query" value="746011009 |Closure of skin wound (procedure)|"/>
+            <column name="QuerySimplified" value="746011009"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="3a1162bb-3a24-4aaf-8dac-7bb4c7ab74a8"/>
+            <column name="Title" value="Skeletonization of rectum and stapling"/>
+            <column name="Query"/>
+            <column name="QuerySimplified"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="3a3cc4e2-1a1e-4093-a748-a8c5c1a90d58"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="* : 260686004 |Method (attribute)| = 129304002 |Excision - action (qualifier value)| AND 405813007 |Procedure site - Direct (attribute)| = 60184004 |(body structure)|"/>
+            <column name="QuerySimplified" value="* : 260686004 = 129304002 AND 405813007 = 60184004"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="41db1eae-a1aa-4a51-86b2-0c4095b62e64"/>
+            <column name="Title" value="Dissection in Calots triangle - identification of cystic duct and cystic artery"/>
+            <column name="Query" value="&lt;&lt; 122459003 |Dissection procedure (procedure)| (descendants of that concept)"/>
+            <column name="QuerySimplified" value="&lt;&lt; 122459003"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="464a49d0-2ac2-4ab4-afb3-e395c38f2ff4"/>
+            <column name="Title" value="Prep, set up camera, harmonic scalpel, diathermy etc...Port insertion and laparoscopy"/>
+            <column name="Query" value="450832005 |Cleansing and sterilization of skin (procedure)|"/>
+            <column name="QuerySimplified" value="450832005"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4c5bc731-3e71-4ec7-93bd-0559b22b97f4"/>
+            <column name="Title" value="Pneumoperitoneum, Tilt patient, 10 minutes - will vary according to BMI and previous surgery"/>
+            <column name="Query" value="386426009 |Positioning: intraoperative (procedure)|"/>
+            <column name="QuerySimplified" value="386426009"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4d26a89d-4013-42ee-8fe8-bcc42613b10e"/>
+            <column name="Title" value="Medial to lateral dissection. Identification of ileocolic artery and clipping/stapling 1"/>
+            <column name="Query" value="233395008 |Clipping of artery (procedure)|"/>
+            <column name="QuerySimplified" value="233395008"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4fafe908-22ee-4b6c-8894-f8fe93276db6"/>
+            <column name="Title" value="Catheterise, position, WHO final check and scrub 1"/>
+            <column name="Query" value="45211000 |Catheterization (procedure)|"/>
+            <column name="QuerySimplified" value="45211000"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="52c57d0e-bbd7-4561-b864-4e406ecd46bb"/>
+            <column name="Title" value="Removal of GB"/>
+            <column name="Query" value="&lt;&lt; 38102005 |Cholecystectomy (procedure)| (descendants of that concept)"/>
+            <column name="QuerySimplified" value="&lt;&lt; 38102005"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5388e788-95a9-4cb8-a48d-d0a95ffc997e"/>
+            <column name="Title" value="Anastomosis - stapled or hand sewn - return to abdomen"/>
+            <column name="Query" value="235409007 |Ileocolic anastomosis (procedure)| (although to clarify it is not clear in this statement what is being anastomosed here)"/>
+            <column name="QuerySimplified" value="235409007"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5bdb1004-d532-4ab1-b7a3-3e3ae17c5691"/>
+            <column name="Title" value="Lateral dissection of sigmoid - create window"/>
+            <column name="Query" value="122459003 |Dissection procedure (procedure)|"/>
+            <column name="QuerySimplified" value="122459003"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5c969d92-b606-4ea6-bb08-b58ff414f253"/>
+            <column name="Title" value="Final laparoscopy and closure of ports"/>
+            <column name="Query" value="746011009 |Closure of skin wound (procedure)|"/>
+            <column name="QuerySimplified" value="746011009"/>
+            <column name="QueryOrder" valueNumeric="11"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="69ced689-ff33-46e4-8d01-053949f80272"/>
+            <column name="Title" value="Insertion of 4 ports"/>
+            <column name="Query" value="&lt;&lt; 41447009 |Incision of skin (procedure)| (descendants of that concept)"/>
+            <column name="QuerySimplified" value="&lt;&lt; 41447009"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="6b99b24f-4651-4aed-973d-2aa8603ca671"/>
+            <column name="Title" value="On table cholangiogram - optional"/>
+            <column name="Query" value="&lt;&lt; 63243008 |Intraoperative cholangiogram (procedure)| (descendants of that concept)"/>
+            <column name="QuerySimplified" value="&lt;&lt; 63243008"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="7a245da2-368c-4a1a-87ee-c5b2f4cbf9c1"/>
+            <column name="Title" value="Dissection of GB off liver bed "/>
+            <column name="Query" value="&lt;&lt; 122459003 |Dissection procedure (procedure)| (descendants of that concept)"/>
+            <column name="QuerySimplified" value="&lt;&lt; 122459003"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a2b0769c-ec8f-4497-9008-ca5cf5a4c284"/>
+            <column name="Title" value="Anastomosis and leak test 2"/>
+            <column name="Query" value="174101001 |Sigmoid colectomy and anastomosis of colon to rectum (procedure)| ( These are not the correct codes but examples of what we have) "/>
+            <column name="QuerySimplified" value="174101001"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a6bdd1e0-39f3-4f34-8378-3aff5e5ccb01"/>
+            <column name="Title" value="Further mobilisation of left colon"/>
+            <column name="Query"/>
+            <column name="QuerySimplified"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c89786e3-b0ac-4cdc-9bed-0f7b57f6ed0c"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="* : 405813007 = &lt;&lt; 28231008 AND 425391005 = &lt;&lt; 86174004"/>
+            <column name="QuerySimplified" value="* : 405813007 = &lt;&lt; 28231008 AND 425391005 = &lt;&lt; 86174004"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="86174004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d75cc9a9-de78-4189-bf12-d49eccae57c0"/>
+            <column name="Title" value="Remove small bowel from pelvis, open retroperitoneum medially"/>
+            <column name="Query"/>
+            <column name="QuerySimplified"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="e982bb0f-fa12-4502-9354-1465a1d49f36"/>
+            <column name="Title" value="Skeletonize and staple/clip Inferior mesenteric vein/artery"/>
+            <column name="Query"/>
+            <column name="QuerySimplified"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="60184004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ed412ca1-94b8-41e9-b261-962882c61f97"/>
+            <column name="Title" value="Terminal ileum and caecal mobilisation +/- stapling of TI"/>
+            <column name="Query" value="173990000 |Intra-abdominal manipulation of ileum (procedure)|"/>
+            <column name="QuerySimplified" value="173990000"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f50c3acf-5453-49e5-81a2-fecc0b9b7f9d"/>
+            <column name="Title" value="Catheterise, position, WHO final check and scrub 2"/>
+            <column name="Query" value="371735007 |Procedure specific positioning (procedure)|"/>
+            <column name="QuerySimplified" value="371735007"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="fb4df2f7-51c0-4ecf-957b-7f895f0c6e16"/>
+            <column name="Title" value="Hepatic flexure mobilisation, reomval of omentum off transverse colon"/>
+            <column name="Query"/>
+            <column name="QuerySimplified"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="fe3d393a-cd78-47a6-a6f1-4f6bc9227c09"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="* : 260686004 |Method (attribute)| = 129304002 |Excision - action (qualifier value)| AND 405813007 |Procedure site - Direct (attribute)| = 51342009 |(body structure)|"/>
+            <column name="QuerySimplified" value="* : 260686004 = 129304002 AND 405813007 = 51342009"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="51342009"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

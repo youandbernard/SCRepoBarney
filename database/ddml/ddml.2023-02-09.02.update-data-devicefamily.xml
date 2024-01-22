@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="cd50771f-a863-11ed-a923-089798b0519b-1">
+        <sql>
+            
+           update devicefamily SET BodyStructureGroupId = '29bcdb34-a792-4f9f-a84d-b76ab8e49e04' 
+           WHERE DeviceFamilyId = '8e5849ae-70a5-11ed-b4fb-089798b0519b';
+
+           update devicefamily SET BodyStructureGroupId = '29bcdb34-a792-4f9f-a84d-b76ab8e49e04' 
+           WHERE DeviceFamilyId = '943a0e89-70a5-11ed-b4fb-089798b0519b';
+
+           update devicefamily SET BodyStructureGroupId = '29bcdb34-a792-4f9f-a84d-b76ab8e49e04' 
+           WHERE DeviceFamilyId = '99748538-70a5-11ed-b4fb-089798b0519b';
+
+           update devicefamily SET BodyStructureGroupId = '29bcdb34-a792-4f9f-a84d-b76ab8e49e04' 
+           WHERE DeviceFamilyId = '9eee0e6b-70a5-11ed-b4fb-089798b0519b';
+
+           update devicefamily SET BodyStructureGroupId = '29bcdb34-a792-4f9f-a84d-b76ab8e49e04' 
+           WHERE DeviceFamilyId = '386df3ef-70a6-11ed-b4fb-089798b0519b';
+
+           update devicefamily SET BodyStructureGroupId = '29bcdb34-a792-4f9f-a84d-b76ab8e49e04' 
+           WHERE DeviceFamilyId = '3e03aaa1-70a6-11ed-b4fb-089798b0519b';
+        </sql>
+    </changeSet>
+</databaseChangeLog>

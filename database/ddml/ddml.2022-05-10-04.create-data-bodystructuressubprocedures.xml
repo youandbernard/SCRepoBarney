@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="3d0a2313-d055-11ec-a20b-1831bf981123-1">
+       <sql>
+
+         insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId)
+        values
+        ('Pre-Op Check list', '450729003', 19063003),
+        ('Pt positioning, Scrub, Draping (According to WHO check list)', '229824005', 19063003),
+        ('Skin, subcutaneous layer and muscle layers incision (Until target layer)', '34896006', 19063003),
+        ('Exposing the bony surface of the distal femoral joint (Removal of soft tissue etc)', '363285009', 19063003),
+        ('Testing of the sterile 3D Printed Navigator on the 3D Print Patient Model (Femoral Surface)', 'A40388003-1', 19063003),
+        ('Placing of Sterile 3D Printed Patient Specific Navigator on the Distal Femoral Surface', 'A40388003-1', 19063003),
+        ('Insertion of Pins according to the 3D Printed Patient specific guidance device on the distal femoral surface', 'A782902008-1', 19063003),
+        ('Placing of Blocks on the distal femoral surface', '782902008', 19063003),
+        ('Prosthetic implantation on the distal femoral surface (Cement/w.o. Cement)', '7817008', 19063003),
+        ('Exposing the bony surface of the Proximal tibial joint (Removal of soft tissue etc)', '65801008', 19063003),
+        ('Placing of Sterile 3D Printed Patient Specific Navigator on the Proximal tibial Surface', '782902008', 19063003),
+        ('Testing of the sterile 3D Printed Navigator on the 3D Print Patient Model (Tibial Surface)', '360154009', 19063003),
+        ('Insertion of Pins according to the 3D Printed Patient specific guidance device on the Proximal tibial surface', '81257009', 19063003),
+        ('Placing of Blocks on the Proximal tibial surface', 'A67270000-1', 19063003),
+        ('Resection of distal femoral surface according to block templates', 'A782902008-1', 19063003),
+        ('Prosthetic implantation on the Proximal tibial surface (With cement)', '7817008', 19063003),
+        ('Prosthetic implantation on the Proximal tibial surface (Without cement)', '307819006', 19063003),
+        ('Testing of the implanted limb', 'A67270000-1', 19063003),
+        ('Bleeding and foreign body control', '10849003', 19063003),
+        ('Bleeding and foreign body control', '51241000', 19063003),
+        ('Muscle, subcutaneous layer and skin closure', '391906003', 19063003),
+        ('Steril bandages', '58828004', 19063003);
+
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId)
+        values
+        ('Pre-Op Check list', '450729003', 19063004),
+        ('Pt positioning, Scrub, Draping (According to WHO check list)', '229824005', 19063004),
+        ('Skin, subcutaneous layer and muscle layers incision (Until target layer)', '34896006', 19063004),
+        ('Exposing the bony surface of the distal femoral joint (Removal of soft tissue etc)', '363285009', 19063004),
+        ('Tibial navigator placement', '782902008', 19063004),
+        ('Tibial Block Placement bony surface', '782902008', 19063004),
+        ('Tibial bony surface resection', '9924007', 19063004),
+        ('Intramedullary drilling of the femur for navigator placement, Insertion of navigator', '80557002', 19063004),
+        ('Placement of the resection block on the intramedullary navigator', 'A40388003-1', 19063004),
+        ('Resection of the distal femoral surface', '258174001', 19063004),
+        ('Placement of the external rotational template on resected surface?', '392238003', 19063004),
+        ('Placement of the 4 in 1 resector template', '782902008', 19063004),
+        ('Resection of the distalis femoral surface according to the 4 in 1 template', '9924007', 19063004),
+        ('Placement of PS resector template, and resection accordingly', '782902008', 19063004),
+        ('Confirmation of the resection using tibial templates.', '272284003', 19063004),
+        ('Confirmation of joint components using trial templates', '272284003', 19063004),
+        ('Preparation for placement of tibial component and its insertion', 'A40388003-1', 19063004),
+        ('Fixation of femoral component', '1431002', 19063004),
+        ('Insertion of trial spacer on the tibial component', '360154009', 19063004),
+        ('Placement and fixation of the final tibial spacer', '119561005', 19063004),
+        ('Testing of the implanted limb', 'A67270000-1', 19063004),
+        ('Bleeding and foreign body control', '10849003', 19063004),
+        ('Bleeding and foreign body control', '51241000', 19063004),
+        ('Muscle, subcutaneous layer and skin closure', '391906003', 19063004),
+        ('Steril bandages', '58828004', 19063004);
+
+        delete from bodystructurequeries where
+        bodystructureid = 19063003;
+
+        delete from bodystructurequeries where
+        bodystructureid = 19063004;
+
+       </sql>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="b58ddc85-b69f-11ed-9581-089798b0519b-1">
+       <sql>
+
+        Update comorbidities set description = 'ASA4: Patient with severe systemic disease threat to constant life' 
+        where Id=70;
+
+        Update comorbidities set description = 'ASA5: Moribund patient not expected to survive without operation' 
+        where Id=71;
+
+        Update comorbidities set description = 'Hemiplegia' 
+        where Id=16;
+
+        Update comorbidities set description = 'Psychosis and psychotic disorders' 
+        where Id=19;
+
+        Update comorbidities set description = 'Chronic kidney disease' 
+        where Id=20;
+
+        Update comorbidities set description = 'Tendency to fall due to old age or other' 
+        where Id=45;
+
+        Update comorbidities set description = 'Severe liver disease (18)' 
+        where Id=50;
+
+        Update comorbidities set description = 'Connective tissue disorder (4)' 
+        where Id=51;
+
+        Update poaprisks set Value='&lt;18.5' where Value='&lt; 18.5';
+        Update poaprisks set Value='18.5-25' where Value='18.5 - 25';
+        Update poaprisks set Value='25-30' where Value='25 - 30';
+        Update poaprisks set Value='>40' where Value='> 40';
+
+       </sql>
+
+    </changeSet>
+</databaseChangeLog>

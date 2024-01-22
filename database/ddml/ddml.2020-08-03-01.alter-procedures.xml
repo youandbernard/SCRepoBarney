@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1596509715138-100">
+        <sql>DELETE FROM poaprisks;</sql>
+        <sql>DELETE FROM poapprocedures;</sql>
+        <sql>DELETE FROM preoperativeassessments;</sql>
+        <sql>DELETE FROM patientsurveyprocedures;</sql>
+        <sql>DELETE FROM patientsurveys;</sql>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1596509715138-1">
+        <addColumn tableName="patientsurveys">
+            <column name="PreOperativeAssessmentId" type="CHAR(36 BYTE)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1596509715138-2">
+        <createIndex indexName="FK_PatientSurveys_Poaps_PoapId_idx" tableName="patientsurveys">
+            <column name="PreOperativeAssessmentId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1596509715138-3">
+        <addForeignKeyConstraint baseColumnNames="PreOperativeAssessmentId" baseTableName="patientsurveys" constraintName="FK_PatientSurveys_Poaps_PoapId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="preoperativeassessments"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1596509715138-4">
+        <dropForeignKeyConstraint baseTableName="patientsurveyprocedures" constraintName="FK_PatientSurveyProcedures_PatientSurvey_PatientId"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1596509715138-5">
+        <dropTable tableName="patientsurveyprocedures"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1596509715138-6">
+        <addNotNullConstraint columnDataType="int(10)" columnName="BodyStructureId" tableName="preoperativeassessments"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1596509715138-7">
+        <addNotNullConstraint columnDataType="bigint(19)" columnName="SurgeonId" tableName="patientsurveys"/>
+    </changeSet>
+</databaseChangeLog>

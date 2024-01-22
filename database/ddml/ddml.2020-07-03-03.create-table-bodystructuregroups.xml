@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1594012819335-1">
+        <createTable tableName="bodystructuregroups">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisplayOrder" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594012819335-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="bodystructuregroups"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594012850440-1">
+        <insert tableName="bodystructuregroups">
+            <column name="Id" value="25717923-e753-4d3c-8f68-241378012c48"/>
+            <column name="Name" value="General Surgery"/>
+            <column name="DisplayOrder" valueNumeric="3"/>
+        </insert>
+        <insert tableName="bodystructuregroups">
+            <column name="Id" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="Name" value="Orthopedic Surgery"/>
+            <column name="DisplayOrder" valueNumeric="1"/>
+        </insert>
+        <insert tableName="bodystructuregroups">
+            <column name="Id" value="a46011a1-9856-4295-9a39-3efcf4fc77d5"/>
+            <column name="Name" value="Breast Surgery"/>
+            <column name="DisplayOrder" valueNumeric="0"/>
+        </insert>
+        <insert tableName="bodystructuregroups">
+            <column name="Id" value="e52f4011-e8fb-475b-b89e-da8548c18989"/>
+            <column name="Name" value="Colorectal Surgery"/>
+            <column name="DisplayOrder" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

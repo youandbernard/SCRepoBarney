@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="3b98ee29-b713-11ec-9e49-1831bf981123-1">
+        <createTable tableName="trusts">
+			<column name="Id" type="CHAR(36)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IsEnabled" type="BIT" />			
+        </createTable>
+    </changeSet>
+    <changeSet author="mlabio (generated)" id="3b98ee29-b713-11ec-9e49-1831bf981123-2">
+        <sql>
+            insert into trusts
+            (Id, name, isenabled)
+            values
+            (uuid(), 'Trust 1', 1),
+            (uuid(), 'Trust 2', 1),
+            (uuid(), 'Trust 3', 1);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

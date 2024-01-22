@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="mlabio (generated)" id="48d736f6-32ab-11eb-9472-1831bf981123">
+        <sql>
+            UPDATE patientsurveys
+            SET Status = 2
+            WHERE PreOperativeAssessmentId IN (SELECT Id FROM PreOperativeassessments WHERE IsArchived = 1);
+
+            INSERT INTO PatientSurveys(Id, PatientId, PatientDobYear, HospitalId, BodyStructureId, SurgeryDate, MethodId, SurgeonId, PreOperativeAssessmentId, TheaterId, Status)
+            SELECT UUID(), PatientId, DateOfBirthYear,HospitalId, BodyStructureId, SurgeryDate, MethodId, SurgeonId, Id, TheaterId, 2 FROM PreOperativeassessments 
+            where isarchived = 1 and id NOT IN (SELECT PreOperativeAssessmentId FROM patientsurveys);
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

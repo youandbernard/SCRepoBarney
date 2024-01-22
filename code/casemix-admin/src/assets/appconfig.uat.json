@@ -1,0 +1,19 @@
+{
+  "remoteServiceBaseUrl": "https://api-casemix-uat.casemix-dev.co.uk/uat",
+  "appBaseUrl": "https://casemix-uat.casemix-dev.co.uk",
+  "localeMappings": [
+    {
+      "from": "pt-BR",
+      "to": "pt"
+    },
+    {
+      "from": "zh-CN",
+      "to": "zh"
+    },
+    {
+      "from": "he-IL",
+      "to": "he"
+    }
+  ],
+  "importFile_URL": "https://casemix-uat-assets.s3.eu-west-2.amazonaws.com/"
+}

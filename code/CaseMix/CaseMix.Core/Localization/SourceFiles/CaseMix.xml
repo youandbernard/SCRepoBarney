@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="en">
+	<texts>
+		<text name="UserId">User ID</text>
+		<text name="ElapsedTime">Elapsed Time</text>
+		<text name="ReportSettings">Report Settings</text>
+		<text name="ReportingSettings">Reporting Settings</text>
+		<text name="EditTheater">Edit theater</text>
+		<text name="CreateNewTheater">Create new theater</text>
+		<text name="NoTheatersAvailable">No Theaters available</text>
+		<text name="Theaters">Theaters</text>
+		<text name="PatientPositioning">Patient Positioning</text>
+		<text name="WHOCheckList">WHO Surgical Safety Check List</text>
+		<text name="Draping">Application of surgical drapes</text>
+		<text name="Scrub">Cleaning and sterilisation of skin</text>
+		<text name="Identification">Marking skin site prior to procedure</text>
+		<text name="PatientPreparation">Patient Preparation</text>
+		<text name="StartEndTimes">Start/End Times</text>
+		<text name="SurgeonNurseNotes">Surgeon/Nurse Notes</text>
+		<text name="AdditionalPatientInformation">Additional Patient Information</text>
+		<text name="EstimatedTime">Estimated Time</text>
+		<text name="PredictedTime">Predicted Time</text>
+		<text name="ActualTime">Actual Time</text>
+		<text name="ClockStartTime">Clock Start Time</text>
+		<text name="ClockEndTime">Clock End Time</text>
+		<text name="SnomedId">Snomed ID</text>
+		<text name="Specialty">Specialty</text>
+		<text name="Specialties">Specialties</text>
+		<text name="ExpandAll">Expand All</text>
+		<text name="CollapseAll">Collapse All</text>
+		<text name="SelectAll">Select All</text>
+		<text name="TheaterId">Theater ID</text>
+		<text name="TheaterName">Theater Name</text>
+		<text name="Age">Age</text>
+		<text name="BMI">BMI</text>
+		<text name="BloodPressure">Blood Pressure</text>
+		<text name="StdDeviation">Std Deviation</text>
+		<text name="StandardDeviation">Standard Deviation</text>
+		<text name="MeanTime">Predicted Time</text>
+		<text name="Anesthesia">Anaesthesia</text>
+		<text name="Risks2">Risks-2</text>
+		<text name="Risks1">Risks-1</text>
+		<text name="NoSurveyAvailable">No Survey available</text>
+		<text name="NoPoapAvailable">No Pre-Operative Assessment Process Forms available</text>
+		<text name="SubProcedures">Sub-Procedures</text>
+		<text name="SubProcedure">Sub-Procedure</text>
+		<text name="CaseMix">TCC-CASEMIX</text>
+		<text name="TotalProcedureTime">Total Procedure Time</text>
+		<text name="AllProceduresEndTime">All Procedures End Time</text>
+		<text name="TotalTime">Total Time</text>
+		<text name="Apply">Apply</text>
+		<text name="Min">min</text>
+		<text name="Procedures">Procedures</text>
+		<text name="ParentProcedure">Parent Procedure</text>
+		<text name="ObserverNotes">Observer Notes</text>
+		<text name="ObserverStaffId">Observer Staff ID</text>
+		<text name="ObserverSignature">Observer Signature</text>
+		<text name="ActualDuration">Actual Duration</text>
+		<text name="ForecastDuration">Forecast Duration</text>
+		<text name="ProcedureType">Procedure Type</text>
+		<text name="SnowmedGrandChildProcedure">Snowmed Grand Child Procedure</text>
+		<text name="SnowmedChildProcedure">Snowmed Child Procedure</text>
+		<text name="SnowmedTypeDefinition">Snowmed Type Definition</text>
+		<text name="SnowmedTypeCode">Snowmed Type Code</text>
+		<text name="RoomId">Room Id</text>
+		<text name="NextLocation">Next Location</text>
+		<text name="EndTime">End Time</text>
+		<text name="StartTime">Start Time</text>
+		<text name="Anaesthetist">Anaesthetist</text>
+		<text name="Surgeon">Surgeon</text>
+		<text name="Add">Add</text>
+		<text name="DiseaseType">Disease Type</text>
+		<text name="ProcedureMethodType">Procedure Method Type</text>
+		<text name="InstrumentPacks">Instrument Tray/ Procedure Pack</text>
+		<text name="Method">Method</text>
+		<text name="Experience4">&gt; 10 years</text>
+		<text name="Experience3">8 - 9 years</text>
+		<text name="Experience2">6 - 7 years</text>Ex
+		<text name="Experience1"> &lt; 5 years</text>
+		<text name="Experience0">Unknown</text>
+		<text name="AnesthetistName">Anaesthetist Name</text>
+		<text name="Experience">Experience</text>
+		<text name="SurgeonName">Surgeon Name</text>
+		<text name="Time">Time</text>
+		<text name="Date">Date</text>
+		<text name="ChangeDateAndTime">Change date and time</text>
+		<text name="Female">Female</text>
+		<text name="Male">Male</text>
+		<text name="FemaleSnomedId">(248152002)</text>
+		<text name="MaleSnomedId">(248153007)</text>
+		<text name="Previous">Previous</text>
+		<text name="Next">Next</text>
+		<text name="SurgeryDateTime">Surgery Date/Time</text>
+		<text name="TimeOfArrival">Time of Arrival in OR</text>
+		<text name="AssessmentDateTime">Assessment Date/Time</text>
+		<text name="Gender">Gender</text>
+		<text name="PatientDobYear">Patient DoB Year</text>
+		<text name="PatientId">Patient ID</text>
+		<text name="Procedure">Procedure</text>
+		<text name="SurgeryDate">Surgery Date</text>
+		<text name="Risks">Risks</text>
+		<text name="MedicalTeam">Medical Team</text>
+		<text name="Patient">Patient</text>
+		<text name="CreateAssessment">Create Assessment</text>
+		<text name="PreOperativeAssessments">Pre Operative Assessments</text>
+		<text name="POAP">POAP</text>
+		<text name="POAPs">POAPs</text>
+		<text name="Survey">Survey</text>
+		<text name="Surveys">Surveys</text>
+		<text name="Dashboard">Dashboard</text>
+		<text name="Confirmation">Confirmation</text>
+		<text name="PasswordResetLinkExpiredDomainError" value="The password reset link has expired. Please request a new password reset link." />
+		<text name="PasswordResetNullDomainErrorMessage">The password reset link does not exist. Please request a new password reset link.</text>
+		<text name="PasswordResetEmailMessage">
+			<![CDATA[
+          <p>We received your request to reset your password.</p>
+          <p>Please click this link reset your password: <a href="{0}">Password reset link<a/></p>
+          <br />
+          <p>If for some reason the link is not clickable, please copy and paste the url below to your browser:<p>
+          <br />
+          <p>{0}<p/>
+      ]]>
+		</text>
+		<text name="PasswordResetEmailSubject">TCC-CaseMix - Password Reset</text>
+		<text name="PasswordResetEmailSent" value="A password reset email has been sent to your email account, please check your junk/spam folders." />
+		<text name="PasswordResetEmailDomainErrorMessage" value="The user associated with the email address does not exist." />
+		<text name="InvalidRequestDomainError">Invalid request</text>
+		<text name="UserHospitals" value="User hospitals" />
+		<text name="HomePage" value="Home page" />
+		<text name="About" value="About" />
+		<text name="WelcomeMessage" value="Welcome to CaseMix!" />
+		<text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />
+		<text name="TenantNameCanNotBeEmpty" value="Tenant name can not be empty" />
+		<text name="InvalidUserNameOrPassword" value="Invalid user name or password" />
+		<text name="ThereIsNoTenantDefinedWithName{0}" value="There is no tenant defined with name {0}" />
+		<text name="TenantIsNotActive" value="Tenant {0} is not active." />
+		<text name="UserIsNotActiveAndCanNotLogin" value="User {0} is not active and can not log in." />
+		<text name="UserEmailIsNotConfirmedAndCanNotLogin">Your email address is not confirmed. You can not login.</text>
+		<text name="UserLockedOutMessage">The user account has been locked out. Please try again later.</text>
+		<text name="PleaseEnterLoginInformation" value="Please enter login information" />
+		<text name="SurveyTimestamp">Survey Timestamp</text>
+		<text name="SurveySettings">Survey Settings</text>
+		<text name="DeviceDemoVideoSettings">Device Video Settings</text>
+		<text name="TenancyName" value="Tenancy name" />
+		<text name="UserNameOrEmail" value="User name or email" />
+		<text name="Password" value="Password" />
+		<text name="ResetPassword" value="Reset Password" />
+		<text name="UpdatePassword" value="Update Password" />
+		<text name="RememberMe" value="Remember me" />
+		<text name="LogIn" value="Log in" />
+		<text name="LoginFailed" value="Login failed!" />
+		<text name="NameSurname" value="Name surname" />
+		<text name="UserName" value="Username" />
+		<text name="Name" value="Name" />
+		<text name="Surname" value="Surname" />
+		<text name="EmailAddress" value="Email address" />
+		<text name="Tenants" value="Tenants" />
+		<text name="SavedSuccessfully" value="Saved successfully" />
+		<text name="CreateNewTenant" value="Create new tenant" />
+		<text name="AdminEmailAddress" value="Admin email address" />
+		<text name="AdminPassword" value="Admin password" />
+		<text name="Save" value="Save" />
+		<text name="Cancel" value="Cancel" />
+		<text name="TenantName_Regex_Description" value="Tenant name must be at least 2 chars, starts with a letter and continue with letter, number, dash or underscore." />
+		<text name="DefaultPasswordIs" value="Default password is {0}" />
+		<text name="CanBeEmptyToLoginAsHost" value="Can be empty to login as host." />
+		<text name="Register" value="Register" />
+		<text name="OrLoginWith" value="Or login with" />
+		<text name="WaitingForActivationMessage" value="Your account is waiting to be activated by system admin." />
+		<text name="TenantSelection" value="Tenant Selection" />
+		<text name="TenantSelection_Detail" value="Please select one of the following tenants." />
+		<text name="Logout" value="Logout" />
+		<text name="RegisterFormUserNameInvalidMessage">Please don't enter an email address for username.</text>
+		<text name="DatabaseConnectionString" value="Database connection string" />
+		<text name="Users" value="Users" />
+		<text name="IsActive" value="Is active" />
+		<text name="FullName" value="Full name" />
+		<text name="CreateNewUser" value="Create new user" />
+		<text name="Yes" value="Yes" />
+		<text name="No" value="No" />
+		<text name="Optional" value="Optional" />
+		<text name="LeaveEmptyToSwitchToHost">Leave empty to switch to the host</text>
+		<text name="CurrentTenant">Current tenant</text>
+		<text name="NotSelected">Not selected</text>
+		<text name="Change">Change</text>
+		<text name="ChangeTenant">Change tenant</text>
+		<text name="MultiLevelMenu">Multi Level Menu</text>
+		<text name="Back">Back</text>
+		<text name="SuccessfullyRegistered">Successfully registered</text>
+		<text name="WaitingForEmailActivation">Your email address should be activated</text>
+		<text name="Roles">Roles</text>
+		<text name="DisplayName">Display Name</text>
+		<text name="Edit">Edit</text>
+		<text name="Delete">Delete</text>
+		<text name="CreateNewRole">Create new role</text>
+		<text name="RoleName">Role Name</text>
+		<text name="Actions">Actions</text>
+		<text name="CouldNotCompleteLoginOperation">Could not complete login operation. Please try again later.</text>
+		<text name="CouldNotValidateExternalUser">Could not validate external user</text>
+		<text name="EditRole">Edit role</text>
+		<text name="EditTenant">Edit tenant</text>
+		<text name="EditUser">Edit user</text>
+		<text name="TenantIdIsNotActive{0}">TenantId {0} is not active</text>
+		<text name="UnknownTenantId{0}">Unknown tenantId {0}</text>
+		<text name="ThisFieldIsRequired">This field is required</text>
+		<text name="PleaseWait">Please wait...</text>
+		<text name="Administration">Administration</text>
+		<text name="ClearAll">Clear all</text>
+		<text name="ClearOthers">Clear others</text>
+		<text name="LabelOptions">Label options</text>
+		<text name="Permissions">Permissions</text>
+		<text name="RoleDescription">Role description</text>
+		<text name="Refresh">Refresh</text>
+		<text name="Create">Create</text>
+		<text name="UserDetails">User details</text>
+		<text name="UserRoles">User roles</text>
+		<text name="ConfirmPassword">Confirm password</text>
+		<text name="Version">Version</text>
+		<text name="On">On</text>
+		<text name="Off">Off</text>
+		<text name="AreYouSureWantToDelete">Are you sure want to delete {0}?</text>
+		<text name="SuccessfullyDeleted">Successfully deleted</text>
+		<text name="StartTyping">Start Typing</text>
+		<text name="Skins">Skins</text>
+		<text name="Settings">Configuration</text>
+		<text name="Filter">Filter</text>
+		<text name="CurrentPassword">Current Password</text>
+		<text name="NewPassword">New Password</text>
+		<text name="ConfirmNewPassword">Confirm New Password</text>
+		<text name="PasswordsDoNotMatch">Passwords do not match</text>
+		<text name="PasswordsMustBeAtLeast8CharactersContainLowercaseUppercaseNumber">Passwords must be at least 8 characters, contain a lowercase, uppercase, and number</text>
+		<text name="PasswordsMustBeAtLeast8CharactersContainLowercaseUppercaseSpecialCharactersNumber">Passwords must be at least 8 characters, contain a lowercase, uppercase, special characters and number</text>
+		<text name="UserDeleteWarningMessage">User {0} will be deleted.</text>
+		<text name="RoleDeleteWarningMessage">Role {0} will be deleted and unassigned from all assigned users.</text>
+		<text name="TenantDeleteWarningMessage">Tenant {0} will be deleted.</text>
+		<text name="SearchWithThreeDot">Search...</text>
+		<text name="PleaseEnterAtLeastNCharacter">Please enter at least {0} characters</text>
+		<text name="PleaseEnterNoMoreThanNCharacter">Please enter no more than {0} characters</text>
+		<text name="InvalidEmailAddress">Invalid email address</text>
+		<text name="InvalidPattern">Invalid</text>
+		<text name="PairsDoNotMatch">Do not match</text>
+		<text name="All">All</text>
+		<text name="TotalRecordsCount">Total: {0}</text>
+		<text name="Search">Search</text>
+		<text name="Clear">Clear</text>
+		<text name="ResetPasswordStepOneInfo">1. Enter your administrator password</text>
+		<text name="ResetPasswordStepTwoInfo">2. Copy this random password so you can send it to the user</text>
+		<text name="DuplicateSubProcedureFoundErrorTittle">Duplicate Sub-Procedures found</text>
+		<text name="SurgeonSpecialties">Specialties</text>
+		<text name="CompleteSurvey">Complete Survey</text>
+		<text name="Close">Close</text>
+		<text name="SaveNotes">Save Notes</text>
+		<text name="RiskMappingSettings">Risk Mapping Settings</text>
+		<text name="RegionManagement">Region Management</text>
+		<text name="HospitalManagement">Hospital Management</text>
+		<text name="DeviceManagement">Device Management</text>
+		<text name="Devices">Devices</text>
+		<text name="NoDeviceAvailable">No Device Available</text>
+		<text name="NoDocumentAvailable">No Document Available</text>
+		<text name="FileShouldCSV">The file type should only a CSV</text>		
+		<text name="NotExceed2MB">The file should not exceed to 2Mb</text>
+		<text name="IncorrectNumberOfFields">Incorrect number of fields. Use double quotes if required</text>
+		<text name="HeadersNotMatchedToTemplate">The CSV header text in row 1 does not match those required.  Please download our template for a sample import file</text>
+		<text name="CSVFileEmpty">CSV file is empty</text>
+		<text name="InvalidCSVFile">Invalid CSV file</text>
+	</texts>
+</localizationDictionary>

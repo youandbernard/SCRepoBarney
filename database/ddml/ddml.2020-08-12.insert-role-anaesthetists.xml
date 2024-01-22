@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Gilbert.Damo" id="6A5AAA3D-9E93-4A25-B03D-A7A642F152DD">
+        <insert tableName="abproles">
+            <column name="CreationTime" value="2020-08-12"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="TenantId" valueBoolean="true"/>
+            <column name="Name" value="Anaesthetists"/>
+            <column name="DisplayName" value="Anaesthetists"/>
+            <column name="IsStatic" valueBoolean="true"/>
+            <column name="IsDefault" valueBoolean="false"/>
+            <column name="NormalizedName" value="ANAESTHETISTS"/>
+            <column name="ConcurrencyStamp" value="D8F634BE-7E0F-4C27-B3BD-2B2234E909BC"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

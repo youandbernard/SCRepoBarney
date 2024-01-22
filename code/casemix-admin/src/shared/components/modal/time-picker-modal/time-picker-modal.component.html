@@ -1,0 +1,10 @@
+<form class="form-horizontal" autocomplete="off" #timePickerModal="ngForm" (ngSubmit)="onFormSubmit()">
+  <abp-modal-header [title]="'ChangeDateAndTime' | localize" (onCloseClick)="onCloseClick()"></abp-modal-header>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="Time" class="col-form-label">{{ 'Time' |localize }}</label>
+      <timepicker [(ngModel)]="time" [minuteStep]="1" id="Date" name="Date"></timepicker>
+    </div>
+  </div>
+  <abp-modal-footer (onCancelClick)="onCloseClick()"></abp-modal-footer>
+</form>

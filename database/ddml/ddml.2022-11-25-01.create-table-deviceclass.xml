@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="bnavarro" id="34a01638-6c7a-11ed-b4fb-089798b0519b-1">
+        <createTable tableName="deviceclass">
+			<column name="Id" type="CHAR(36)">
+            	<constraints primaryKey="true" nullable="false"/>
+        	</column>
+            <column name="Class" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="Rule" type="VARCHAR(4000)">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="Field1" type="VARCHAR(500)">
+                <constraints nullable="true"/>
+        	</column>
+            <column name="Field2" type="VARCHAR(500)">
+                <constraints nullable="true"/>
+        	</column>
+            <column name="Field3" type="VARCHAR(500)">
+                <constraints nullable="true"/>
+        	</column>            
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

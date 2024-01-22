@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet author="mlabio (generated)" id="477edb9c-adcd-11ec-b029-1831bf981123">
+        <sql>
+
+            insert into regions(Id, Name, Type, ParentId, IsEnabled)
+            values
+            ('f5138bcf-adcb-11ec-b029-1831bf981123', 'Root', 'Root', NULL, 1),
+            ('102545df-adcc-11ec-b029-1831bf981123', 'United Kingdom', 'Country', 'f5138bcf-adcb-11ec-b029-1831bf981123', 1),
+            ('7c7ca246-adcc-11ec-b029-1831bf981123', 'East Midlands', 'Region', '102545df-adcc-11ec-b029-1831bf981123', 1),
+            ('5b651af7-adcc-11ec-b029-1831bf981123', 'Hungary', 'Country', 'f5138bcf-adcb-11ec-b029-1831bf981123', 1),
+            ('716fa4fc-adcc-11ec-b029-1831bf981123', 'Southern Great Plain', 'Region', '5b651af7-adcc-11ec-b029-1831bf981123', 1);
+            
+            <!-- update hospitals set RegionId = '716fa4fc-adcc-11ec-b029-1831bf981123' where Name = 'Szeged';
+            update hospitals set RegionId = '7c7ca246-adcc-11ec-b029-1831bf981123' where Name <> 'Szeged'; -->
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

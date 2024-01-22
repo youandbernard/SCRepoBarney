@@ -1,0 +1,113 @@
+<form class="form-horizontal" autocomplete="off" #procedureToDevice="ngForm" (ngSubmit)="onFormSubmit()">
+    <abp-modal-header [title]="'Apply devices to procedures' | localize" (onCloseClick)="onCloseClick()">
+    </abp-modal-header>
+    <div class="modal-body">
+        <div class="col-md-12 col-lg-12">
+            <div class="col-md-12 col-lg-12">
+                <div class="card col-md-12 col-lg-12">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            {{ 'Procedure Information' | localize }}
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table-details">
+                                    <tr>
+                                        <td>{{ snomedId }} - {{ procedureName }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group card devices-card">
+                    <div class="col-md-12 col-lg-12 row" data-display="static">
+                        <label for="Devices" class="col-form-label">{{ 'Devices Family' | localize }} *</label><br>
+                        <ng-select [(ngModel)]="selectedBrandFamily" [items]="groupedBrandDevFamily"
+                            groupBy="manufacturerName" bindValue="uniqueID" bindLabel="deviceFamilyName"
+                            id="selectedBrandFamily" name="selectedBrandFamily" (change)="onBrandFamilyChange()"
+                            class="col-md-12">
+                            <ng-template ng-optgroup-tmp let-item="item">
+                                {{item.manufacturerName}}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                                <div title="{{item.brandName + '-' + item.deviceFamilyName}}"
+                                    class="text-overflow-hide">{{item.brandName + '-' + item.deviceFamilyName}}</div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <div class="col-md-12 col-lg-12 row" *ngIf="hasSelectedBrandFamily"
+                        style="margin-top: 10px !important; padding: 0px">
+                        <div class="col-md-12">
+                            <div class="col-md-8" style="padding: 0px">
+                                <div class="input-group">
+                                    <input [(ngModel)]="inputModelName" name="inputModelName" id="inputModelName"
+                                        [typeahead]="devices" typeaheadOptionField="model" class="form-control"
+                                        [typeaheadMinLength]="0" placeholder="{{ 'Enter model number' | localize }}" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-default" type="button" (click)="onModelChange()">
+                                            {{ "Search" | localize }} <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 5px !important;">
+                            <p-table [value]="devices" [autoLayout]="true" dataKey="deviceLookupDesc"
+                                [reorderableColumns]="true">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th width="1%">&nbsp;</th>
+                                        <th>Name</th>
+                                        <th>Select</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-device let-i="rowIndex">
+                                    <tr>
+                                        <td>{{ i + 1 }}</td>
+                                        <td>{{ device.deviceLookupDesc}}</td>
+                                        <td class="text-nowrap text-center pl-30">
+                                            <ng-container>
+                                                <div class="row col-md-12 col-center">
+                                                    <div class="custom-control custom-checkbox deviceCheckbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="chkdevice" [id]="'chkdevice_'+ i"
+                                                            (change)="setSelectedDevice($event, device)" />
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                        </td>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="footer">
+                                    <tr *ngIf="devices.length == 0">
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 row" style="margin-top: 10px !important;">
+                        <span *ngIf="isLoading" class="fa fa-spinner fa-pulse ml-2"></span>
+                        <div *ngFor="let selected of selectedDevices" class="alert alert-primary selected-list"
+                            title="{{ selected.gmdnTermCode }} - {{ selected.deviceName }} - {{ selected.brandName }} - {{ selected.model }} - {{ selected.manufacturer.name }}"
+                            role="alert">
+                            {{ selected.deviceName }} - {{ selected.model }} - {{ (selected.deviceDescription.length >
+                            25)? (selected.deviceDescription | slice:0:25) + '...': (selected.deviceDescription) }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                                (click)="$event.preventDefault(); onRemoveClick(selected)">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <abp-modal-footer (onCancelClick)="onCloseClick()"></abp-modal-footer>
+</form>

@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1591329466743-1">
+        <createTable tableName="poaprisks">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Group" type="INT"/>
+            <column name="Key" type="VARCHAR(45)"/>
+            <column name="Value" type="VARCHAR(45)"/>
+            <column name="MeanTime" type="DOUBLE"/>
+            <column name="StandardDeviation" type="DOUBLE"/>
+            <column name="PreOperativeAssessmentId" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329466743-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="poaprisks"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329466743-3">
+        <createIndex indexName="FK_PoapRisks_PreOperativeAssessments_PreOperativeAssessment_idx" tableName="poaprisks">
+            <column name="PreOperativeAssessmentId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329466743-4">
+        <addForeignKeyConstraint baseColumnNames="PreOperativeAssessmentId" baseTableName="poaprisks" constraintName="FK_PoapRisks_Poaps_PoapId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="preoperativeassessments"/>
+    </changeSet>
+</databaseChangeLog>

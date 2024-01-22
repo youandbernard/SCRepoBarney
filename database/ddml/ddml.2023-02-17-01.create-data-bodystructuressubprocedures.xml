@@ -1,0 +1,157 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="85930d7e-aec2-11ed-81b6-089798b0519b-1">
+       <sql>
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Select access site, agreed with patient. Mark the location of the inferior border of the femoral head', '392247006', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Obtain femoral access with needle and position tip within the artery', '710132004', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Insertion of a 0.018 in. guidewire', '462815004-1', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Insertion of the micropuncture-dilator assembly', '1137697002', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Advancement of a 0.035 in. guidewire', '782901001', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Insert a sheath into the femoral artery over guidewire', '431398002', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Sheath aspiration and flushing', '14766002', 415070008);
+        
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Femoral angiography', '265531007', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Catheter selection', '246138005', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Advance a 0.035 or 0.038 in. J-tip guidewire to the aortic root', '462815004-2', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Advance catheter to Aortic root', '364091008-1', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Connect the catheter hub with the manifold during manifold flushing', '198611000000104', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Check pressure waveform', '128444004-1', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Manipulate catheter to engage coronary ostia', '77060009-1', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Insert the tip of the catheter into the target coronary artery', '77060009-2', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Confirm that the tip of catheter is engaged in the coronary artery ostium', '469731004', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Administer intracoronary nitroglycerin', '68268007', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Optimally position patient, image receptor, shields, and operator', '229824005', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Assess pressure and ECG', '128444004-2', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Perform cineangiography', '169078006', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Angiogram interpretation', '3367005', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Determine whether a microcatheter is needed', '469539004', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Guidewire selection', '1137638009', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Shape the guidewire tip', 'A-1137638009-01', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Advance the guidewire to the tip of the guide catheter', '364091008-2', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Remove microcatheter', '405437004', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Monitor wire position', '82327001', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Select either stent/ balloon type and size', '303779005', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Prepare the stent/balloon', '233404000', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Load the stent/ balloon on the guidewire', '432811002', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Inflate balloon', '257365005-1', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Deflate the balloon', '257365005-2', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Withdraw stent / stent balloon into the guide catheter', 'A-103718005-01-1', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Remove stent/ stent balloon from the guide catheter', 'A-103718005-01-2', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Check the stenting/ balloon angioplasty result', '48995004', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Femoral Access Closure.', 'A-425391005-01', 415070008);
+
+        insert into bodystructuresubprocedures
+        (Description, SnomedID, BodyStructureId) values
+        ('Clean access site', '225150002', 415070008);
+
+       </sql>
+
+    </changeSet>
+</databaseChangeLog>

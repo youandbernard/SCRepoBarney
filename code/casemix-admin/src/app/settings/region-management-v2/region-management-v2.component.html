@@ -1,0 +1,55 @@
+<div [@routerTransition]>
+  <section class="content-header page-header survey">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>{{ 'Region Management' | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="px-2">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="regions-tree-actions">
+                    <button class="btn btn-sm btn-success" type="button" (click)="onExpandAllClick()">
+                        <i class="fas fa-angle-double-down fa-light"></i>
+                        {{ 'ExpandAll' | localize }}
+                    </button>
+                    <button class="btn btn-sm btn-success" type="button" (click)="onCollapseAllClick()">
+                        <i class="fa fa-angle-double-up fa-light"></i>
+                        {{ 'CollapseAll' | localize }}
+                    </button>
+                </div>
+                <p-tree 
+                    [value]="regionsNodes"
+                    [filter]="true"
+                    [propagateSelectionDown]="false"
+                    [propagateSelectionUp]="false"
+                    [(selection)]="selectedRegionNode"
+                    selectionMode="single"
+                    (onNodeSelect)="nodeSelect($event)"
+                    [loading]="isLoading"
+                    layout="vertical"
+                    >
+                    <ng-template let-node pTemplate="person">
+                        <div class="node-header p-corner-top" *ngIf="node.data.name !== null">
+                            {{ node.label }}
+                        </div>
+
+                        <div class="node-header p-corner-top" *ngIf="node.data.name === null">
+                             <span class="small text-success mr-2">Add {{ node.data.dataType == 'Trust' ? 'Sub Region' :  node.data.dataType }}
+                             </span> 
+                            <img [src]="node.icon" width="20px" alt="" />
+                        </div>
+                        <div class="node-content"></div>
+                    </ng-template>
+                    <ng-template let-node pTemplate="department"> {{ node.label }}</ng-template>
+                </p-tree>
+
+            </div>
+        </div>
+    </div>
+  </section>
+</div>

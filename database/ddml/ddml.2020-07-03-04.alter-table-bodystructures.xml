@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1594012910691-1">
+        <addColumn tableName="bodystructures">
+            <column name="BodyStructureGroupId" type="CHAR(36 BYTE)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594012910691-2">
+        <addColumn tableName="bodystructures">
+            <column name="DisplayOrder" type="INT(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594012910691-3">
+        <createIndex indexName="FK_BodyStructures_BodyStructureGroup_BodyStructureGroupId_idx" tableName="bodystructures">
+            <column name="BodyStructureGroupId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594012910691-4">
+        <addForeignKeyConstraint baseColumnNames="BodyStructureGroupId" baseTableName="bodystructures" constraintName="FK_BodyStructures_BodyStructureGroup_BodyStructureGroupId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="bodystructuregroups"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1594012910691-5">
+        <update tableName="bodystructures">
+            <column name="BodyStructureGroupId" value="e52f4011-e8fb-475b-b89e-da8548c18989"/>
+            <column name="DisplayOrder" value="0"/>
+            <where>Id = 51342009</where>
+        </update>
+        <update tableName="bodystructures">
+            <column name="BodyStructureGroupId" value="e52f4011-e8fb-475b-b89e-da8548c18989"/>
+            <column name="DisplayOrder" value="1"/>
+            <where>Id = 60184004</where>
+        </update>
+        <update tableName="bodystructures">
+            <column name="BodyStructureGroupId" value="e52f4011-e8fb-475b-b89e-da8548c18989"/>
+            <column name="DisplayOrder" value="2"/>
+            <where>Id = 86174004</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>

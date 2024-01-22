@@ -1,0 +1,25 @@
+<form class="form-horizontal" autocomplete="off" #selectManufacturerForm="ngForm" (ngSubmit)="onModalSubmit()">
+    <abp-modal-header [title]="'Select Manufacturer' | localize" (onCloseClick)="onCloseClick()"></abp-modal-header>
+        <div class="modal-body">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <select
+                        class="form-control"
+                        id="ManufacturerId"
+                        [(ngModel)]="selectedManufacturerId"
+                        name="ManufacturerId"
+                        required
+                    >
+                        <option *ngFor="let manufacturer of manufacturers" [ngValue]="manufacturer.id">
+                            {{ manufacturer.name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    <abp-modal-footer 
+        [saveLabel] = "'Select' | localize"
+        (onCancelClick)="onCloseClick()"
+    >
+    </abp-modal-footer>
+</form>

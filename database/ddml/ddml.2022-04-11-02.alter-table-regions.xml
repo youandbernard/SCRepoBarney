@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mlabio" id="9f737d7d-b937-11ec-9e49-1831bf981123-1">
+        <addColumn tableName="regions">
+            <column name="IcsId" type="INT"/>
+        </addColumn>
+    </changeSet>
+
+      <changeSet author="mlabio" id="9f737d7d-b937-11ec-9e49-1831bf981123-2">
+        <createIndex indexName="FK_ICSId_RegionId_Idx" tableName="regions">
+            <column name="IcsId"/>
+        </createIndex>
+    </changeSet>
+    <!-- <changeSet author="mlabio" id="315ec738-abc7-11ec-814d-1831bf981123-3">
+        <addForeignKeyConstraint baseColumnNames="RegionId" baseTableName="hospitals" constraintName="FK_Hospitals_RegionId" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="Id" referencedTableName="Regions"/>
+    </changeSet> -->
+</databaseChangeLog>

@@ -1,0 +1,236 @@
+<!-- <div [@routerTransition]>
+  <section class="content-header page-header survey">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ this.id ? "Edit" : "Create" | localize }} {{ "Survey" | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2">
+    <div class="container-fluid">
+      <form action="" autocomplete="off" #surveyForm="ngForm" (ngSubmit)="onForSubmit()">
+        <div class="card">
+          <div class="card-body">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Patient</h6>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="PatientId">{{ 'PatientId' |localize }} *</label>
+                      <div class="input-group">
+                        <input [(ngModel)]="survey.patientId" id="PatientId" name="PatientId" class="form-control"
+                          typeaheadOptionField="id" [typeahead]="patientsDataSource" [typeaheadAsync]="true"
+                          [typeaheadMinLength]="0" (typeaheadOnSelect)="onPatientSelected($event)" required>
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="PatientDobYear">{{ 'PatientDobYear' |localize }} *</label>
+                      <input [(ngModel)]="survey.patientDobYear" id="PatientDobYear" name="PatientDobYear" type="number"
+                        class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="SurgeryDate">{{ 'SurgeryDateTime' | localize }} *</label>
+                      <div class="input-group datetimepicker-group" (click)="onChangeSurgeryDateClick()">
+                        <input type="text" class="form-control" [value]="formatDateTime(survey.surgeryDate)" readonly
+                          disabled>
+                        <input type="hidden" id="SurgeryDate" name="SurgeryDate" [(ngModel)]="survey.surgeryDate"
+                          required>
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-calendar-alt"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="EndTime">{{ 'EndTime' |localize }}</label>
+                      <div class="input-group datetimepicker-group" (click)="onChangeEndTimeClick()">
+                        <input [(ngModel)]="survey.endTime" id="EndTime" name="EndTime" type="text" class="form-control"
+                          readonly disabled>
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-clock"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="NextLocation">{{ 'NextLocation' |localize }}</label>
+                      <input [(ngModel)]="survey.nextLocation" id="NextLocation" name="NextLocation" type="text"
+                        class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Additional Patient Information</h6>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4 offset-md-2">
+                    <div class="form-group">
+                      <label for="HospitalName">{{ 'HospitalName' |localize }}</label>
+                      <input [value]="hospital.name" id="HospitalName" name="HospitalName" type="text"
+                        class="form-control" readonly disabled>
+                    </div>
+                    <div class="form-group">
+                      <label for="TheaterId">{{ 'TheaterId' |localize }} *</label>
+                      <input [(ngModel)]="survey.theaterId" id="RoomId" name="RoomId" type="text" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="BodyStructure">{{ 'ParentProcedure' | localize }} *</label>
+                      <select [(ngModel)]="survey.bodyStructureId" class="form-control" id="BodyStructure"
+                        name="BodyStructure" required>
+                        <option *ngFor="let bodyStructure of bodyStructures" [value]="bodyStructure.id">
+                          {{ bodyStructure.description }}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="Method">{{ 'Method' | localize }} *</label>
+                      <select [(ngModel)]="survey.methodId" class="form-control" id="Method" name="Method" required>
+                        <option *ngFor="let method of procedureMethods" [value]="method.id">
+                          {{ method.name }}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="float-left m-0 font-weight-bold text-primary" style="line-height: 30px;">
+                  {{ 'SubProcedures' | localize }}</h6>
+                <div class="float-right">
+                  <button (click)="onAddProcedureClick()" class="btn btn-success btn-sm" type="button">
+                    <i class="fas fa-plus"></i> {{ 'Add' | localize }}</button>
+                </div>
+              </div>
+              <div class="card-body">
+                <p-table [value]="survey.procedures" [autoLayout]="true" dataKey="name" editMode="row"
+                  [reorderableColumns]="true">
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th width="1%">&nbsp;</th>
+                      <th>Snomed Id</th>
+                      <th>Description</th>
+                      <th>Mean Time</th>
+                      <th>Std Deviation</th>
+                      <th width="1%" class="text-center">{{ "Actions" | localize }}</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-procedure let-isEditing="editing" let-i="rowIndex">
+                    <tr [pEditableRow]="procedure" [pReorderableRow]="i" [pReorderableRowDisabled]="procedure.isRisk">
+                      <td>
+                        <i *ngIf="procedure.isRisk" class="fas fa-bars disabled"></i>
+                        <i *ngIf="!procedure.isRisk" class="fas fa-bars move" pReorderableRowHandle></i>
+                      </td>
+                      <td>{{procedure.snomedId}}</td>
+                      <td>{{procedure.name}}</td>
+                      <td>
+                        <p-cellEditor>
+                          <ng-template pTemplate="input">
+                            <input pInputText type="number" [(ngModel)]="procedure.meanTime" [id]="'MeanTime_' + i"
+                              [name]="'MeanTime_' + i" class="edit-procedure-input" min="0">
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                            {{procedure.meanTime}} {{ 'Min' | localize }}
+                          </ng-template>
+                        </p-cellEditor>
+                      </td>
+                      <td>{{procedure.standardDeviation}} {{ 'Min' | localize }}</td>
+                      <td class="text-nowrap">
+                        <button pButton *ngIf="isEditing" type="button" class="btn btn-sm bg-secondary" pSaveEditableRow
+                          (click)="onApplyProcedureChangesClick(procedure)">
+                          <i class="fas fa-check"></i>
+                        </button>
+                        <button pButton *ngIf="!isEditing" type="button" class="btn btn-sm bg-secondary"
+                          pInitEditableRow (click)="onProcedureEditClick(procedure)">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button pButton *ngIf="!procedure.isRisk" type="button" class="btn btn-sm bg-danger mx-2"
+                          (click)="onRemoveProcedureClick(procedure.name)">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="footer">
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td colspan="2" class="text-right"><b>{{ 'TotalProcedureTime' | localize }}</b></td>
+                      <td>{{ getMeanTimeSum() }}</td>
+                      <td>{{ getStandardDeviationSum() }}</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Notes</h6>
+              </div>
+              <div class="card-body">
+                <p>1. Procedure time start is when the patient moved into the theatre. If the patient is sedated in the
+                  theatre, it will be the time that the anaesthtist advises that the patient is adequately sedated.</p>
+                <p>2. The procedure Time End is when the patient is moved out of the theatre.</p>
+                <p>3. The time should be recorded to the nearest minute.</p>
+              </div>
+            </div>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">{{ 'ObserverNotes' |localize }}</h6>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <textarea [(ngModel)]="survey.observerNotes" id="ObserverNotes" name="ObserverNotes"
+                        class="form-control" rows="10"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="ObserverStaffId">{{ 'ObserverStaffId' |localize }}</label>
+                      <input [(ngModel)]="survey.observerStaffId" id="ObserverStaffId" name="ObserverStaffId"
+                        type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="ObserverSignature">{{ 'ObserverSignature' |localize }}</label>
+                      <input [(ngModel)]="survey.observerSignature" id="ObserverSignature" name="ObserverSignature"
+                        type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="actions">
+              <button type="submit" class="d-none d-sm-inline-block btn btn-primary shadow-sm"
+                [disabled]="!surveyForm.valid || saving">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div> -->

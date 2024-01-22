@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="e0cc6247-2e79-11ed-87a9-089798b0519b-1">
+        <sql>
+            
+            insert into bodystructuregroups (Id, Name, DisplayOrder) values 
+            ('4ac97ff0-2e7a-11ed-87a9-089798b0519b', 'Cardiology', 9);
+
+            insert into bodystructures(Id, Description, BodyStructureGroupId, DisplayOrder)	values 
+            (415070008, 'Percutaneous Coronary Intervention', '4ac97ff0-2e7a-11ed-87a9-089798b0519b', 1), 
+            (252425004, 'Electrophysiology', '4ac97ff0-2e7a-11ed-87a9-089798b0519b', 2);
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1592185401155-1">
+        <createTable tableName="patientsurveys">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PatientId" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PatientDobYear" type="INT"/>
+            <column name="Date" type="datetime(6)"/>
+            <column name="StartTime" type="VARCHAR(10)"/>
+            <column name="EndTime" type="VARCHAR(10)"/>
+            <column name="NextLocation" type="VARCHAR(45)"/>
+            <column name="RoomId" type="VARCHAR(45)"/>
+            <column name="SnowmedTypeCode" type="VARCHAR(45)"/>
+            <column name="SnowmedTypeDefinition" type="VARCHAR(45)"/>
+            <column name="SnowmedChildProcedure" type="VARCHAR(45)"/>
+            <column name="SnowmedGrandChildProcedure" type="VARCHAR(45)"/>
+            <column name="ProcedureType" type="VARCHAR(45)"/>
+            <column name="ForecastDuration" type="VARCHAR(45)"/>
+            <column name="ActualDuration" type="VARCHAR(45)"/>
+            <column name="ObserverNotes" type="VARCHAR(150)"/>
+            <column name="ObserverStaffId" type="VARCHAR(45)"/>
+            <column name="ObserverSignature" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1592185401155-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1592185401155-3">
+        <createIndex indexName="FK_PatientSurveys_Patients_PatientId_idx" tableName="patientsurveys">
+            <column name="PatientId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1592185401155-4">
+        <addForeignKeyConstraint baseColumnNames="PatientId" baseTableName="patientsurveys" constraintName="FK_PatientSurveys_Patients_PatientId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="patients"/>
+    </changeSet>
+</databaseChangeLog>

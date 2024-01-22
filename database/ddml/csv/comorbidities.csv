@@ -1,0 +1,60 @@
+SnomedId;Description;ComorbidityGroupId
+2776000;Acute confusional state;1
+26929004;Alzheimer’s disease including dementia in Alzheimer’s;1
+15167005;Alcohol Abuse;1
+197480006;Anxiety Disorders including anxiety;1
+408856003;Autism;1
+65956007;Blindness – registered blind (except Amaurosis Fugax);1
+62914000;Cerebrovascular diseases (11);1
+2776000;Delirium;1
+52448006;Dementia including dementia in Alzheimer’s disease (14);1
+35489007;Depressive disorders including depression and Bipolar;1
+248290002;Developmental delay Inc learning difficulties/disability;1
+20301004;Dysphasia with no known cause;1
+72366004;Eating disorder (any kind);1
+84757009;Epilepsy;1
+15188001;Hearing loss severe or profound;1
+50582007;Hemiplegia except with acute phase of stroke and unless this becomes a chronic condition in its own right;1
+24700007;Multiple Sclerosis;1
+248062006;Personal history of self-harm;1
+69322001;Psychosis and psychotic disorders including schizotypal and delusional disorders;1
+709044004;Chronic kidney disease including chronic tubule-interstitial nephritis small kidney (s) and polycystic kidneys (s);2
+42399005;Renal failure;2
+130951007;Urinary retention with no known cause or treated symptoms;2
+166603001;Abnormal liver function tests with no known causes;2
+18165001;Jaundice with no known cause;2
+161647008;Anticoagulant therapy – personal history;3
+182764009;Anticoagulant therapy – current;3
+42343007;Congestive Cardiac Failure (13);3
+38341003;Hypertension – essential (primary);3
+414545008;Ischaemic Heart Disease;3
+85232009;Left ventricular failure;3
+84114007;Heart Failure;3
+11851006;Mitral valve disease;3
+442063008;Presence of cardiac pacemaker;3
+195967001;Asthma;4
+63480004;Chronic bronchitis;4
+195951007;COPD;4
+233677001;Emphysema;4
+409622000;Respiratory failure;4
+73211009;Diabetes Mellitus (3);5
+34095006;Dehydration described as severe or treated with IV fluids;5
+40739000;Dysphagia with no known cause;5
+816082000;Hypovolemia treated with IV fluids or blood transfusion;5
+69896004;Rheumatoid Arthritis;5
+160476009;Living alone;6
+161898004;Tendency to fall due to old age or other unclear health problems (Geriatric or elderly falls);6
+57054005;Acute Myocardial Infarction (5);7
+400091006;Connective tissue disorder (4);7
+441628001;Diabetes complications (1);7
+235856003;Liver disease (8);7
+719454003;Sever liver disease (18);7
+414916001;connective tissue disorder (4);7
+27942005;Peripheral Vascular disease (6);7
+266987004;Previous Cancer (within 5 years) (8);7
+128462008;Metastatic Cancer (14);7
+60389000;Paraplegia (1);7
+19829001;Pulmonary disease (4);7
+13200003;Peptic Ulcer (9);7
+90708001;Renal disease (non-diabetic) (10);7
+19030005;HIV (2);7

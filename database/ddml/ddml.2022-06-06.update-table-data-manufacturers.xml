@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="d61d2829-e598-11ec-bf8d-089798b0519b-1">
+        <sql>
+            insert into manufactures
+            (Id, Name, IsEnabled)
+            values
+            ('f4576ce9-e598-11ec-bf8d-089798b0519b', 'Bainisha', 1),
+            ('e55a150e-e598-11ec-bf8d-089798b0519b', 'B. Braun', 1),
+            ('ee29c583-e598-11ec-bf8d-089798b0519b', 'Boston Scientific', 1),
+            ('307c80f9-e59b-11ec-bf8d-089798b0519b', 'Lightpoint Medical', 1),
+            ('374b9fb1-e59b-11ec-bf8d-089798b0519b', 'Stryker', 1),
+            ('5b7caea1-e59b-11ec-bf8d-089798b0519b', 'Zimmer Biomet', 1);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

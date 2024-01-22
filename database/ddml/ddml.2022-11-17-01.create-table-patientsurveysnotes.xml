@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="bnavarro" id="5cdf31e5-671d-11ed-b4fb-089798b0519b-1">
+        <createTable tableName="patientsurveysnotes">
+			<column name="Id" type="CHAR(36)">
+            	<constraints primaryKey="true" nullable="false"/>
+        	</column>
+            <column name="PatientSurveyId" type="CHAR(36)">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="NoteSeries" type="int">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="NoteTabs" type="int">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="NoteDescription" type="VARCHAR(4000)">
+                <constraints nullable="true"/>
+        	</column>
+            <column name="PreOperativeAssessmentId" type="CHAR(36)">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="PoapProcedureId" type="CHAR(36)">
+                <constraints nullable="false"/>
+        	</column>
+             <column name="CreatedBy" type="bigint">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="CreatedDate" type="datetime">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="UpdatedDate" type="datetime">
+                <constraints nullable="true"/>
+        	</column>
+            <column name="UpdatedBy" type="bigint">
+                <constraints nullable="true"/>
+        	</column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

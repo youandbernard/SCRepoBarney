@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="1204e1d9-6c7f-11ed-b4fb-089798b0519b-1">
+        <sql>
+            
+            INSERT INTO deviceclass 
+            (Id, Class, Rule, Field1, Field2, Field3)
+            VALUES
+            ('78c978eb-6c7b-11ed-b4fb-089798b0519b','I','All non-invasive devices are classified as class I, unless one of the rules set out hereinafter applies.','','','');
+
+            INSERT INTO deviceclass 
+            (Id, Class, Rule, Field1, Field2, Field3)
+            VALUES
+            ('6a226316-6c7c-11ed-b4fb-089798b0519b','IIa','All surgically invasive devices intended for transient use are classified as class IIa less than 60 mins.','','','');
+
+            INSERT INTO deviceclass 
+            (Id, Class, Rule, Field1, Field2, Field3)
+            VALUES
+            ('71dc987e-6c7c-11ed-b4fb-089798b0519b','IIb','Surgically invasive devices intended for short-term use (greater than 60 min and less than 30 days).','','','');
+
+            INSERT INTO deviceclass 
+            (Id, Class, Rule, Field1, Field2, Field3)
+            VALUES
+            ('77a3328a-6c7c-11ed-b4fb-089798b0519b','III','Implantable devices and long-term surgically invasive devices (greater than 30 days)','','','');
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

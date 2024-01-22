@@ -1,0 +1,61 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mlabio" id="b1fe8712-e947-11eb-82e0-1831bf981123-1">
+         <sql>
+            delete from poaprisks where PreOperativeAssessmentId in 
+            (
+            '08d94cd3-2d37-474e-8559-ede0219ea074',
+            '08d94d13-8283-4d76-8b02-406541f45433'
+            ); 
+
+            delete from poapprocedures where PreOperativeAssessmentId in 
+            (
+            '08d94cd3-2d37-474e-8559-ede0219ea074',
+            '08d94d13-8283-4d76-8b02-406541f45433'
+            ); 
+
+            delete from patientsurveys where bodystructureid 
+            in (
+            6025007,
+            38102005,
+            42332004,
+            80146002,
+            86481000,
+            602500111,
+            602500222,
+            712271002
+            );
+
+            delete from preoperativeassessments where Id in 
+            (
+            '08d94cd3-2d37-474e-8559-ede0219ea074',
+            '08d94d13-8283-4d76-8b02-406541f45433'
+            ); 
+
+            delete from bodystructuresubprocedures where 
+            bodystructureid in (
+            6025007,
+            38102005,
+            42332004,
+            80146002,
+            86481000,
+            602500111,
+            602500222,
+            712271002
+            );
+            
+            delete from bodystructures where id in (
+            6025007,
+            38102005,
+            42332004,
+            80146002,
+            86481000,
+            602500111,
+            602500222,
+            712271002
+            );
+
+            
+        </sql>
+    </changeSet>
+</databaseChangeLog>

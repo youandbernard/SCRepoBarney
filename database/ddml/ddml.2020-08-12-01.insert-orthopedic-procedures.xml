@@ -1,0 +1,1691 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1597247645991-2">
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="10000001"/>
+            <column name="Description" value="Soft tissue Exploration of the hand"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="6"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="13714004"/>
+            <column name="Description" value="Arthroscopy"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="1"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="16210001"/>
+            <column name="Description" value="Resection and reconstruction of the clavicle"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="9"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="31757006"/>
+            <column name="Description" value="Correctional osteotomy of the Tibia"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="14"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="38663004"/>
+            <column name="Description" value="Decompression and adhesiolysis of periferal nerves"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="13"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="47458005"/>
+            <column name="Description" value="Total Endoprostheses Placement"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="12"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="47534009"/>
+            <column name="Description" value="Carpal tunnel release"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="3"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="55244002"/>
+            <column name="Description" value="ACL reconstruction"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="8"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="72010008"/>
+            <column name="Description" value="Removal of internal fixators"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="2"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="109228008"/>
+            <column name="Description" value="Bicondylar knee prosthesis"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="10"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="118441006"/>
+            <column name="Description" value="Haematoma evacuation"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="11"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="118635009"/>
+            <column name="Description" value="Wound revision"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="5"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="133861000"/>
+            <column name="Description" value="Open Reduction and Internal Fixation)"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="0"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="178156005"/>
+            <column name="Description" value="Achilles tendon reconstruction"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="15"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="239613002"/>
+            <column name="Description" value="External fixators"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="16"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="278728008"/>
+            <column name="Description" value="Cervicocapital prosthesis"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="7"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="392033004"/>
+            <column name="Description" value="Exostosis Removal"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="17"/>
+        </insert>
+        <insert tableName="bodystructures">
+            <column name="Id" valueNumeric="734271006"/>
+            <column name="Description" value="Intermedullary nailing"/>
+            <column name="BodyStructureGroupId" value="29bcdb34-a792-4f9f-a84d-b76ab8e49e04"/>
+            <column name="DisplayOrder" valueNumeric="4"/>
+        </insert>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1597247645991-1">
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="005a833f-8121-4a82-9180-cb77a101b799"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="00d648c0-5a72-425d-84a0-8adbf1daa62d"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="02041f6e-7eaf-40f5-8564-e105b07fc47b"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="021451b4-c775-4581-a96a-b47fb1fb2b67"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="03308aa9-67ff-4236-a7f4-507464516eac"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="11"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="03e8b39f-060f-4ce9-a762-f54eff857d21"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="0662e486-cb7f-428f-8244-28943b8a99d3"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="07e76b0e-22bd-4914-add8-ccf6da722d2b"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="0983f418-7d58-401c-88fe-b811fd16da65"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="10000001"/>
+            <column name="QuerySimplified" value="10000001"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="0b042cf6-62d1-41b4-87d1-7f967e3a6693"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="0b83b557-7225-49fe-8d82-faa55192b5a3"/>
+            <column name="Title" value="Testing of the implanted limb (Leg length, Shuck test, etc)"/>
+            <column name="Query" value="19165008 |Measurement of limb length (procedure)| OR 252696001 |Test of the limb (procedure)| OR 81257009 |Extremity testing for strength, dexterity or stamina (procedure)|"/>
+            <column name="QuerySimplified" value="19165008 OR 252696001 OR 81257009"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="0cc4b0ac-9b2f-45e6-ad02-0e7c2a816fb7"/>
+            <column name="Title" value="Incision, preparation"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="0e439544-be06-4ac8-aef9-4fb5bf179427"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="11"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="11500cd8-ffa3-40fb-a599-17e2ca107118"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="11f37a96-09e3-4f08-8e56-8dbb35ada101"/>
+            <column name="Title" value="Skin incision and exploration of wound"/>
+            <column name="Query" value="302438004 |Exploration of wound of skin (procedure)|"/>
+            <column name="QuerySimplified" value="302438004 "/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="118635009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="128cc3f6-f1c8-4f52-afdb-36d1f1f04334"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="1412fccb-f87e-4e71-987d-98822aabdf7e"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="154f090a-6b1e-4dcc-bfaf-9435922a5da8"/>
+            <column name="Title" value="Resection and reconstruction by means of plate, screw etc fixation"/>
+            <column name="Query" value="239283000 |Fixation of fracture using screws (procedure)| OR 257835007 |Internal fixation using plate (procedure)| OR 257832005 |Internal fixation using tension band (procedure)|"/>
+            <column name="QuerySimplified" value="239283000 OR 257835007 OR 257832005"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="16129ff8-fa4a-4f28-b4a0-d1231e421783"/>
+            <column name="Title" value="Skin incision and adequate preparation of the implant and associated structures"/>
+            <column name="Query" value="239283000 |Fixation of fracture using screws (procedure)| OR 257835007 |Internal fixation using plate (procedure)| OR 257832005 |Internal fixation using tension band (procedure)|"/>
+            <column name="QuerySimplified" value="239283000 OR 257835007 OR 257832005"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="16c5f6c4-b54b-4f8a-b0f9-e614386caa1f"/>
+            <column name="Title" value="Lavage and bleeding control"/>
+            <column name="Query" value="225116006 |Irrigation of wound (procedure)|; |Control of wound hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="225116006"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="118635009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="17b26248-1690-40b8-a2e2-46781db89bff"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="1dfc139c-0cb8-488d-ab51-040f256783c8"/>
+            <column name="Title" value="Removal of damaged ACL and associated soft tissue structures"/>
+            <column name="Query" value="62499002 |Excision of ligament of joint (procedure)|"/>
+            <column name="QuerySimplified" value="62499002"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="1e4db5a3-c982-4eb5-b4a0-3e3ca8a96865"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="1e9937cf-8dd2-4afc-9e0d-0992b81fd3f4"/>
+            <column name="Title" value="Check of water flow and camera optics, Shaver if requires"/>
+            <column name="Query" value="29537000 |Preoperative shaving of skin (procedure)|"/>
+            <column name="QuerySimplified" value="29537000"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="1fc4bd55-0de1-4e47-8841-e93e470f1252"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="72010008 |Removal of internal fixators (nails, plates, screws etc)|"/>
+            <column name="QuerySimplified" value="72010008"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="1ff55e1f-1a29-46dc-ad05-0f046d2507f4"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="207b14df-ee70-4aab-80ee-3698e9282e02"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="21c40afd-4feb-4377-8ca2-fdeb712cdd9e"/>
+            <column name="Title" value="Insertion of the head screw and fixation"/>
+            <column name="Query" value="89344004 |Intramedullary nailing of femur (procedure)|"/>
+            <column name="QuerySimplified" value="89344004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="21ca1aad-c154-4f4c-b6ac-6d87af7d3fcc"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2214f995-7e85-49f2-9820-34e391fbd5e8"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="221e6056-2bb9-4408-b0dc-e42fc5b75150"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="22cb2f12-c979-4d47-8fc6-3c158d844a5f"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="26a64d73-619b-4b54-9670-cd9c9c530fce"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2712fa46-c304-458d-9d23-f56a12c30dcb"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="118441006 |Haematoma evacuation|"/>
+            <column name="QuerySimplified" value="118441006"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2b0f03ad-1091-4c0a-b500-35f5490de127"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="47534009 |Carpal tunnel release|"/>
+            <column name="QuerySimplified" value="47534009"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2be77265-5d8f-41bb-9e41-0f8fde9de1b1"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2c405a5f-1c98-4d0e-be19-e710adef216e"/>
+            <column name="Title" value="Reduction of bony structures with X ray guidance"/>
+            <column name="Query" value="418542003 |Radiologic guidance procedure (procedure)|"/>
+            <column name="QuerySimplified" value="418542003"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2cd697ad-999b-4df0-ab83-11f77e1e9267"/>
+            <column name="Title" value="Implantation of acetabular component (Cement, Non-cement)"/>
+            <column name="Query" value="430435008 |Cementoplasty of acetabulum using computed tomography guidance (procedure)| OR 87618002 |Acetabuloplasty with resection of femoral head (procedure)|"/>
+            <column name="QuerySimplified" value="430435008 OR 87618002"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2d0e9ab7-2c31-4bcb-a5ae-253661cadeda"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2d9effed-79cd-495d-abaa-3dadb80ffdaa"/>
+            <column name="Title" value="Xray idenfication of the subjected internal fixator"/>
+            <column name="Query" value="409056005 |Verification of surgical site and laterality (procedure)|"/>
+            <column name="QuerySimplified" value="409056005"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="2da0a501-5785-404a-bc71-7e68722a2cf3"/>
+            <column name="Title" value="Lavage (If septic)"/>
+            <column name="Query" value="225116006 |Irrigation of wound (procedure)|"/>
+            <column name="QuerySimplified" value="225116006"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="3205a7b5-f458-440b-bf0b-2083bd606356"/>
+            <column name="Title" value="Muscle, subcutaneous layer and skin closure"/>
+            <column name="Query" value="69391004 |Layer closure of wounds of extremities (procedure)|"/>
+            <column name="QuerySimplified" value="69391004"/>
+            <column name="QueryOrder" valueNumeric="11"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="320f3086-687c-4d11-9b83-f3d8dc54469e"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="32ca94aa-529d-4959-828d-088790c9f1fd"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="33338d75-efda-40b2-b89f-f37ca36fddd2"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="14"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="338ad7db-5faf-4da6-87b6-f5df5fb0ff14"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="34d15b63-273b-4399-a55c-dc84297ef5fa"/>
+            <column name="Title" value="Functional testing of the operated leg"/>
+            <column name="Query" value="19165008 |Measurement of limb length (procedure)| OR 252696001 |Test of the limb (procedure)| OR 81257009 |Extremity testing for strength, dexterity or stamina (procedure)|"/>
+            <column name="QuerySimplified" value="19165008 OR 252696001 OR 81257009"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="367530b0-b6d0-4943-88d4-5683b3541372"/>
+            <column name="Title" value="Prepraration of the acetabular surface, preparation by soft tissue removal and reaming"/>
+            <column name="Query" value="39466008 |Acetabular augmentation (procedure)|"/>
+            <column name="QuerySimplified" value="39466008"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="36f8b3d0-215e-4a7b-9db9-edb7167c3485"/>
+            <column name="Title" value="Plaster placement for post-op support"/>
+            <column name="Query" value="437955002 |Application of short leg cast (procedure)|"/>
+            <column name="QuerySimplified" value="437955002"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="374f006e-b32b-46be-a556-6bc8b28450a8"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="12"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="38993e3f-33d1-44da-b523-e2377aa15a28"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="392033004 |Exostosis Removal|"/>
+            <column name="QuerySimplified" value="392033004"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="38cb2573-45d3-4fc4-9253-874bd8934e19"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="734271006 |Intermedullary nailing|"/>
+            <column name="QuerySimplified" value="734271006"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="39107caf-2f09-4da9-9456-8acea20c4817"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="3a3c4ae2-d54c-4444-b717-38808436495e"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="3ad2ba72-3c19-4d96-a649-6f9ad366bb16"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="3c587cf2-5037-4997-9e6a-852f86aefbdc"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="3f3c0795-d615-4d2a-8647-bba73896a99b"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="403ec6e4-94df-4842-819c-b1a2ba389fe3"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="404f3c8e-e9cc-4e68-876e-9fb5c30aa79e"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="408cef16-7abe-4833-9090-178f2cd4f04f"/>
+            <column name="Title" value="Lock rotation of the lag screw"/>
+            <column name="Query" value="89344005 |Intramedullary nailing of femur (procedure)|"/>
+            <column name="QuerySimplified" value="89344005"/>
+            <column name="QueryOrder" valueNumeric="11"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="412d2bfe-e833-4886-95b8-9992e3f88cbe"/>
+            <column name="Title" value="X ray revision"/>
+            <column name="Query" value="258174001 |Imaging guidance procedure (procedure)| 5-10 min (Mean 7.5, SD +/-3)"/>
+            <column name="QuerySimplified" value="258174001"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="41936338-e437-49e2-b982-075cad3fbd20"/>
+            <column name="Title" value="Insertion of Graft and screw fixation of both ends (Femoral and tibial end )"/>
+            <column name="Query" value="119561005 |Grafting procedure (procedure)|"/>
+            <column name="QuerySimplified" value="119561005"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="429ceaf5-e7e4-45fd-b7d9-2a67b618fd4b"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="42b24a65-8fa0-418e-a988-faebaca873c2"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4369a96d-1875-4c14-b331-666a4b9afbfa"/>
+            <column name="Title" value="Femoral neck osteotomy"/>
+            <column name="Query" value="22510001 |Osteotomy of femoral neck (procedure)|"/>
+            <column name="QuerySimplified" value="22510001"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="440feba0-53c7-44a3-a157-bbc55335bb4d"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="44e7b4e6-d990-4f45-a699-a62ce0e1d4a1"/>
+            <column name="Title" value="Wire insertion to femoral marrow (With X ray guidance)"/>
+            <column name="Query" value="89344001 |Intramedullary nailing of femur (procedure)|"/>
+            <column name="QuerySimplified" value="89344001"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="47d28253-1524-4c7c-a0cf-c5700f822297"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4ab1ab92-2e82-483c-b564-6c170a2f09af"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4cad00ea-091a-4a86-a4ab-ca48d35ccd2f"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4d4ab1f2-244f-47f9-95e1-5d572fb52875"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4d936d17-18c9-4fcf-9f64-cf73440bfbc6"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4dbc1bed-d70b-49a8-adab-ef66832a58e4"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4f386f80-be43-40e5-b815-72b3d90103bd"/>
+            <column name="Title" value="Excision and Preparation of the graft "/>
+            <column name="Query" value="240986006 |Harvest of skin graft (procedure)|"/>
+            <column name="QuerySimplified" value="240986006"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="4f990713-67e6-4027-ac8d-2e291f26b8a5"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="38663004 |Decompression and adhesiolysis of periferal nerves|"/>
+            <column name="QuerySimplified" value="38663004"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="51bdb275-d8ad-4599-a11d-25eb73359713"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5264e654-8a65-45f1-8610-7c7604e44319"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="31757006 |Correctional osteotomy of the Tibia|"/>
+            <column name="QuerySimplified" value="31757006"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="531cc39c-20dc-4e23-aa6d-f0d67611900e"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="547429af-94fa-49bc-b95d-ce1167ef1bfb"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="54b979e8-5790-43a9-a20b-468856f3bad6"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="278728008 |Cervicocapital prosthesis|"/>
+            <column name="QuerySimplified" value="278728008"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="56377fb5-1d1f-4703-b036-32bfa95f95f7"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="582f0f6d-2a07-4ce2-bee7-3255d61013f9"/>
+            <column name="Title" value="Skin incision and adequate preparation of the lesion and associated structures"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="59a2a323-a2da-4542-b33d-37b91b15da6c"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5d03c942-182e-4f6c-91e5-9cf19dae1ee5"/>
+            <column name="Title" value="Identification of the femoral head and associated structures"/>
+            <column name="Query" value="225135006 |Marking skin site prior to procedure (procedure)| OR 409056005 |Verification of surgical site and laterality (procedure)|"/>
+            <column name="QuerySimplified" value="225135006 OR 409056005"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5e1364a7-7e08-4ba9-a0f6-11ae679afa0c"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5f5b28fe-e098-4c7d-8d1b-b88f0811af35"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="5f5faf92-2627-46f5-a865-230fa7ed3c06"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="11"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="644705d7-31ae-479b-88d3-71490fe2c0ea"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="109228008 |Bicondylar knee prosthesis|"/>
+            <column name="QuerySimplified" value="109228008"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="661adcb7-45da-46b6-88f7-64cfc91d0d9b"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="69a2d428-2c79-4143-bbe3-fd866cc1500a"/>
+            <column name="Title" value="Drain tube placement"/>
+            <column name="Query" value="698956007 |Insertion of drain (procedure)|"/>
+            <column name="QuerySimplified" value="698956007"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="6dd03fe7-bf9c-44ad-b8d2-c72aee688852"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="6f7764c6-fc00-4130-bbb0-0b936d73cf77"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="6fea01a6-c3b3-4e91-a4df-8f728784a458"/>
+            <column name="Title" value="Intrafragmentary compression if needed"/>
+            <column name="Query" value="89344006 |Intramedullary nailing of femur (procedure)|"/>
+            <column name="QuerySimplified" value="89344006"/>
+            <column name="QueryOrder" valueNumeric="12"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="701ecd1d-d80b-4bd3-a422-87b52c5f04ea"/>
+            <column name="Title" value="Skin incision"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="72165564-9a22-4ba6-95a9-b133af3af0dd"/>
+            <column name="Title" value="Fixation of the prosthetic neck and head (Cement or Non-cement)"/>
+            <column name="Query" value="86975004 |Internal fixation of femur (procedure)|"/>
+            <column name="QuerySimplified" value="86975004"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="75a547c6-ba1b-4292-bc0c-e310f0a4e40b"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="778659b0-301c-4752-a1fa-46dadd2b2f7a"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="78a63515-1397-496c-9afd-356396eeca22"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="798e9e28-bbc9-4d95-89fd-9872d1d67d1a"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="7a3db61c-83df-4e4a-b88b-18e364ba94ad"/>
+            <column name="Title" value="Skin incision and adequate preparation of the lesion and associated structures"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="7c35e479-2c32-4752-b60e-3329599106cc"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="7ea64ba8-c342-4afa-bdd5-dcdb79b76aca"/>
+            <column name="Title" value="Identification of the lesion"/>
+            <column name="Query" value="409056005 |Verification of surgical site and laterality (procedure)|"/>
+            <column name="QuerySimplified" value="409056005"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="7f61a415-9394-4769-aed8-d80be3ee3d2a"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="7fb03cd1-1776-44e5-9b4f-94abdb76780a"/>
+            <column name="Title" value="Schanz screw fixation and external fixator placement"/>
+            <column name="Query" value="239309002 |Osteotomy of proximal femur (procedure)|"/>
+            <column name="QuerySimplified" value="239309002"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="8128e568-725f-43e8-aeb1-dc1d64c93f37"/>
+            <column name="Title" value="Testing of the implanted limb (Leg length, Shuck test, etc)"/>
+            <column name="Query" value="19165008 |Measurement of limb length (procedure)| OR 252696001 |Test of the limb (procedure)| OR 81257009 |Extremity testing for strength, dexterity or stamina (procedure)|"/>
+            <column name="QuerySimplified" value="19165008 OR 252696001 OR 81257009"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="8227dd50-3ec8-499c-b51e-14a5d6477429"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="82c4fc94-6d7a-461e-8865-2acdcf9ea493"/>
+            <column name="Title" value="Identification of injured lesion and reposition (With or without x ray guidance)"/>
+            <column name="Query" value="409056005 |Verification of surgical site and laterality (procedure)|"/>
+            <column name="QuerySimplified" value="409056005"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="82f77a56-09db-48c0-bb1e-d8700ec1f191"/>
+            <column name="Title" value="Skin incision and adequate preparation of the lesion and associated structures"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="83ef9e62-675c-4779-94eb-8194172c8f5e"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="16"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="865d4a08-1b26-4d4f-a8ae-a78069aecc0a"/>
+            <column name="Title" value="Steril bandage"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="118635009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="8713570a-3747-4538-acd5-0df1f4a5dd2c"/>
+            <column name="Title" value="Skin incision, Trocar insertion "/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)|"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="8a1f18c3-9412-4909-a816-b4442aadf791"/>
+            <column name="Title" value="Incision, preparation"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="8a4556f8-616e-46b3-bfea-5d08c0d4ed05"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="8be2a6be-956a-4d65-9735-11cada69db39"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="9090001d-1d7b-4218-9510-4c35289cf9e6"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="90abec25-847c-42c0-95f0-4488f004763e"/>
+            <column name="Title" value="Insertion of the locking screw, insertion of end cap"/>
+            <column name="Query" value="89344007 |Intramedullary nailing of femur (procedure)|"/>
+            <column name="QuerySimplified" value="89344007"/>
+            <column name="QueryOrder" valueNumeric="13"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="926fcbf3-fcb3-4244-badf-c25a43d81409"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="931e9a1b-573f-4a90-a3bf-edc04be481cc"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="93ce47ad-efbd-4d0f-98f2-9ea7b43289b7"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="93e5122d-b034-441c-b6de-69f0de98d7a8"/>
+            <column name="Title" value="In case of extensive soft tissue damage, vacuum therapy can be applied"/>
+            <column name="Query" value="404915007 |Vacuum assisted skin closure (procedure)|"/>
+            <column name="QuerySimplified" value="404915007"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="94d96d97-c933-4284-bd3a-4e5fa0221496"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="47458005 |Total Endoprostheses Placement|"/>
+            <column name="QuerySimplified" value="47458005"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="9875aba5-24bb-4f5b-a728-4d757809f8e1"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="98caf467-f326-467e-8698-c95b8de5f491"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="72010008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="9aa32fbd-f79b-4924-9209-7ba254944124"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="133861000 |ORIF (open reduction and internal fixation)|"/>
+            <column name="QuerySimplified" value="133861000"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="9b2d9da7-c248-46c0-83c0-56b955f41b1e"/>
+            <column name="Title" value="Muscle, subcutaneous layer and skin closure"/>
+            <column name="Query" value="69391004 |Layer closure of wounds of extremities (procedure)|"/>
+            <column name="QuerySimplified" value="69391004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="9ce35498-1882-4e6b-abd2-361774afdfe2"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="9f803392-b4d4-48d9-88e7-78c7ee4b3ac5"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="9f9e6e9d-12c0-4d1d-b4d5-139bfa044197"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a1011c47-ef3b-4b9e-9b07-d1e9546ad148"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a12e73ac-3396-488a-a268-0d974c0a5fe4"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="278728008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a159c780-105d-409b-828d-7044526f564b"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a2610a0f-1338-443c-814c-49d9375b7634"/>
+            <column name="Title" value="Exploratioin of hematoma and lavage"/>
+            <column name="Query" value="443385002 |Incision and drainage of hematoma (procedure)|"/>
+            <column name="QuerySimplified" value="443385002"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a46a4913-e00e-4d07-bc8c-f920e1178cb4"/>
+            <column name="Title" value="Skin, subcutaneous layer incision"/>
+            <column name="Query" value="10971007 |Incision of soft tissue (procedure)|"/>
+            <column name="QuerySimplified" value="10971007"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a65569db-6734-444e-aa27-6102eba0025c"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a6ea75f6-9868-4bae-948e-3e2239bd2b49"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a722b082-ac85-434d-969f-06f904fb14ec"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a72f8805-2862-4a36-85a2-a43fcee2e442"/>
+            <column name="Title" value="Definitive fixation with screw, plates, or tensile loops"/>
+            <column name="Query" value="239283000 |Fixation of fracture using screws (procedure)| OR 257835007 |Internal fixation using plate (procedure)| OR 257832005 |Internal fixation using tension band (procedure)|"/>
+            <column name="QuerySimplified" value="239283000 OR 257835007 OR 257832005"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a9272009-194f-4641-a350-759efcd7ee0a"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="a98da4c6-9cb5-4844-8902-8de64ba8f1ed"/>
+            <column name="Title" value="Removal of the femoral neckeither entirely or in pieces according to its condition"/>
+            <column name="Query" value="46812009 |Resection of femoral head and neck of femur (procedure)|"/>
+            <column name="QuerySimplified" value="46812009"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ab14f0c5-3a45-411a-b8d6-a0786f4e0306"/>
+            <column name="Title" value="Procedures"/>
+            <column name="Query" value="38663004 |Decompression of peripheral nerve (procedure)| OR 8505009 |Neurolysis of peripheral nerve (procedure)|"/>
+            <column name="QuerySimplified" value="38663004 OR 8505009"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ab1d54ee-71d8-4340-a2e4-4307fd22255b"/>
+            <column name="Title" value="Exploration of the injured, inflammed structure"/>
+            <column name="Query" value="178770004 |Exploration of soft tissue of hand (procedure)|"/>
+            <column name="QuerySimplified" value="178770004 "/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ad328a77-32cd-461a-852b-9dc3571eb2c5"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="aec76532-2dc9-409f-807d-874fc6eff4c3"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="aecfd367-4359-47b2-8296-7cd65622656d"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="aef4866f-0458-49cd-956c-78cd356bd72e"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="b293e525-52b9-4ed6-b94f-09cd1efb3f3f"/>
+            <column name="Title" value="Lesion removal by hand or by mechanical means"/>
+            <column name="Query" value="392033004 |Excision of exostosis of bone (procedure)|"/>
+            <column name="QuerySimplified" value="392033004"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="b2cb1cfe-6dd3-4739-9606-7524e7da891a"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="b2ec3605-4b08-4297-8c67-3a35977b89fd"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="b5b25dfb-4737-41ae-b7ed-80d97be45261"/>
+            <column name="Title" value="Carpal tunnel release by means of incision of the flexor retinaculum"/>
+            <column name="Query" value="171841007 |Endoscopic carpal tunnel release (procedure)|"/>
+            <column name="QuerySimplified" value="171841007"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="b6fee886-2fa4-4916-b3af-d1e499a73a75"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="b8909394-7c66-4fc7-866d-7b6bdaa2f28a"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c2f97763-7fc5-4d2d-95bf-f2e53a6a3274"/>
+            <column name="Title" value="If intervention is required, another skin incision is made for other arthroscopic equipments"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c4fa0511-1f75-4455-a31a-9ab5fee2dcce"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c687e0fb-67b5-46df-b952-03a62230a902"/>
+            <column name="Title" value="Insertation of the nail (With X ray guidance)"/>
+            <column name="Query" value="89344003 |Intramedullary nailing of femur (procedure)|"/>
+            <column name="QuerySimplified" value="89344003"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c6c49cf2-c746-457c-a250-4b67158cca8f"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="13714004 |Arthroscopy|"/>
+            <column name="QuerySimplified" value="13714004"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c77bf315-1c65-4b2e-b446-d1bff3aa31bf"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c868c9fb-5c11-476c-b714-6215a9f201e4"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="55244002 |ACL reconstruction|"/>
+            <column name="QuerySimplified" value="55244002"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="c9d32536-7404-4322-9b6e-7278c37fc4fa"/>
+            <column name="Title" value="Suture of the injured tendon "/>
+            <column name="Query" value="12237002 |Achillorrhaphy (procedure)|"/>
+            <column name="QuerySimplified" value="12237002"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="cd8c5963-6f71-4ebf-b54c-00a2d6690506"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="cebda396-e59f-47fc-9365-31b7e9c0ffd6"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d02fa454-bbcd-478d-a48e-7838a8fbed85"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d05677c7-cb48-4516-9272-c8f9de5fb4d3"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="118441006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d08d8238-217e-42a7-a681-6cdbf6db507c"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d35194da-8f0d-4130-9acc-cee2bacbc8c6"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d361f4d9-7a5d-456b-9907-b99f7507840c"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="10000001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d6691e0a-32a0-44c2-881b-48ce5d0196ad"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d68f047a-6dce-4f57-be55-036e6be7a3ff"/>
+            <column name="Title" value="Incision, preparation"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="133861000"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d74d5e9d-1f88-434a-9a4f-a0bb1815aa34"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="16210001 |Resection and reconstruction of the clavicle|"/>
+            <column name="QuerySimplified" value="16210001"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d7609b04-84b5-4eb3-a9ec-968fd014fef6"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="13714004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="d8b8bf6b-6191-4dfa-ba79-d4da49421fce"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="dacab13d-1a38-4da1-b7da-ee15780d0eef"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ddb4cdf0-22cc-459f-ba72-e89cffa3e97f"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="de828c58-9660-4efa-af2a-0e1080333775"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="16210001"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="df88d845-8e59-43e7-a228-0df8ad4126a4"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="118635009 |Wound revision|"/>
+            <column name="QuerySimplified" value="118635009"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="118635009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="e0268c9e-3ffb-48ff-8539-92e980adcf88"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="239613002 |External fixators|"/>
+            <column name="QuerySimplified" value="239613002"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="e6fe35fc-52c2-42f5-94c9-5e12e8a200a4"/>
+            <column name="Title" value="Closure by means of non-suture alternatives  (Vacuum therapy, Iodine steril bandages)"/>
+            <column name="Query" value="71810007 |Closure of skin wound by tape (procedure)| "/>
+            <column name="QuerySimplified" value="71810007"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="118635009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="e81cc70a-03af-47e0-baa3-33bb4da148c0"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="15"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="e836423e-cfec-42ae-8066-d136ec2b9d6f"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="eaa092db-ca7b-4be5-a74d-715688175452"/>
+            <column name="Title" value="Bleeding and foreign body control"/>
+            <column name="Query" value="51241000 |Control of hemorrhage (procedure)|"/>
+            <column name="QuerySimplified" value="51241000"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="eab2360b-de18-4f18-8af0-4ac07e7dd61d"/>
+            <column name="Title" value="Main Query"/>
+            <column name="Query" value="178156005 |Achilles tendon reconstruction|"/>
+            <column name="QuerySimplified" value="178156005"/>
+            <column name="QueryOrder" valueNumeric="0"/>
+            <column name="BodyStructureId" valueNumeric="178156005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ecfccef5-f73b-4567-b5fd-053b818c8d1e"/>
+            <column name="Title" value="Scrub"/>
+            <column name="Query" value="225146009 |Scrubbing skin (procedure)| 5min (Mean 3, SD +/- 1)"/>
+            <column name="QuerySimplified" value="225146009"/>
+            <column name="QueryOrder" valueNumeric="4"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ed372097-bb21-4e84-b17e-954e5939efa4"/>
+            <column name="Title" value="Definitive fixation with plating, screws"/>
+            <column name="Query" value="301041000 |Revision open wire fixation of fracture (procedure)| OR 301039001 |Primary open wire fixation of fracture (procedure)|"/>
+            <column name="QuerySimplified" value="301041000 OR 301039001"/>
+            <column name="QueryOrder" valueNumeric="7"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="eed979e2-4b73-4363-b2f9-6b153bd0c7dc"/>
+            <column name="Title" value="Axis assessment and temporary fixation (Graft insertion according to the surgeons preference)"/>
+            <column name="Query" value="50082000 |Open reduction of fracture of tibia with internal fixation (procedure)|"/>
+            <column name="QuerySimplified" value="50082000"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f1d180c9-9bb8-4d69-b9a8-c37cdf6334a7"/>
+            <column name="Title" value="Skin closure"/>
+            <column name="Query" value="391906003 |Closure of skin by suture (procedure)|"/>
+            <column name="QuerySimplified" value="391906003"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="55244002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f201a9c7-f0ad-4f19-b95a-b06416f7af17"/>
+            <column name="Title" value="Femoral neck osteotomy"/>
+            <column name="Query" value="22510001 |Osteotomy of femoral neck (procedure)|"/>
+            <column name="QuerySimplified" value="22510001"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="47458005"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f2e6bcd7-9cbc-4f8c-89d9-be77102500d5"/>
+            <column name="Title" value="Sample of pus or infected area in case of septic wound"/>
+            <column name="Query" value="225997002 |Taking wound swab (procedure)|"/>
+            <column name="QuerySimplified" value="225997002"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="118635009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f4fd4129-c072-43ab-9edb-84c87e153ffb"/>
+            <column name="Title" value="Bony incision of tibia and axis alteration (With X ray guidance)"/>
+            <column name="Query" value="29515007 |Incision of tibia (procedure)|"/>
+            <column name="QuerySimplified" value="29515007"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f54c9d44-2bed-4102-9f40-34ef9bbb7492"/>
+            <column name="Title" value="Identification of the greater trochanter of the femur"/>
+            <column name="Query" value="409056005 |Verification of surgical site and laterality (procedure)|"/>
+            <column name="QuerySimplified" value="409056005"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f661762f-7e40-44c3-92ac-c97ed114f67d"/>
+            <column name="Title" value="Reaming of the femoral marrow  (With X ray guidance)"/>
+            <column name="Query" value="89344002 |Intramedullary nailing of femur (procedure)|"/>
+            <column name="QuerySimplified" value="89344002"/>
+            <column name="QueryOrder" valueNumeric="8"/>
+            <column name="BodyStructureId" valueNumeric="734271006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f902bdc2-1f46-44da-91ba-512ba268c7bc"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="10"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f92bff45-32d0-4571-93ab-214a25c685db"/>
+            <column name="Title" value="Pt positioing, (According to WHO check list)"/>
+            <column name="Query" value="229824005 |Positioning patient (procedure)|"/>
+            <column name="QuerySimplified" value="229824005"/>
+            <column name="QueryOrder" valueNumeric="2"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="f94bc4f0-822f-4c3b-94dd-39ba417332d8"/>
+            <column name="Title" value="In case of extensive soft tissue damage, thorough tissue debridement and lavage"/>
+            <column name="Query" value="443373005 |Debridement by high pressure irrigation (procedure)|"/>
+            <column name="QuerySimplified" value="443373005"/>
+            <column name="QueryOrder" valueNumeric="5"/>
+            <column name="BodyStructureId" valueNumeric="239613002"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="fad06490-e22a-425c-8593-b8fc73d3e715"/>
+            <column name="Title" value="Steril bandages"/>
+            <column name="Query" value="58828004 |Application of dressing, sterile (procedure)| 5 min"/>
+            <column name="QuerySimplified" value="58828004"/>
+            <column name="QueryOrder" valueNumeric="9"/>
+            <column name="BodyStructureId" valueNumeric="47534009"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="fbfe6829-30a1-42d4-82e0-ff73a41f268a"/>
+            <column name="Title" value="Pre-Op Check list"/>
+            <column name="Query" value="133898004 |Preoperative care (regime/therapy)| 10 min (Mean 8 SD +/-2)"/>
+            <column name="QuerySimplified" value="133898004"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="392033004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="fe5f6bd7-8cab-49e6-bb38-9cea925697cc"/>
+            <column name="Title" value="Skin incision and adequate preparation of the lesion and associated structures"/>
+            <column name="Query" value="34896006 |Incision (procedure)| OR 28792004 |Preoperative preparation of skin (procedure)| 5 - 15 min (Mean 8, SD +/- 5)"/>
+            <column name="QuerySimplified" value="34896006 OR 28792004"/>
+            <column name="QueryOrder" valueNumeric="6"/>
+            <column name="BodyStructureId" valueNumeric="38663004"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="fe6fee77-d067-4e09-aa9d-27d713dea71e"/>
+            <column name="Title" value="Procedure"/>
+            <column name="Query" value="443062006 |Open reduction of bicondylar fracture of tibia (procedure)| OR 239502007 |Prosthetic arthroplasty of the patellofemoral joint (procedure)|"/>
+            <column name="QuerySimplified" value="443062006 OR 239502007"/>
+            <column name="QueryOrder" valueNumeric="1"/>
+            <column name="BodyStructureId" valueNumeric="109228008"/>
+        </insert>
+        <insert tableName="bodystructurequeries">
+            <column name="Id" value="ffbbc951-b5c9-45dd-99ef-f82b5b791f9f"/>
+            <column name="Title" value="Draping"/>
+            <column name="Query" value="397819007 |Application of surgical drapes (procedure)|"/>
+            <column name="QuerySimplified" value="397819007"/>
+            <column name="QueryOrder" valueNumeric="3"/>
+            <column name="BodyStructureId" valueNumeric="31757006"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

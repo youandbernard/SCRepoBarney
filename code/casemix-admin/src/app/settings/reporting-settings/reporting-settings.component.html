@@ -1,0 +1,52 @@
+<div [@routerTransition]>
+  <section class="content-header page-header survey">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>{{ 'ReportingSettings' | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="px-2" [busy]="isLoading">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 settings">
+              <tabset>
+                <tab *ngIf="true" heading="{{ 'ReportSettings' | localize }}">
+                  <div class="card" [busy]="isSaving">
+                    <div class="card-body">
+                      <div class="form-group row">
+                        <div class="col-md-12" *ngFor="let setting of reportingSettings; let i = index">
+                          <div class="custom-control custom-checkbox">
+                            <input
+                              type="checkbox"
+                              class="custom-control-input"
+                              name="Setting_isEnabled_'+ i"
+                              [(ngModel)]="setting.isEnabled"
+                              [id]="'Setting_isEnabled_' + i"
+                            />
+                            <label class="custom-control-label" [for]="'Setting_isEnabled_' + i">
+                              {{ setting.hospitalName }}
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-primary" (click)="onFormSubmit()">
+                        {{ 'Save' | localize }}
+                      </button>
+                    </div>
+                  </div>
+                </tab>
+              </tabset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

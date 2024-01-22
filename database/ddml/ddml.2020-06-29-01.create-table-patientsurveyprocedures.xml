@@ -1,0 +1,111 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1593485232892-22">
+        <sql>DELETE FROM patientsurveys;</sql>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-1">
+        <createTable tableName="patientsurveyprocedures">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PatientSurveyId" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisplayOrder" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ProcedureSite" type="VARCHAR(250)"/>
+            <column name="Method" type="VARCHAR(250)"/>
+            <column name="MeanTime" type="DOUBLE"/>
+            <column name="StandardDeviation" type="DOUBLE"/>
+            <column name="ActualTime" type="DOUBLE"/>
+            <column name="IsRisk" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SnomedId" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-2">
+        <addColumn tableName="patientsurveys">
+            <column name="HospitalId" type="VARCHAR(20 BYTE)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-3">
+        <addColumn tableName="patientsurveys">
+            <column name="BodyStructureId" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-4">
+        <addColumn tableName="patientsurveys">
+            <column name="SurgeryDate" type="DATETIME(19)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-5">
+        <addColumn tableName="patientsurveys">
+            <column name="TheaterId" type="VARCHAR(45 BYTE)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-6">
+        <addColumn tableName="patientsurveys">
+            <column name="MethodId" type="VARCHAR(100 BYTE)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-7">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="patientsurveyprocedures"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-8">
+        <createIndex indexName="FK_PatientSurveyProcedures_PatientSurvey_PatientId_idx" tableName="patientsurveyprocedures">
+            <column name="PatientSurveyId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-9">
+        <createIndex indexName="FK_PatientSurveys_BodyStructures_BodyStructureId_idx" tableName="patientsurveys">
+            <column name="BodyStructureId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-10">
+        <createIndex indexName="FK_PatientSurveys_Hospitals_HospitalId_idx" tableName="patientsurveys">
+            <column name="HospitalId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-11">
+        <addForeignKeyConstraint baseColumnNames="PatientSurveyId" baseTableName="patientsurveyprocedures" constraintName="FK_PatientSurveyProcedures_PatientSurvey_PatientId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-12">
+        <addForeignKeyConstraint baseColumnNames="BodyStructureId" baseTableName="patientsurveys" constraintName="FK_PatientSurveys_BodyStructures_BodyStructureId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="bodystructures"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-13">
+        <addForeignKeyConstraint baseColumnNames="HospitalId" baseTableName="patientsurveys" constraintName="FK_PatientSurveys_Hospitals_HospitalId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="hospitals"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-14">
+        <dropColumn columnName="Date" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-15">
+        <dropColumn columnName="ProcedureType" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-16">
+        <dropColumn columnName="RoomId" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-17">
+        <dropColumn columnName="SnowmedChildProcedure" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-18">
+        <dropColumn columnName="SnowmedGrandChildProcedure" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-19">
+        <dropColumn columnName="SnowmedTypeCode" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-20">
+        <dropColumn columnName="SnowmedTypeDefinition" tableName="patientsurveys"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1593485232892-21">
+        <dropColumn columnName="StartTime" tableName="patientsurveys"/>
+    </changeSet>
+</databaseChangeLog>

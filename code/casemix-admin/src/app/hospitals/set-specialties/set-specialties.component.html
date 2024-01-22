@@ -1,0 +1,18 @@
+<div class="form-group row">
+    <ng-container *ngFor="let specialty of hospitalSpecialties; let i = index" >
+    <div class="col-md-12">
+        <div class="custom-control custom-checkbox">
+        <input
+            type="checkbox"
+            class="custom-control-input"
+            [id]="'specialty_' + i"
+            [checked]="isSpecialtyChecked(specialty.specialtyName)"
+            (change)="onSpecialtyChange(specialty, $event)"
+        />
+        <label class="custom-control-label" [for]="'specialty_' + i">
+            {{ specialty.specialtyName }}
+        </label>
+        </div>
+    </div>
+    </ng-container>   
+</div>

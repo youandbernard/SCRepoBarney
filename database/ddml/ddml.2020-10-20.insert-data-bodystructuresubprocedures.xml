@@ -1,0 +1,76 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="root (generated)" id="123015108345734345879-1">
+        <sql>
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A41447009', 'Port insertion', 60184004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000003', 'Set up camera', 60184004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000001', 'Skeletonize and staple/clip inferior mesenteric vein/artery', 60184004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000002', 'Skeletonization of rectum and stapling', 60184004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000006', 'Extraction of colon, remove specimen', 60184004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000004', 'Sew in staple gun', 60184004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000005', 'Anastomosis and leak test', 60184004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A746011009', 'Closure of laparoscopic ports', 60184004);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A41447009', 'Port insertion', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000004', 'Set up camera', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A122459003', 'Medial to Lateral Dissection', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000004', 'Terminal ileum and caecal mobilisation', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000005', 'Mobilisation of Right Colic Flexure', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000006', 'Stapling of Transverse Colon', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000007', 'Stapled Anastomosis', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000008', 'Hand Sewn Anastomosis', 51342009);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A746011009', 'Closure of laparoscopic ports', 51342009);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A41447009', 'Port insertion', 86174004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A00000004', 'Set up camera', 86174004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A122459003', 'Dissection in Calots Triangle', 86174004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('122459003', 'Dissection of Gall Blader', 86174004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A746011009', 'Closure of laparoscopic ports', 86174004);
+
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A705728008-1', 'Surgical camera check', 13714004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A705728008-2', 'Camera insertion', 13714004);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A41447009', 'Port insertion', 13714004);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A40388003-1', 'Preparation of implant (procedure)', 72010008);
+
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A72456008-1', 'Repair of leison and associated structures (procedure)', 72010008);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A89344001-1', 'Intramedullary reaming of femur (procedure)', 734271006);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A89344001-2', 'Insertion of the nail with X ray guidance (procedure)', 734271006);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A89344001-3', 'Insertion of the head screw and fixation (procedure)', 734271006);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A89344001-4', 'Lock rotation of the lag screw (procedure)', 734271006);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A89344001-5', 'Intrafragmentary compression if needed (procedure)', 734271006);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A89344001-6', 'Insertion of the locking screw, insertion of end cap (procedure)', 734271006);
+        
+        
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A178770004-1', 'Exploration of the neighboring structures in hand (procedure)', 10000001);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A15106004-1', 'Identification and assessment soft tissue of hand (procedure)', 10000001);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A409056005-1', 'Identification of the femoral head and associated structures (procedure)', 278728008);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A22510001-1', 'Preparation of the femoral marrow (procedure)', 278728008);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A67270000-1', 'Test neck and head (procedure)', 278728008);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A16210001-1', 'Exposure of the Clavicle', 16210001);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A122465003-1', 'Reconstruction of clavicle', 16210001);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A10971007-1', 'Incision to expose patella (procedure)', 109228008);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A392238003-1', 'Implantation of prosthetic femoral surface and tibial surface', 109228008);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A392238003-2', 'Insertion of spacer', 109228008);
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A10971007-2', 'Temporary closure and functional testing (procedure)', 109228008);
+            
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A409056005-1', 'Identification of the femoral head and associated structures (procedure)', 47458005);   
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A409056005-2', 'Preparation of the femoral marrow (procedure)', 47458005);   
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A67270000-1', 'Test neck and head (procedure)', 47458005);   
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A409056005-3', 'Fixation of the prosthetic neck and head (Cement or Non-cement (procedure)', 47458005); 
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A302438004', 'Excision and release of the lesion (procedure)', 38663004); 
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A50082000-1', 'Axis assessment and temporary fixation (procedure)', 31757006); 
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES ('A72456008-1', 'Repair of lesion and associated structures (procedure)', 31757006); 
+        </sql>
+    </changeSet>
+</databaseChangeLog>

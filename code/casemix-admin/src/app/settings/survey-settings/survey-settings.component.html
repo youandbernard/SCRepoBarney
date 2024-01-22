@@ -1,0 +1,32 @@
+
+<div [@routerTransition]>
+  <section class="content-header page-header survey">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>{{ "SurveySettings" | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="px-2">
+    <div class="container-fluid" >
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 settings">
+              <tabset>
+                <tab *ngIf="true" heading="{{ 'SurveyTimestamp' | localize }}">
+                  <survey-timestamp></survey-timestamp>
+                </tab>
+              </tabset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+  

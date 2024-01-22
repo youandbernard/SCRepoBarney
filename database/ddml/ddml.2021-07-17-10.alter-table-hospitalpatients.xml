@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mlabio" id="778fb2e4-e81a-11eb-82e0-1831bf981123-1">
+      <sql>
+		insert into hospitalpatients(Id, PatientId, HospitalId)
+        select
+            uuid(),
+            id,
+            'test'
+        from patients where `name` is not null and id not in (SELECT patientid from hospitalpatients);
+
+        insert into hospitalpatients(Id, PatientId, HospitalId)
+        select
+            uuid(),
+            id,
+            'RX1PH'
+        from patients where `name` is not null and id not in (SELECT patientid from hospitalpatients);
+    </sql>
+    </changeSet>
+</databaseChangeLog>

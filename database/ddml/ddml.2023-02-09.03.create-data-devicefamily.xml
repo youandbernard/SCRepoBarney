@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="383d4b95-a867-11ed-a923-089798b0519b-1">
+        <sql>
+            
+           INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('959cac85-a867-11ed-a923-089798b0519b','Laser systems','','','','b7eed7fd-0cd1-11ed-84b6-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('9a5d618d-a867-11ed-a923-089798b0519b','Therapeutic systems','','','','b7eed7fd-0cd1-11ed-84b6-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('a2111258-a867-11ed-a923-089798b0519b','Access sheaths','','','','b7eed7fd-0cd1-11ed-84b6-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('a703ed29-a867-11ed-a923-089798b0519b','Ureteral Stents','','','','b7eed7fd-0cd1-11ed-84b6-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('ac34b3a1-a867-11ed-a923-089798b0519b','Catheters','','','','b7eed7fd-0cd1-11ed-84b6-089798b0519b');
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

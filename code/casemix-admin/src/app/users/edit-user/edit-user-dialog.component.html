@@ -1,0 +1,373 @@
+﻿<form class="form-horizontal" autocomplete="off" #editUserModal="ngForm" (ngSubmit)="save()">
+  <abp-modal-header [title]="'EditUser' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+  <div class="modal-body">
+    <tabset>
+      <tab [heading]="'UserDetails' | localize" class="pt-3 px-2">
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="name">
+            {{ 'Name' | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="name"
+              required
+              maxlength="32"
+              [(ngModel)]="user.name"
+              #nameModel="ngModel"
+              #nameEl
+              [disabled]="disableEdit"
+            />
+            <abp-validation-summary [control]="nameModel" [controlEl]="nameEl"></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="surname">
+            {{ 'Surname' | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="surname"
+              id="surname"
+              required
+              maxlength="32"
+              [(ngModel)]="user.surname"
+              #surnameModel="ngModel"
+              #surnameEl
+              [disabled]="disableEdit"
+            />
+            <abp-validation-summary [control]="surnameModel" [controlEl]="surnameEl"></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="userName">
+            {{ 'UserName' | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="userName"
+              id="userName"
+              required
+              minlength="2"
+              maxlength="32"
+              [(ngModel)]="user.userName"
+              #userNameModel="ngModel"
+              #userNameEl
+              [disabled]="disableEdit"
+            />
+            <abp-validation-summary [control]="userNameModel" [controlEl]="userNameEl"></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="emailAddress">
+            {{ 'EmailAddress' | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="email"
+              class="form-control"
+              name="emailAddress"
+              id="emailAddress"
+              required
+              maxlength="256"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$"
+              [(ngModel)]="user.emailAddress"
+              #emailAddressModel="ngModel"
+              #emailAddressEl
+              [disabled]="disableEdit"
+            />
+            <abp-validation-summary [control]="emailAddressModel" [controlEl]="emailAddressEl"></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row mb-0">
+          <label class="col-md-3 col-form-label">
+            {{ 'IsActive' | localize }}
+          </label>
+          <div class="col-md-9">
+            <div class="custom-control custom-checkbox">
+              <input [disabled]="disableEdit" type="checkbox" class="custom-control-input" name="isActive" id="isActive" [(ngModel)]="user.isActive" />
+              <label class="custom-control-label mt-2" for="isActive"></label>
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab [heading]="'UserRoles' | localize" class="pt-3 px-2">
+        <div class="form-group row mb-0">
+
+          <div class="custom-control">
+              <div class="custom-radio d-inline">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="isSelectMainRoles"
+                    name="userRoles"
+                    [(ngModel)]="isMainRole"
+                    [value]="1"
+                    (change)="onRadioClick(1)"
+                    #mainRolesRadio
+                    [disabled]="disableEdit"
+                  />
+                  <label class="custom-control-label" for="isSelectMainRoles">
+                    {{ "Main Roles" | localize }}
+                  </label>
+              </div>
+
+              <ng-container *ngFor="let role of roles | callback: filterMainRoles; let i = index" >
+                <div class="col-md-12">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      [id]="'role_' + i"
+                      [checked]="isRoleChecked(role.normalizedName)"
+                      (change)="onRoleChange(role, $event)"
+                      [disabled]="disableMainRole || disableEdit"
+                      #checkboxesMain                 
+                    />
+                    <label class="custom-control-label" [for]="'role_' + i">
+                      {{ role.name }}
+                    </label>
+                  </div>
+                </div>
+              </ng-container>   
+          </div>
+          
+          <div class="custom-control">
+            <div class="custom-radio d-inline">
+                <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="isSelectSuperAdmin"
+                    name="userRoles"
+                    [(ngModel)]="isSuperAdmin"
+                    [value]="3"
+                    (change)="onRadioClick(3)"
+                    [disabled]="disableEdit"
+                    #superAdminRadio
+                />
+                <label class="custom-control-label" for="isSelectSuperAdmin">
+                  {{ "SuperAdmin" | localize }}
+                </label>
+            </div>            
+
+            <ng-container *ngFor="let role of roles | callback: filterSuperAdmin" >
+              <div class="col-md-12">
+                <div class="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    [id]="role_7"
+                    [checked]="isRoleChecked(role.normalizedName)"
+                    (change)="onRoleChange(role, $event)"
+                    [disabled]="disableSuperadmin || disableEdit"
+                    #checkboxesSuperAdmin
+                  />
+                  <label class="custom-control-label" [for]="role_7">
+                    {{ role.name }}
+                  </label>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="custom-control">
+              <div class="custom-radio d-inline">
+                  <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="isSelectManufacturer"
+                      name="userRoles"
+                      [(ngModel)]="isManufacturer"
+                      [value]="2"
+                      (change)="onRadioClick(2)"
+                      #otherRolesRadio
+                      [disabled]="disableEdit"
+                  />
+                  <label class="custom-control-label" for="isSelectManufacturer">
+                    {{ "Other Roles" | localize }}
+                  </label>
+              </div>            
+
+              <ng-container *ngFor="let role of roles | callback: filterManufacturer" >
+                <div class="col-md-12">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      [id]="role_8"
+                      [checked]="isRoleChecked(role.normalizedName)"
+                      (change)="onRoleChange(role, $event)"
+                      [disabled]="disableManufacturer || disableEdit"
+                      #checkboxesManufacturer
+                    />
+                    <label class="custom-control-label" [for]="role_8">
+                      {{ role.name }}
+                    </label>
+                  </div>
+                </div>
+              </ng-container>
+          </div>
+
+        </div>
+
+        <div class="form-group row mt-5" *ngIf="this.checkedRolesMap['SURGEON']">
+          <div class="col-md-12">
+            <div class="custom-control custom-checkbox">
+              <input
+                [(ngModel)]="user.experience"
+                [value]="1"
+                type="radio"
+                class="custom-control-input"
+                id="experience_lessThanFiveYears"
+                name="experience"
+                [disabled]="disableEdit"
+              />
+              <label class="custom-control-label" for="experience_lessThanFiveYears"> &lt; 5 years </label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="custom-control custom-checkbox">
+              <input
+                [(ngModel)]="user.experience"
+                [value]="2"
+                type="radio"
+                class="custom-control-input"
+                id="experience_SixTo7Years"
+                name="experience"
+                [disabled]="disableEdit"
+              />
+              <label class="custom-control-label" for="experience_SixTo7Years"> 6 - 7 years </label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="custom-control custom-checkbox">
+              <input
+                [(ngModel)]="user.experience"
+                [value]="3"
+                type="radio"
+                class="custom-control-input"
+                id="experience_eightToNineYears"
+                name="experience"
+                [disabled]="disableEdit"
+              />
+              <label class="custom-control-label" for="experience_eightToNineYears"> 8 - 9 years </label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="custom-control custom-checkbox">
+              <input
+                [(ngModel)]="user.experience"
+                [value]="4"
+                type="radio"
+                class="custom-control-input"
+                id="experience_greaterThan10Years"
+                name="experience"
+                [disabled]="disableEdit"
+              />
+              <label class="custom-control-label" for="experience_greaterThan10Years"> > 10 years </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row mt-5" *ngIf="this.checkedRolesMap['MANUFACTURER']">
+          <div class="col-md-12">
+            <label for="ManufactureName" class="col-form-label">{{ 'Manufacturer' | localize }} *</label>
+            <div class="input-group">
+              <select
+                id="Manufacture_Name"
+                name="Manufacture_Name"
+                [(ngModel)]="selectedManfacturer"
+                class="form-control col-sm-6"
+                (change)="onManufactureChange()"
+                [disabled]="disableEdit"
+              >
+                <option *ngFor="let manufacturer of manufactures" [value]="manufacturer.id">{{ manufacturer.name }}</option>
+              </select>
+
+              <!--
+              <input
+                [(ngModel)]="user.manufactureName"
+                name="Manufacture_Name"
+                id="Manufacture_Name"
+                [typeahead]="manufactures"
+                typeaheadOptionField="name"
+                class="form-control"
+                [typeaheadMinLength]="0"
+                (typeaheadOnSelect)="onManufactureChange($event)"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-default" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+              -->
+            </div>
+          </div>
+        </div>
+      </tab>      
+
+      <tab *ngIf="this.checkedRolesMap['SURGEON']" [heading]="'SurgeonSpecialties' | localize" class="pt-3 px-2" customClass="test">
+        <app-assign-specialties #assignSpecialtiesComponent [userId]="id"></app-assign-specialties>
+      </tab>
+      <tab *ngIf="!this.checkedRolesMap['MANUFACTURER']" [heading]="'User Hospitals'" class="pt-3 px-2">
+        <p-tree
+          [(selection)]="selectedNodes"
+          [value]="regions"
+          display="chip"
+          [metaKeySelection]="false"
+          selectionMode="checkbox"
+          placeholder="Select Item"
+          onchange="onNodeChange($event)"
+          [disabled]="disableEdit"
+        ></p-tree>
+
+        <!--
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="Hospital_Name">
+            {{ 'Regions' | localize }}
+          </label>
+          <div class="col-md-12">
+            <p-multiSelect
+              [options]="regionsMultiSelect"
+              [(ngModel)]="selectedRegions"
+              defaultLabel="Select a City"
+              optionLabel="name"
+              display="chip"
+              [style]="{ minWidth: '100%' }"
+              (onChange)="onChangeRegion($event)"
+              name="regionsMultiselect"
+            ></p-multiSelect>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="Hospital_Name">
+            {{ 'Hospital' | localize }}
+          </label>
+          <div class="col-md-12">
+            <p-multiSelect
+              [options]="hospitalsMultiSelect"
+              [(ngModel)]="selectedHospitals"
+              defaultLabel="Select a City"
+              optionLabel="name"
+              (onChange)="onChangeHospital($event)"
+              display="chip"
+              [style]="{ minWidth: '100%' }"
+              name="hospitalsMultiselect"
+            ></p-multiSelect>
+          </div>
+        </div>
+        -->
+      </tab>
+    </tabset>
+  </div>
+  <abp-modal-footer
+    [cancelDisabled]="saving"
+    [saveDisabled]="!editUserModal.form.valid || saving || disableEdit"
+    (onCancelClick)="bsModalRef.hide()"
+  ></abp-modal-footer>
+</form>

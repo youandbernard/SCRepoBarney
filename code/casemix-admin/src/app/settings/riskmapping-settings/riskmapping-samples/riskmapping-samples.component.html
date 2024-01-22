@@ -1,0 +1,50 @@
+<div [@routerTransition]>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-custom">
+                <img  
+                [src]="list[0].imageUrl"
+                [id]="list[0].id"
+                [id]="list[0].id"
+                title="Open Image"
+                (click)="onOpenImageClick(list[0].id)"
+                >
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-custom">
+                <img  
+                [src]="list[1].imageUrl"
+                [id]="list[1].id"
+                [id]="list[1].id"
+                title="Open Image"
+                (click)="onOpenImageClick(list[1].id)"
+                >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-custom">
+                <img  
+                [src]="list[2].imageUrl"
+                [id]="list[2].id"
+                [id]="list[2].id"
+                title="Open Image"
+                (click)="onOpenImageClick(list[2].id)"
+                >
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-custom">
+                <img  
+                [src]="list[3].imageUrl"
+                [id]="list[3].id"
+                [id]="list[3].id"
+                title="Open Image"
+                (click)="onOpenImageClick(list[3].id)"
+                >
+            </div>
+        </div>
+    </div>
+</div>

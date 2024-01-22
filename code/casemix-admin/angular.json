@@ -1,0 +1,284 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "casemix": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              {
+                "glob": "abp.signalr.js",
+                "input": "node_modules/abp-web-resources/Abp/Framework/scripts/libs",
+                "output": "/assets/abp"
+              },
+              {
+                "glob": "abp.signalr-client.js",
+                "input": "node_modules/abp-web-resources/Abp/Framework/scripts/libs",
+                "output": "/assets/abp"
+              }
+            ],
+            "styles": [
+              "node_modules/famfamfam-flags/dist/sprite/famfamfam-flags.css",
+              "node_modules/toastr/build/toastr.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/admin-lte-css-only/css/adminlte.min.css",
+              "src/shared/core.less",
+              "node_modules/@ng-select/ng-select/themes/default.theme.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/moment/min/moment.min.js",
+              "node_modules/@aspnet/signalr/dist/browser/signalr.min.js",
+              "node_modules/toastr/toastr.js",
+              "node_modules/sweetalert/dist/sweetalert.min.js",
+              "node_modules/block-ui/jquery.blockUI.js",
+              "node_modules/spin.js/spin.min.js",
+              "node_modules/spin.js/jquery.spin.js",
+              "node_modules/push.js/bin/push.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js",
+              "node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/abp.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.moment.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "staging": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
+            },
+            "demo": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.demo.ts"
+                }
+              ]
+            },
+            "uat": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.uat.ts"
+                }
+              ]
+            },
+            "ci": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ci.ts"
+                }
+              ]
+            },
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmr.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "casemix:build",
+            "port": 6340
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "casemix:build:production"
+            },
+            "hmr": {
+              "browserTarget": "casemix:build:hmr"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "casemix:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              {
+                "glob": "abp.signalr.js",
+                "input": "node_modules/abp-web-resources/Abp/Framework/scripts/libs",
+                "output": "/assets/abp"
+              },
+              {
+                "glob": "abp.signalr-client.js",
+                "input": "node_modules/abp-web-resources/Abp/Framework/scripts/libs",
+                "output": "/assets/abp"
+              }
+            ],
+            "styles": [
+              "node_modules/famfamfam-flags/dist/sprite/famfamfam-flags.css",
+              "node_modules/toastr/build/toastr.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "node_modules/admin-lte-css-only/css/adminlte.min.css",
+              "src/shared/core.less"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/moment/min/moment.min.js",
+              "node_modules/@aspnet/signalr/dist/browser/signalr.min.js",
+              "node_modules/toastr/toastr.js",
+              "node_modules/sweetalert/dist/sweetalert.min.js",
+              "node_modules/block-ui/jquery.blockUI.js",
+              "node_modules/spin.js/spin.min.js",
+              "node_modules/spin.js/jquery.spin.js",
+              "node_modules/push.js/bin/push.min.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/abp.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js",
+              "node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.moment.js"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.json"
+            ],
+            "exclude": []
+          }
+        }
+      }
+    },
+    "casemix-e2e": {
+      "root": "",
+      "sourceRoot": "",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "casemix:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "e2e/tsconfig.json"
+            ],
+            "exclude": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "casemix",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "style": "less",
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app",
+      "skipTests": true
+    },
+    "@schematics/angular:class": {
+      "skipTests": true
+    },
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "cli": {
+    "analytics": "889f2ed2-3aa8-498d-8636-c54faf71c6e1"
+  }
+}

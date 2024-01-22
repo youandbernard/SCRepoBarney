@@ -1,0 +1,140 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mlabio" id="b1fe8712-e947-11eb-82e0-1831bf981123-1">
+         <sql>
+            insert into bodystructures (Id, Description, BodyStructureGroupId, DisplayOrder)
+            values
+            (566463,'Laproscopic sigmoid colectomy', '9e5feb25-e6c5-11eb-95fa-1831bf981123', 1),
+            (019274,'Open sigmoid colectomy', '9e5feb25-e6c5-11eb-95fa-1831bf981123', 2),
+            (458500,'Laproscopic appendectomy', '9e5feb25-e6c5-11eb-95fa-1831bf981123', 3),
+            (280491,'Open Appendectomy', '9e5feb25-e6c5-11eb-95fa-1831bf981123', 4),
+            (583230,'Cholecystectomy','9e5feb25-e6c5-11eb-95fa-1831bf981123' , 5),
+            (500107,'Appendicostomy','9e5feb25-e6c5-11eb-95fa-1831bf981123' , 6),
+            (130804,'Emergency Laparotomy', '9e5feb25-e6c5-11eb-95fa-1831bf981123', 7);
+
+            -- Laproscopic sigmoid colectomy
+            insert into bodystructuresubprocedures(Description, SnomedID, BodystructureId)
+            values
+            ('Patient Positioning', '229824005', 566463),
+            ('WHO Surgical Safety Check List', '450729003', 566463),
+            ('Cleaning and sterilisation of skin', '450832005', 566463),
+            ('Application of surgical drapes', '397819007', 566463),
+            ('Incision', '34896006', 566463),
+            ('Port insertion', 'A41447009', 566463),
+            ('Exploration of colon', '307663000', 566463),
+            ('Incision of colon', '9215005', 566463),
+            ('Dissection procedure', '122459003', 566463),
+            ('Excision of part of colon with mobilization of splenic flexure', '443909001', 566463),
+            ('Anastomosis of colon to colon', '89522007', 566463),
+            ('Reexploration procedure', '122460008', 566463),
+            ('Removal of device', '128538000', 566463),
+            ('Closure of skin by suture', '391906003', 566463),
+            ('Application of dressing, sterile', '58828004', 566463);
+
+            -- Open sigmoid colectomy
+            insert into bodystructuresubprocedures(Description, SnomedID, BodystructureId)
+            values
+            ('Patient Positioning', '229824005', 019274),
+            ('WHO Surgical Safety Check List', '450729003', 019274),
+            ('Cleaning and sterilisation of skin', '450832005', 019274),
+            ('Application of surgical drapes', '397819007', 019274),
+            ('Incision', '34896006', 019274),
+            ('Incision of muscle', '178274007', 019274),
+            ('Exploration of colon', '307663000', 019274),
+            ('Incision of colon', '9215005', 019274),
+            ('Dissection procedure', '122459003', 019274),
+            ('Excision of part of colon with mobilization of splenic flexure', '443909001', 019274),
+            ('Anastomosis of colon to colon', '89522007', 019274),
+            ('Closure of skin by suture', '391906003', 019274),
+            ('Application of dressing, sterile', '58828004', 019274);
+
+
+            -- Laproscopic appendectomy
+            insert into bodystructuresubprocedures(Description, SnomedID, BodystructureId)
+            values
+            ('Patient Positioning', '229824005', 458500),
+            ('WHO Surgical Safety Check List', '450729003', 458500),
+            ('Cleaning and sterilisation of skin', '450832005', 458500),
+            ('Application of surgical drapes', '397819007', 458500),
+            ('Incision', '34896006', 458500),
+            ('Port insertion', 'A41447009', 458500),
+            ('Division of aponeurosis', '8768006', 458500),
+            ('Exploration procedure', '122458006', 458500),
+            ('Incision of appendix', '17041004', 458500),
+            ('Excision of appendix', '80146002', 458500),
+            ('Inversion of appendix', '235314005', 458500),
+            ('Suture of aponeurosis', '35032003', 458500),
+            ('Removal of device', '128538000', 458500),
+            ('Closure of skin by suture (procedure)', '391906003', 458500),
+            ('Application of dressing, sterile(procedure)', '58828004', 458500);
+
+            -- Open Appendectomy
+            insert into bodystructuresubprocedures(Description, SnomedID, BodystructureId)
+            values
+            ('Patient Positioning', '229824005', 280491),
+            ('WHO Surgical Safety Check List', '450729003', 280491),
+            ('Cleaning and sterilisation of skin', '450832005', 280491),
+            ('Application of surgical drapes', '397819007', 280491),
+            ('Incision', '34896006', 280491),
+            ('Incision of muscle', '178274007', 280491),
+            ('Incision of abdominal wall', '8768006', 280491),
+            ('Exploration procedure', '122458006', 280491),
+            ('Incision of appendix', '17041004', 280491),
+            ('Excision of appendix', '80146002', 280491),
+            ('Inversion of appendix', '235314005', 280491),
+            ('Suture of aponeurosis', '35032003', 280491),
+            ('Suture of abdominal wall', '28933001', 280491),
+            ('Suture of aponeurosis', '35032003', 280491),
+            ('Closure of skin by suture (procedure)', '391906003', 280491),
+            ('Application of dressing, sterile (procedure)', '58828004', 280491);
+
+            -- Cholecystectomy
+            insert into bodystructuresubprocedures(Description, SnomedID, BodystructureId)
+            values
+            ('Patient Positioning', '229824005', 583230),
+            ('WHO Surgical Safety Check List', '450729003', 583230),
+            ('Cleaning and sterilisation of skin', '450832005', 583230),
+            ('Application of surgical drapes', '397819007', 583230),
+            ('Incision', '34896006', 583230),
+            ('Incision of muscle', '178274007', 583230),
+            ('Incision of abdominal wall', '8768006', 583230),
+            ('Exploration procedure', '122458006', 583230),
+            ('Incision of gallbladder', '44337006', 583230),
+            ('Gallbladder manipulation', '119933008', 583230),
+            ('Anastomosis of gall bladder', '128399009', 583230),
+            ('Suture of aponeurosis', '35032003', 583230),
+            ('Suture of abdominal wall', '28933001', 583230),
+            ('Closure of skin by suture', '391906003', 583230),
+            ('Application of dressing, sterile', '58828004', 583230);
+
+            -- Appendicostomy
+            insert into bodystructuresubprocedures(Description, SnomedID, BodystructureId)
+            values
+            ('Patient Positioning', '229824005', 500107),
+            ('WHO Surgical Safety Check List', '450729003', 500107),
+            ('Cleaning and sterilisation of skin', '450832005', 500107),
+            ('Application of surgical drapes', '397819007', 500107),
+            ('Incision', '34896006', 500107),
+            ('Port insertion', 'A41447009', 500107),
+            ('Exploration procedure', '122458006', 500107),
+            ('Suturing of bile duct', '235534005', 500107),
+            ('Closure of skin by suture (procedure)', '391906003', 500107),
+            ('Application of dressing, sterile(procedure)', '58828004', 500107);
+
+            -- Emergency Laparotomy
+            insert into bodystructuresubprocedures(Description, SnomedID, BodystructureId)
+            values
+            ('Patient Positioning', '229824005', 130804),
+            ('WHO Surgical Safety Check List', '450729003', 130804),
+            ('Cleaning and sterilisation of skin', '450832005', 130804),
+            ('Application of surgical drapes', '397819007', 130804),
+            ('Incision', '34896006', 130804),
+            ('Incision of muscle', '178274007', 130804),
+            ('Incision of abdominal wall', '112978005', 130804),
+            ('Exploration of abdomen', '74770008', 130804),
+            ('Suture of abdominal wall', '28933001', 130804),
+            ('Closure of skin by suture (procedure)', '391906003', 130804),
+            ('Application of dressing, sterile (procedure)', '58828004', 130804);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

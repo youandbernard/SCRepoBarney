@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mel (generated)" id="159342107230-1">
+		<createTable tableName="hospitalspecialties">
+			<column name="Id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="HospitalId" type="VARCHAR(250)" />
+			<column name="BodyStructureGroupId" type="CHAR(36)" />
+		</createTable>
+	</changeSet>
+	<!-- <changeSet author="mel (generated)" id="159342107230-2">
+		<addForeignKeyConstraint baseColumnNames="BodyStructureGroupId" baseTableName="hospitalspecialties" constraintName="FK_HospitalSpecialties_BodyStructureGroups_Id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="BodyStructureGroups"/>
+	</changeSet> -->
+	<changeSet author="mel (generated)" id="159342107230-3">
+		<loadData commentLineStartsWith="//" encoding="UTF-8" file="csv/hospitalspecialties.csv" quotchar="'" relativeToChangelogFile="true" separator=";" tableName="hospitalspecialties">
+			<column header="HospitalId" type="STRING"/>
+			<column header="BodyStructureGroupId" type="STRING"/>
+		</loadData>
+	</changeSet>
+</databaseChangeLog>

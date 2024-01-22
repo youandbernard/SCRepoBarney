@@ -1,0 +1,170 @@
+﻿<div [@routerTransition]>
+  <section class="content-header page-header dashboard">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-8">
+          <h1 *ngIf="!reportView">{{ 'Dashboard' | localize }}</h1>
+          <h1 *ngIf="reportView">{{ 'Reports' | localize }}</h1>
+        </div>
+        <div class="col-sm-4 text-right">
+          <form>
+            <div class="form-group row">
+              <label class="col-sm-6 col-form-label" for="Hospital">Hospital: </label>
+              <select
+                id="Hospital"
+                name="Hospital"
+                [(ngModel)]="currentHospitalId"
+                class="form-control col-sm-6"
+                (change)="onHopsitalChange()"
+              >
+                <option *ngFor="let hospital of hospitals" [value]="hospital.id">{{ hospital.name }}</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2 home-links" [busy]="isLoading">
+    <div *ngIf="isGranted('Pages.Poaps') && !reportView" class="container-fluid">
+      <div class="row">
+          <div class="col-lg-6 col-md-12">
+              <div [routerLink]="['/app/poaps']" class="small-box bg-success">
+                  <div class="inner">
+                    <h3>{{ 'POAP' | localize }}</h3>
+                    <p>&nbsp;</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fas fa-user-md"></i>
+                  </div>
+                  <a [routerLink]="['/app/poaps']" class="small-box-footer">
+                    More info
+                    <i class="fas fa-arrow-circle-right"></i>
+                  </a>
+              </div>
+          </div>
+
+        <div *ngIf="isGranted('Pages.Surveys')" class="col-lg-6 col-md-12">
+            <div [routerLink]="['/app/surveys']" class="small-box bg-info">
+                <div class="inner">
+                  <h3>{{ 'Surveys' | localize }}</h3>
+                  <p>&nbsp;</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-poll"></i>
+                </div>
+                <a [routerLink]="['/app/surveys']" class="small-box-footer">
+                  More info
+                  <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div *ngIf="isGranted('Pages.Users')" class="col-lg-6 col-md-12">
+          <div [routerLink]="['/app/users']" class="small-box bg-warning">
+            <div class="inner">
+              <h3>User Management</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <a href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div *ngIf="isAdmin" class="col-lg-6 col-md-12">
+          <div [routerLink]="['/app/settings']" class="small-box bg-primary">
+            <div class="inner">
+              <h3>{{ 'Settings' | localize }}</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a [routerLink]="['/app/settings']" href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div *ngIf="deviceManagementEnabled || isAdmin" class="col-lg-6 col-md-12">
+            <div [routerLink]="['/app/devices']" class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{ 'Device Management' | localize }}</h3>
+                <p>&nbsp;</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <a [routerLink]="['/app/devices']" href="javascript:;" class="small-box-footer">
+                More info
+                <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+        </div>
+
+        <!--
+        <div *ngIf="isAdmin && reportingSettingEnabled" class="col-lg-6 col-md-12">
+          <div (click)="navigateToReportView(true)" class="small-box" style="background-color: orange !important">
+            <div class="inner">
+              <h3>Reports</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a (click)="navigateToReportView(true)" href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        -->
+
+        <div class="col-lg-6 col-md-12">
+          <div [routerLink]="['/app/reporting-settings']" class="small-box" style="background-color: gray">
+            <div class="inner">
+              <h3>Modules</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a [routerLink]="['/app/reporting-settings']" href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isGranted('Pages.Poaps') && reportView">
+      <a (click)="navigateToReportView(false)" href="javascript:;" class="small-box-footer">
+        <i class="fas fa-arrow-circle-left"></i>
+        Dashboard
+      </a>
+      <div class="card">
+        <div class="card-body">
+          <ng-container *ngIf="reportingSettingEnabled">
+            <pdf-viewer [src]="reportUrl" [original-size]="false" style="display: block; height: 100vh"></pdf-viewer>
+          </ng-container>
+          <ng-container *ngIf="!reportingSettingEnabled">
+            <p class="font-weight-bold" style="text-align: center">{{ 'Report setting is disabled for this hospital.' | localize }}</p>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="content mx-auto text-center">
+      <p class="font-weight-bold">Our Value Proposition</p>
+      <p class="font-italic">
+        "In everything we do, we believe in making transformational change possible. Our quality data and human insights enable better care
+        and delivery. We guide and maximise healthcare planning and productivity ...we just happen to humanise data."
+      </p>
+    </div>
+  </section>
+</div>

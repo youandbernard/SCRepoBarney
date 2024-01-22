@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="bnavarro" id="a46f693a-d03a-11ec-a20b-1831bf981123-1">
+      <sql>
+		update ukRegions
+            set Name = 'East Midlands'
+            where Name = 'Midlands' ;
+
+            update trusts
+            set Region = 'East Midlands'
+            where Region = 'Midlands' 
+    </sql>
+    </changeSet>
+</databaseChangeLog>

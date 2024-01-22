@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="15929691598500-1">
+        <update tableName="comorbidities">
+            <column name="Description" value="Anticoagulant therapy - personal history"/>
+            <where>SnomedId = 161647008</where>
+        </update>
+        <update tableName="comorbidities">
+            <column name="Description" value="Anticoagulant therapy - current"/>
+            <where>SnomedId = 182764009</where>
+        </update>
+        <update tableName="comorbidities">
+            <column name="Description" value="Hypertension – essential (primary)"/>
+            <where>SnomedId = 38341003</where>
+        </update>
+        <update tableName="comorbidities">
+            <column name="Description" value="Alzheimer's disease including dementia in Alzheimer's"/>
+            <where>SnomedId = 26929004</where>
+        </update>
+        <update tableName="comorbidities">
+            <column name="Description" value="Dementia including dementia in Alzheimer's disease (14)"/>
+            <where>SnomedId = 52448006</where>
+        </update>
+        <update tableName="comorbidities">
+            <column name="Description" value="Blindness - registered blind (except Amaurosis Fugax)"/>
+            <where>SnomedId = 65956007</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>

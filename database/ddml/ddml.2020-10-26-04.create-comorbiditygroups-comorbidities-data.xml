@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="mlabio (generated)" id="4057847509-1">
+        <sql>
+            INSERT INTO ComorbidityGroups (Id, Description, SnomedId) VALUES (8, 'PREVIOUS INCISIONS', '363565009');
+                INSERT INTO Comorbidities (SnomedId, Description, ComorbidityGroupId) VALUES ('363565009-01', 'Head and Neck', 8);
+                INSERT INTO Comorbidities (SnomedId, Description, ComorbidityGroupId) VALUES ('363565009-02', 'Thorax', 8);
+                INSERT INTO Comorbidities (SnomedId, Description, ComorbidityGroupId) VALUES ('363565009-03', 'Abdomen', 8);
+                INSERT INTO Comorbidities (SnomedId, Description, ComorbidityGroupId) VALUES ('363565009-04', 'Upper Extremity', 8);
+                INSERT INTO Comorbidities (SnomedId, Description, ComorbidityGroupId) VALUES ('363565009-05', 'Lower Extremity', 8);
+            INSERT INTO ComorbidityGroups (Id, Description, SnomedId) VALUES (9, 'DEFORMATIES', '298390003');
+                INSERT INTO Comorbidities (SnomedId, Description, ComorbidityGroupId) VALUES ('298390003-01', 'Neck deformity (difficulty of intubation)', 9);
+                INSERT INTO Comorbidities (SnomedId, Description, ComorbidityGroupId) VALUES ('298390003-02', 'Burn injury (difficulty of intubation)', 9);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

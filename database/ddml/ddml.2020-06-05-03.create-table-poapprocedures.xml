@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1591329487219-1">
+        <createTable tableName="poapprocedures">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisplayOrder" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ProcedureSite" type="VARCHAR(50)"/>
+            <column name="Method" type="VARCHAR(45)"/>
+            <column name="MeanTime" type="DOUBLE"/>
+            <column name="StandardDeviation" type="DOUBLE"/>
+            <column defaultValueBoolean="false" name="IsRisk" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SnomedId" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PreOperativeAssessmentId" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329487219-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="poapprocedures"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329487219-3">
+        <createIndex indexName="FK_PoapProcedures_PreOperativeAssessments_PreOperativeAsses_idx" tableName="poapprocedures">
+            <column name="PreOperativeAssessmentId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329487219-4">
+        <addForeignKeyConstraint baseColumnNames="PreOperativeAssessmentId" baseTableName="poapprocedures" constraintName="FK_PoapProcedures_Poaps_PoapId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="preoperativeassessments"/>
+    </changeSet>
+</databaseChangeLog>

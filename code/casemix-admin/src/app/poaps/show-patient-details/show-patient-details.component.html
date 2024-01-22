@@ -1,0 +1,63 @@
+<div class="modal-body">
+  <abp-modal-header title="Patient Details" (onCloseClick)="onCloseClick()">
+  </abp-modal-header>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Patient ID</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="patientId" name="patientId"
+          readonly
+        />
+      </div>
+      <div class="col-sm">
+        <label for="">Date of Birth Year</label>
+        <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="dobYear" name="dobYear"
+              readonly
+         />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Specialty</label>
+        <input
+          class="form-control"
+          value="Upper GI Surgery"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="">Indicative date for surgery</label>
+        <input
+          class="form-control"
+          [(ngModel)]="date" name="surgeryDate"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Gender</label>
+        <input
+              class="form-control"
+              [(ngModel)]="gender" name="gender"
+              />
+      </div> 
+      <div class="col-sm">
+        <label for="">Ethnicity</label>
+        <input
+          class="form-control"
+          [(ngModel)]="ethnicCategory" name="ethnicity"
+        />
+      </div>
+    </div> 
+  </div>
+  <div class="form-group custom-button-right">
+    <button class="btn btn-secondary" (click)="onCloseClick()">
+        Close  
+    </button>
+  </div>
+</div>

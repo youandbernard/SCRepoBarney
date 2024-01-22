@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header row">
+        <div class="col-6">
+            <h6 class="m-0 font-weight-bold text-primary">{{ 'List of Uploaded File' | localize }}</h6>
+        </div>            
+        <!--
+        <div class="col-6 text-right">
+            <a href="javascript:;" class="btn bg-blue" (click)="newUploadClick()">
+                <i class="fas fa-upload"></i>
+                {{ "Upload" | localize }}
+            </a>
+        </div>-->
+    </div>
+    <div class="card-body ajax-dt table-responsive">
+        <table [busy]="isLoading1" 
+            datatable
+            [dtOptions]="dtOptionsAdmin"
+            [dtTrigger]="dtTriggerAdmin"
+            class="table table-bordered table-striped table-hover text-nowrap" 
+            id="documents">
+            <thead>
+                <tr>
+                <td>{{ 'ID' | localize }}</td>
+                <td>{{ 'Filename' | localize }}</td>
+                <td>{{ 'Date Uploaded' | localize }}</td>
+                <td>{{ 'Manufacturer' | localize }}</td>
+                <td width="2%" class="text-center">{{ 'Actions' | localize }}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let document of documents">
+                    <td>{{ document.id }}</td>
+                    <td>{{ document.filename }}</td>
+                    <td>{{ document.dateUploaded | date: 'dd/MM/yyyy'}} {{ document.dateUploaded | date: 'HH:mm:ss' }}</td>
+                    <td>{{ document.manufacturer }}</td>                    
+                    <td>
+                        <!--<button type="button" class="btn btn-sm bg-secondary" (click)="downloadFile(document.id, document.userId)" title="{{'Download' | localize }}">
+                            <i class="fas fa-download"></i>
+                        </button>--> 
+                        <button type="button" [class]= "document.enable === true ? 'btn btn-sm mx-2 bg-success' : 'btn btn-sm mx-2 bg-danger'" (click)="enableOrDisabe(document.id, document.enable)" title="{{'Enable/Disable' | localize }}">
+                            <i class="fas fa-ban"></i>
+                        </button>
+                        <button type="button" class="btn btn-sm bg-danger mx-2" title="{{'Delete' | localize }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

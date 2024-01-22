@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="bnavarro" id="30794e80-1e33-11ed-a062-089798b0519b-1">
+        <createTable tableName="poapinstrumentpacks">
+			<column name="Id" type="int" autoIncrement="true">
+            	<constraints primaryKey="true" nullable="false"/>
+        	</column>            
+            <column name="PoapId" type="CHAR(36)">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="InstrumentPackId" type="CHAR(36)">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="InstrumentId" type="INT">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="UserCode" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+        	</column>           
+            <column name="Quantity" type="DOUBLE">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="EmbodiedCarbon" type="DOUBLE">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="CreatedDate" type="DATETIME(6)">
+                <constraints nullable="false"/>
+        	</column>  
+            <column name="CreatedBy" type="BIGINT">
+                <constraints nullable="false"/>
+        	</column>     
+            <column name="UpdatedDate" type="DATETIME(6)">
+                <constraints nullable="true"/>
+        	</column>  
+            <column name="UpdatedBy" type="BIGINT">
+                <constraints nullable="true"/>
+        	</column>        
+        </createTable>
+    </changeSet>    
+</databaseChangeLog>

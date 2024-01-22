@@ -1,0 +1,108 @@
+<div class="modal-body">
+  <abp-modal-header title="Diagnostic Details" (onCloseClick)="onCloseClick()">
+  </abp-modal-header>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Patient ID</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="idValue" name="patientId"
+          readonly
+        />
+      </div>
+      <div class="col-sm">
+        <label for="">Date of Birth Year</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="dobYear" name="dobYear"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Specialty</label>
+        <input
+          class="form-control"
+          value="Upper GI Surgery"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="">Indicative date for surgery</label>
+        <input
+          class="form-control"
+          [(ngModel)]="surgeryDate" name="surgeryDate"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Blood Pressure</label>
+        <input
+          class="form-control"
+          [(ngModel)]="bpValue" name="bloodPressure"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="">Gender</label>
+        <input
+        class="form-control"
+        [(ngModel)]="genderValue" name="gender"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Ethnicity</label>
+        <input
+        class="form-control"
+        [(ngModel)]="ethnicityValue" name="ethnicity"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="">{{ datelabel }} </label>
+        <input
+        class="form-control"
+        [(ngModel)]="bmiValue" name="bmiValue"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label for="">Smoking Status</label>
+        <input
+        class="form-control"
+        [(ngModel)]="smokingStatus" name="smokingStatus"
+        />
+      </div>
+      <div class="col-sm"></div>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <label for="RiskFactors">Risk Factors: </label>
+      <table class="table table-bordered table-striped table-hover text-nowrap">
+          <thead>
+              <tr>
+                  <td></td>
+                  <td>Name</td>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let comorbidity of selectedComorbidities; let i = index ">
+                  <td>{{i + 1}}</td>
+                  <td>{{comorbidity.label}}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="form-group custom-button-right">
+      <button class="btn btn-secondary" (click)="onCloseClick()">
+          Close  
+      </button>
+  </div>  
+</div>

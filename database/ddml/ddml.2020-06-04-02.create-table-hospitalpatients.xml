@@ -1,0 +1,537 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1591249323237-1">
+        <createTable tableName="hospitalpatients">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HospitalId" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PatientId" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591249323237-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="hospitalpatients"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591249323237-3">
+        <createIndex indexName="FK_HospitalPatients_Hospital_HospitalId_idx" tableName="hospitalpatients">
+            <column name="HospitalId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591249323237-4">
+        <createIndex indexName="FK_HospitalPatients_Patients_PatientId_idx" tableName="hospitalpatients">
+            <column name="PatientId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591249323237-5">
+        <addForeignKeyConstraint baseColumnNames="HospitalId" baseTableName="hospitalpatients" constraintName="FK_HospitalPatients_Hospitals_HospitalId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="hospitals"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591249323237-6">
+        <addForeignKeyConstraint baseColumnNames="PatientId" baseTableName="hospitalpatients" constraintName="FK_HospitalPatients_Patients_PatientId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="patients"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591249332796-1">
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="0005ebb4-793d-4b35-8950-ed0dd9fa5340"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="44"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="02b263b1-8ad2-4852-a525-8317719ff7be"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="1"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="03ed3653-6cd8-464e-bd7e-846fa0877393"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="22"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="08a457d8-bf80-46dd-9cc6-66a546f71550"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="55"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="0b8814d4-9703-4449-8d2f-aacfd1ad27aa"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="32"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="0ccce15a-b8a3-4eca-b9be-dce99e137580"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="41"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="115ff5b2-922c-42e5-8a8e-11cc3135949c"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="78"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="14864ef7-0936-4704-a740-f995706e8325"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="45"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="150e7446-3999-451c-8f03-14d34f9e5300"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="92"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="17b8e913-7212-4dc6-b59f-db4bf4883012"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="62"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="1c7abaf3-36b3-4e95-a6d6-a235e8de1a33"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="8"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="1df0ec44-e0d0-473b-8358-56055eb2c969"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="5"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="205f2a4a-af44-4664-85cc-203edcde644d"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="66"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="21b3b4c8-41af-44ab-aa54-5090c66fee5d"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="75"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="220f47b4-fda8-4daf-b1f1-add589aebe55"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="87"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="283f952a-3df8-4b95-913a-b546a9098d26"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="38"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="2a3ef032-34fa-485b-b6dc-c50ccdcfb748"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="72"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="2c1ab4f3-2d3b-4100-a4f3-a7582deef995"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="19"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="301a2df6-717c-4391-ab7c-7768a12ecb9b"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="46"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="3372bba3-c7af-4807-95b6-3cabfb49ab5a"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="37"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="3377cdfa-b64a-422b-8641-4d1c2ef50d56"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="59"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="33dd383f-bff5-48ea-8dd4-f917cdeebbc1"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="73"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="3b4c07b3-6cbe-42e4-8cd4-5cee86879075"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="25"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="3d2490a0-1363-4246-980d-a5e2980a5aac"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="15"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="3ef79f58-fb07-47ae-9985-1a326436e504"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="35"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="3f8ae31d-e27f-42a1-b0c0-6f2e1cab6d7a"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="83"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="41a7e2fb-e7a9-44ed-9d7d-dfffd3b8ec7e"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="74"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="42f2eea7-f8df-42e0-9cc9-7aa4d0c2f715"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="29"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="44b6c2ea-7231-4619-92df-1acd91779e0b"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="64"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="4a6b3a3b-97ba-4993-881d-c6973741d81b"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="17"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="5464f316-ae68-4993-9ef7-9cb06498a8f3"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="14"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="55aeb7c2-f731-44ad-b084-2726f604c1b9"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="51"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="5ae6cd0d-594c-4fdd-ba14-598a1f1e2a48"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="43"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="5b283983-4200-4dff-af7a-9832eb5e9de5"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="28"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="5ee4e1b1-7394-4e4e-bdc0-2b5e5e6fc76d"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="9"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="60a54aed-a7dd-49b9-b259-696ab1be0cdf"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="71"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6250fa7b-76e6-4d25-8fb3-f035a9cae60b"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="86"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6424a459-4f19-4402-bdbf-aa9c0eba6c71"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="24"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6a42556a-7078-4f52-970a-8b63912d7e58"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="90"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6a6da679-1e3c-4da1-8a1a-dfff5cd5f629"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="56"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6b6f1bbf-67de-4134-94d3-9fbe8c78832c"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="65"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6c2dd60a-eb65-488a-9051-7dccdf4b3253"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="54"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6ec02b82-1693-4abb-9adb-83dd43bf9c72"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="97"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6ec343fd-6c53-4881-83d1-d244cea6f18e"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="58"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="6fb66aec-7db9-4780-a890-b06af2ae9872"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="70"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="730e126b-98de-4dbf-ae8b-905b09033010"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="53"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="756bc4cc-5ea9-4882-95c8-2bda3ba1e807"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="94"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="7a7cf5d9-00dc-4893-9495-ab0d79ef7468"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="33"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="7af50fa1-1b12-444a-aebe-93667d3afcc6"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="57"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="7b4c9ce5-5072-4a0a-9abe-c3498c9fa2fe"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="61"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="7c5f21be-90b5-41b2-a6bd-e3e9565b115e"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="99"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="82d812c9-9eb3-43ef-9968-6bb449847076"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="13"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="8c8aef5e-090b-4d8c-a090-b6530d3ea338"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="89"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="914700c5-baa4-491a-afe2-2fe86e88ea15"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="30"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="9619eace-a5ed-412d-ae81-7f36a465c1cd"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="96"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="972a1444-55cc-4724-87d4-77bc0d75db43"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="81"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="97d83682-74e8-4622-bcf6-4ca0922b7dfb"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="100"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="98004f43-fb09-43df-a9e9-28edbbe00dc6"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="80"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="9b44b087-f350-46dc-996f-2b63a843ea32"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="42"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="9cd0a046-0915-4c5f-b443-bfaa092a4922"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="79"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="a0dcf09d-3d0d-4c88-97c3-de170be679f5"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="23"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="a3bc3921-2722-46e2-acec-c84763556ea3"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="95"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="a459a8c1-6bed-4957-bed3-cce883edc8e3"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="20"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="a51dedea-6899-4553-8b8a-e6990ee73ce0"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="21"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="a6d91a80-c341-40d9-a0ba-dbcba8947ad6"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="49"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="a7bcc3ed-8780-47ce-947e-9cd42b8c725c"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="93"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="a953775b-0668-4092-8503-48d930725fe3"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="39"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="b09c3eb2-98d0-482c-bb17-a8b3fa630996"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="18"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="b0dc4e62-7179-40b4-adeb-63a45d3bf156"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="3"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="b1aee863-5f92-43a1-80e2-952fad581c0c"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="82"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="b236a314-7dab-4488-83d3-1ed005222572"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="63"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="b35cbb7d-a748-46c8-92a2-0a8e93ce341b"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="68"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="b9403e22-ea0d-41de-a3cc-d6f7e011ebfd"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="34"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="ba0d6dcb-0532-4922-b9c0-bea644adb8a6"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="6"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="ba34cdd9-0168-449f-917d-45e35e3cd8bf"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="11"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="be841bda-0768-4472-9a97-341480dcd5f3"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="85"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="c153c70b-c224-4338-a9c0-d67d1bc41b0c"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="7"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="c2a2ed99-1e49-4b1d-8e1c-08a95d74fd35"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="60"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="c343440e-14e3-40c2-8b3f-dff1b2678a64"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="98"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="c50ab47e-f571-4b24-976b-357aff48e0ee"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="84"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="c8eb8328-271f-49a9-8464-8a60305b1b5b"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="67"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="c9208255-1816-4b5d-bab3-ffca147a3b95"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="91"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="c993be32-b641-4c62-9639-ea3bd936fe23"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="26"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="cde846b0-cfe6-4d7e-aa50-b2b38b90c23e"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="69"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="cf2c2f00-5e66-458b-9fcd-e382676fe128"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="16"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="de0d4d71-e6e9-46f6-b82a-1f32c5119c66"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="47"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="de66d7d5-831f-40ef-8712-074f003aa2e1"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="10"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="dec1eccd-566d-49b1-a50c-ae8978e03591"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="12"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="e27b145c-d5e9-4f6e-926d-48f074b1eb6c"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="50"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="e613ebc0-6730-46fc-879e-ade6786fd268"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="40"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="e674c52e-9471-4149-ab98-ddcc56f61c1d"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="52"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="e6dc8772-6ebf-4d6f-9f82-c487cd91ed89"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="2"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="e792bcae-887e-4c50-8e30-64280896a695"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="88"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="e7cd5d33-960a-4c62-ad70-689153a1a610"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="31"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="ea9500ef-e3a1-45b9-9b18-a8e39fe78cf4"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="77"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="ed5b7285-92f2-4696-8f76-7b47267df7ab"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="4"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="f5fc8288-770a-4e27-9509-fa7b5a4aba55"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="48"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="f76c4ef1-e519-47de-9454-fce250a39b6e"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="76"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="f9f5c8de-2c83-4642-8e1e-a5dff7000dd2"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="36"/>
+        </insert>
+        <insert tableName="hospitalpatients">
+            <column name="Id" value="fc245268-9a6d-4626-9769-9dde7bf041d4"/>
+            <column name="HospitalId" value="test"/>
+            <column name="PatientId" value="27"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

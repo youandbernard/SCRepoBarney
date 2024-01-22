@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="mlabio" id="84d86ec3-3532-11eb-b176-1831bf981123">
+        <sql>
+            DELETE FROM SurgeonSpecialties
+            WHERE BodyStructureGroupId &lt;&gt; 'e52f4011-e8fb-475b-b89e-da8548c18989'
+            and SurgeonId in (17, 22,21,23,50); 
+
+            DELETE FROM PoapProcedures WHERE PreoperativeAssessmentId in 
+            (
+            '08d84ff1-fac1-4006-83f5-b2378755769f'
+            ,'08d84ff3-dd0d-4b78-87c5-4d2e7c43cb91'
+            ,'08d85006-de15-4300-854b-e7ccb6e2e78a'
+            ,'08d8500e-9198-43d4-8c1e-fdf6c901168a'
+            ,'08d8500f-867b-45ba-8a59-23c74b62cc58'
+            ,'08d85010-26fd-4350-8240-f7361a41fec6'
+            ,'08d85019-5a5a-4ee2-8c9b-c596724bc51c'
+            ,'08d8501c-cb04-44c1-8b28-9d3d8a77201f'
+            ,'08d85020-e020-4ff1-8981-12b53a0bcb38'
+            ,'08d850be-b3ba-4ad0-8da1-da8c60523af4'
+            ,'08d86c30-5985-443d-8e9e-d438b166c0da'
+            ,'08d887a1-73ca-4a55-84cc-0f39f338f898'
+            ,'08d850c6-9125-43d4-8417-57f5c7bcf5cc'
+            );
+
+            DELETE FROM PoapRisks WHERE PreoperativeAssessmentId in 
+            (
+            '08d84ff1-fac1-4006-83f5-b2378755769f'
+            ,'08d84ff3-dd0d-4b78-87c5-4d2e7c43cb91'
+            ,'08d85006-de15-4300-854b-e7ccb6e2e78a'
+            ,'08d8500e-9198-43d4-8c1e-fdf6c901168a'
+            ,'08d8500f-867b-45ba-8a59-23c74b62cc58'
+            ,'08d85010-26fd-4350-8240-f7361a41fec6'
+            ,'08d85019-5a5a-4ee2-8c9b-c596724bc51c'
+            ,'08d8501c-cb04-44c1-8b28-9d3d8a77201f'
+            ,'08d85020-e020-4ff1-8981-12b53a0bcb38'
+            ,'08d850be-b3ba-4ad0-8da1-da8c60523af4'
+            ,'08d86c30-5985-443d-8e9e-d438b166c0da'
+            ,'08d887a1-73ca-4a55-84cc-0f39f338f898'
+            ,'08d850c6-9125-43d4-8417-57f5c7bcf5cc'
+            );
+
+            DELETE FROM PatientSurveys WHERE PreoperativeAssessmentId in 
+            (
+            '08d84ff1-fac1-4006-83f5-b2378755769f'
+            ,'08d84ff3-dd0d-4b78-87c5-4d2e7c43cb91'
+            ,'08d85006-de15-4300-854b-e7ccb6e2e78a'
+            ,'08d8500e-9198-43d4-8c1e-fdf6c901168a'
+            ,'08d8500f-867b-45ba-8a59-23c74b62cc58'
+            ,'08d85010-26fd-4350-8240-f7361a41fec6'
+            ,'08d85019-5a5a-4ee2-8c9b-c596724bc51c'
+            ,'08d8501c-cb04-44c1-8b28-9d3d8a77201f'
+            ,'08d85020-e020-4ff1-8981-12b53a0bcb38'
+            ,'08d850be-b3ba-4ad0-8da1-da8c60523af4'
+            ,'08d86c30-5985-443d-8e9e-d438b166c0da'
+            ,'08d887a1-73ca-4a55-84cc-0f39f338f898'
+            ,'08d850c6-9125-43d4-8417-57f5c7bcf5cc'
+            );
+
+            DELETE FROM preoperativeassessments where surgeonid in (17, 22,21,23,50);
+            DELETE FROM preoperativeassessments where id = '08d850c6-9125-43d4-8417-57f5c7bcf5cc';
+
+            UPDATE preoperativeassessments poap
+            LEFT JOIN surgeonspecialties sp ON poap.surgeonId = sp.surgeonId
+            SET poap.BodyStructureGroupid = sp.BodyStructureGroupId;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

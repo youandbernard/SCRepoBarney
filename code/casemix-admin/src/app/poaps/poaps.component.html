@@ -1,0 +1,66 @@
+<div [@routerTransition]>
+  <section class="content-header page-header poap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ "PreOperativeAssessments" | localize }}</h1>
+        </div>
+        <div class="col-6 text-right">
+          <a href="javascript:;" class="btn bg-blue" (click)="onCreatePoapClick()">
+            <i class="fa fa-plus-square"></i>
+            {{ "Create" | localize }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body ajax-dt">
+          <div class="form-check mb-3">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="checkboxDisplayforCompletedSurveyd"
+              [(ngModel)]="isDisplayRiskAwaitingCompletion"
+              (change)="refreshDataTable()"
+            />
+            <label class="form-check-label" for="checkboxDisplayforCompletedSurveyd">Display POAPs awaiting Risk Completion</label>
+          </div>
+          <table id="poaps" [busy]="isPoapsLoading" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+            class="table table-bordered table-striped table-hover text-nowrap">
+            <thead>
+              <tr>
+                <td>{{ "PatientId" | localize }}</td>
+                <td>{{ "Surgeon" | localize }}</td>
+                <td>{{ "Anaesthetist" | localize }}</td>
+                <td>{{ "TheaterId" | localize }}</td>
+                <td>{{ "Specialty" | localize }}</td>
+                <td>{{ "TotalTime" | localize }}</td>
+                <td width="1%" class="text-center">{{ "Actions" | localize }}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let poap of preOperativeAssessments">
+                <td>{{poap.patientId}}</td>
+                <td>{{poap.surgeonName}}</td>
+                <td>{{poap.anesthetistName}}</td>
+                <td>{{poap.theater.theaterId}}</td>
+                <td>{{poap.bodyStructure && poap.bodyStructure.bodyStructureGroup ? poap.bodyStructure.bodyStructureGroup.name : ''}}</td>
+                <td>{{poap.totalMeanTime}}</td>
+                <td>
+                  <button type="button" class="btn btn-sm bg-secondary" (click)="onEditPoapClick(poap.id)">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm bg-danger mx-2" (click)="onDeletePoapClick(poap.id)">
+                    <i class="fas fa-trash"></i>
+                  </button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

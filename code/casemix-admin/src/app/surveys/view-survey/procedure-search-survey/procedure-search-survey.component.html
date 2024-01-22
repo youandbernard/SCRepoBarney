@@ -1,0 +1,25 @@
+<form class="form-horizontal" autocomplete="off" #dateTimePickerModal="ngForm" (ngSubmit)="onFormSubmit()">
+  <abp-modal-header [title]="'Procedures' | localize" (onCloseClick)="onCloseClick()"></abp-modal-header>
+  <div class="modal-body">
+    <div class="select-all">
+      <p-checkbox
+        name="isCheckedSelectAll"
+        [(ngModel)]="isCheckedSelectAll"
+        (click)="onSelectAllClick($event)"
+        [binary]="true"
+      ></p-checkbox>
+      <span class="select-all-label" for="">SELECT ALL</span>
+    </div>
+    <p-tree
+      [value]="treeNodes"
+      [loading]="isMenuLoading"
+      [filter]="true"
+      [propagateSelectionUp]="false"
+      [propagateSelectionDown]="false"
+      [(selection)]="selectedTreeItems"
+      selectionMode="checkbox"
+      (click)="onCheckSelectAllClick()"
+    ></p-tree>
+  </div>
+  <abp-modal-footer (onCancelClick)="onCloseClick()"></abp-modal-footer>
+</form>

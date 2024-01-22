@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="bnavarro" id="253961df-d28c-11ec-8a0d-089798b0519b-1">
+        <createTable tableName="deviceprocedures">
+			<column name="Id" type="int" autoIncrement="true">
+            	<constraints primaryKey="true" nullable="false"/>
+        	</column>
+            <column name="DeviceId" type="int">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="BodyStructureGroupId" type="CHAR(36)">
+                <constraints nullable="true"/>
+        	</column>
+            <column name="BodyStructureId" type="int">
+                <constraints nullable="true"/>
+        	</column>
+            <column name="BodyStructureProcId" type="int">
+                <constraints nullable="true"/>
+        	</column>
+             <column name="UserId" type="bigint">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="CreatedDate" type="datetime">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="ModifiedDate" type="datetime">
+                <constraints nullable="true"/>
+        	</column>
+        </createTable>
+    </changeSet>
+    <changeSet author="bnavarro" id="253961df-d28c-11ec-8a0d-089798b0519b-2">
+        <createIndex indexName="FK_DeviceProcedures_Users_UserId_idx" tableName="deviceprocedures">
+            <column name="UserId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bnavarro" id="253961df-d28c-11ec-8a0d-089798b0519b-3">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="deviceprocedures" constraintName="FK_DeviceProcedures_Users_UserId" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="Id" referencedTableName="abpusers"/>
+    </changeSet>
+
+    <changeSet author="bnavarro" id="253961df-d28c-11ec-8a0d-089798b0519b-4">
+        <createIndex indexName="FK_DeviceProcedures_BodyStructure_BodyStructureId_idx" tableName="deviceprocedures">
+            <column name="BodyStructureId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bnavarro" id="253961df-d28c-11ec-8a0d-089798b0519b-5">
+        <addForeignKeyConstraint baseColumnNames="BodyStructureId" baseTableName="deviceprocedures" constraintName="FK_DeviceProcedures_BodyStructure_BodyStructureId" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="Id" referencedTableName="bodystructures"/>
+    </changeSet>
+
+    <changeSet author="bnavarro" id="253961df-d28c-11ec-8a0d-089798b0519b-6">
+        <createIndex indexName="FK_DeviceProcedures_BodyStructureSubProc_BodyStructureProcI_idx" tableName="deviceprocedures">
+            <column name="BodyStructureProcId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bnavarro" id="253961df-d28c-11ec-8a0d-089798b0519b-7">
+        <addForeignKeyConstraint baseColumnNames="BodyStructureProcId" baseTableName="deviceprocedures" constraintName="FK_DeviceProcedures_BodyStructureSubProc_BodyStructureProcId" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="Id" referencedTableName="bodystructuresubprocedures"/>
+    </changeSet>
+</databaseChangeLog>

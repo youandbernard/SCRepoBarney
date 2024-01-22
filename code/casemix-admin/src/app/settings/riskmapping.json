@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "imageUrl": "assets/img/PatientMapping-1.png",
+        "active": false
+    },
+    {
+        "id": 2,
+        "imageUrl": "assets/img/PatientMapping-2.png",
+        "active": false
+    },
+    {
+        "id": 3,
+        "imageUrl": "assets/img/PatientMapping-3.png",
+        "active": true
+    },
+    {
+        "id": 4,
+        "imageUrl": "assets/img/PatientMapping-4.png",
+        "active": false
+    }
+]

@@ -1,0 +1,65 @@
+<form class="form-horizontal" autocomplete="off" #deviceProcedureForm="ngForm" (ngSubmit)="onModalSubmit()">
+    <abp-modal-header [title]="'Device Procedures - ' + currentHospitalName | localize" (onCloseClick)="onCloseClick()"></abp-modal-header>
+        <div class="modal-body">
+            <div class="col-md-12 col-lg-12">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card col-md-12 col-lg-12">
+                        <div class="card-header">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                            {{ 'Device Information' | localize }}
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <table class="table-details">
+                                        <tr>
+                                            <td>{{ 'Device Code' | localize }}:</td>
+                                            <td>{{ deviceCode }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'Device Name' | localize }}:</td>
+                                            <td>{{ deviceName }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 text-left">
+                    <div class="bodystructures-tree-actions">
+                        <button class="btn btn-sm btn-success" type="button" (click)="clearSelection()">
+                            <i class="fa fa-search"></i>
+                            {{ 'Clear Selections' | localize }}
+                        </button>
+                        <button class="btn btn-sm btn-success" type="button" (click)="onExpandAllClick()">
+                            <i class="fas fa-angle-double-down fa-light"></i>
+                            {{ 'ExpandAll' | localize }}
+                        </button>
+                        <button class="btn btn-sm btn-success" type="button" (click)="onCollapseAllClick()">
+                            <i class="fa fa-angle-double-up fa-light"></i>
+                            {{ 'CollapseAll' | localize }}
+                        </button>
+                    </div>
+                    <p-tree
+                        [value]="bodystructuresGroupNodes"
+                        [filter]="true"
+                        [loading]="isTreeLoading"
+                        [propagateSelectionUp]="false"
+                        [propagateSelectionDown]="true"
+                        [(selection)]="selectedBodystructuresNodes"
+                        selectionMode="checkbox"
+                        (click)="onCheckSelectAllClick()"
+                        placeholder="Select Procedure..."
+                        >
+                    </p-tree>
+                </div>
+            </div>
+        </div>
+    <abp-modal-footer 
+        [saveLabel] = "'Save' | localize"
+        (onCancelClick)="onCloseClick()"
+    >
+    </abp-modal-footer>
+</form>

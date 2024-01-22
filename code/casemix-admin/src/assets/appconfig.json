@@ -1,0 +1,19 @@
+{
+  "remoteServiceBaseUrl": "http://localhost:21022",
+  "appBaseUrl": "http://localhost:6340",
+  "localeMappings": [
+    {
+      "from": "pt-BR",
+      "to": "pt"
+    },
+    {
+      "from": "zh-CN",
+      "to": "zh"
+    },
+    {
+      "from": "he-IL",
+      "to": "he"
+    }
+  ],
+  "importFile_URL": "https://casemix-uat-assets.s3.eu-west-2.amazonaws.com/"
+}

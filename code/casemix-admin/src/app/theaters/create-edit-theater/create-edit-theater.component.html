@@ -1,0 +1,28 @@
+<form class="form-horizontal" autocomplete="off" #createEditTheaterForm="ngForm" (ngSubmit)="onFormSubmit()">
+  <abp-modal-header [title]="(id ? 'EditTheater' : 'CreateNewTheater') | localize" (onCloseClick)="onCloseClick()">
+  </abp-modal-header>
+  <div class="modal-body">
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Theater_TheaterId">
+        {{ "TheaterId" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Theater_TheaterId" id="Theater_TheaterId"
+          [(ngModel)]="theater.theaterId" #theaterId="ngModel" #theaterIdEl required maxlength="16" />
+        <abp-validation-summary [control]="theaterId" [controlEl]="theaterIdEl"></abp-validation-summary>
+      </div>
+    </div>
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Theater_Name">
+        {{ "Name" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="Theater_Name" id="Theater_Name" [(ngModel)]="theater.name"
+          #name="ngModel" #nameEl required maxlength="50" />
+        <abp-validation-summary [control]="name" [controlEl]="nameEl"></abp-validation-summary>
+      </div>
+    </div>
+  </div>
+  <abp-modal-footer [cancelDisabled]="isSaving" [saveDisabled]="!createEditTheaterForm.form.valid || isSaving"
+    (onCancelClick)="onCloseClick()"></abp-modal-footer>
+</form>

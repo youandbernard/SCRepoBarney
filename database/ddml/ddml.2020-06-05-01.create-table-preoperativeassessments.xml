@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1591329418802-1">
+        <createTable tableName="preoperativeassessments">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SurgeonName" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SurgeonExperience" type="INT"/>
+            <column name="AnesthetistName" type="VARCHAR(100)"/>
+            <column name="DateOfBirthYear" type="INT"/>
+            <column name="Gender" type="INT"/>
+            <column name="Status" type="INT"/>
+            <column name="AssesmentDate" type="datetime(6)"/>
+            <column name="SurgeryDate" type="datetime(6)"/>
+            <column name="HospitalId" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PatientId" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SurgeonId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329418802-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="preoperativeassessments"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329418802-3">
+        <createIndex indexName="FK_PreOperativeAssessments_Hospitals_HospitalId_idx" tableName="preoperativeassessments">
+            <column name="HospitalId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329418802-4">
+        <createIndex indexName="FK_PreOperativeAssessments_Patients_PatientId_idx" tableName="preoperativeassessments">
+            <column name="PatientId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329418802-5">
+        <createIndex indexName="FK_PreOperativeAssessments_Users_SurgeonId_idx" tableName="preoperativeassessments">
+            <column name="SurgeonId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329418802-6">
+        <addForeignKeyConstraint baseColumnNames="HospitalId" baseTableName="preoperativeassessments" constraintName="FK_PreOperativeAssessments_Hospitals_HospitalId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="hospitals"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329418802-7">
+        <addForeignKeyConstraint baseColumnNames="PatientId" baseTableName="preoperativeassessments" constraintName="FK_PreOperativeAssessments_Patients_PatientId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="patients"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1591329418802-8">
+        <addForeignKeyConstraint baseColumnNames="SurgeonId" baseTableName="preoperativeassessments" constraintName="FK_PreOperativeAssessments_Users_SurgeonId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="abpusers"/>
+    </changeSet>
+</databaseChangeLog>

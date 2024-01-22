@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="4eb10763-abc6-11ec-814d-1831bf981123-1">
+        <createTable tableName="manufactures">
+			<column name="Id" type="CHAR(36)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IsEnabled" type="BIT" />			
+        </createTable>
+    </changeSet>
+    <changeSet author="mel (generated)" id="4eb10763-abc6-11ec-814d-1831bf981123-2">
+        <sql>
+            insert into abproles
+            (CreationTime, IsDeleted, TenantId, Name, DisplayName, IsStatic, NormalizedName, IsDefault, ConcurrencyStamp)
+            values
+            (utc_date(), 0, 1, 'Manufacturer', 'Manufacturer', 1, 'MANUFACTURER', 0,  '8d9318b5-abc7-11ec-814d-1831bf981123');
+        </sql>
+    </changeSet>
+
+    <changeSet author="mel (generated)" id="4eb10763-abc6-11ec-814d-1831bf981123-3">
+        <sql>
+            insert into manufactures
+            (Id, Name, IsEnabled)
+            values
+            ('b26c1d93-abc7-11ec-814d-1831bf981123', 'Penlon Limited', 1),
+            ('be5dc59c-abc7-11ec-814d-1831bf981123', 'Intuitive Surgical Limited', 1),
+            ('c1b6ddd3-abc7-11ec-814d-1831bf981123', 'Medtronic [or LightPoint Medical]', 1);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

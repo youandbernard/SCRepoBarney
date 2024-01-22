@@ -1,0 +1,53 @@
+<abp-modal-header [title]="'GMDN Termcode - ' + gmdntermcode | localize" (onCloseClick)="onCloseClick()"></abp-modal-header>
+    <div class="modal-body">
+        <div class="col-md-12 col-lg-12">
+            <p-table
+                [value]="deviceList"
+                [autoLayout]="true"
+                dataKey="deviceName"
+                [reorderableColumns]="true"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th width="1%">&nbsp;</th>
+                        <th>Name</th>
+                        <th>Definition</th>
+                        <th>Status</th>
+                        <th>TermIsIVD</th>
+                        <th>CreatedDate</th>
+                        <th>ObsoletedDate</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-device let-i="rowIndex">
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ device.deviceName}}</td>
+                        <td title="{{device.gmdnDefinition}}" style="cursor: pointer !important; width: 250px !important; max-width: 250px !important;">
+                            {{ (device.gmdnDefinition.length > 50)? (device.gmdnDefinition | slice:0:50) + '...': (device.gmdnDefinition) }}
+                        </td>
+                        <td>{{ device.gmdnStatus }}</td>
+                        <td>{{ device.gmdnTermIsIVD }}</td>
+                        <td>{{ device.gmdnCreatedDate }}</td>
+                        <td>{{ device.gmdnObsoletedDate }}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+<abp-modal-footer 
+    (onCancelClick)="onCloseClick()"
+    [saveHidden] = true
+    [cancelLabel] = "'Ok' | localize"
+>
+</abp-modal-footer> 

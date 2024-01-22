@@ -1,0 +1,11 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="tapesh (generated)" id="239848e2-a6f5-444d-b511-2b22a8a1a2a4-1">
+         <addColumn tableName="preoperativeassessments">
+            <column name="EthnicityId" type="INT"/>
+        </addColumn>
+    </changeSet>
+	<changeSet author="danie (generated)" id="239848e2-a6f5-444d-b511-2b22a8a1a2a4-2">
+        <addForeignKeyConstraint baseColumnNames="EthnicityId" baseTableName="preoperativeassessments" constraintName="FK_PreOperativeAssessments_Ethnicities_EthnicityId" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="ethnicities"/>
+    </changeSet>
+</databaseChangeLog>

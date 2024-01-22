@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mlabio" id="2d4bfb97-6be8-11eb-8ea5-1831bf981123-1">
+        <createTable tableName="PoapProcedureMethodTypes">
+			<column name="Id" type="int" autoIncrement="true">
+            	<constraints primaryKey="true" nullable="false"/>
+        	</column>
+            <column name="PreOperativeAssessmentId" type="CHAR(36)" />
+            <column name="ProcedureTypeId" type="CHAR(36)" />			
+        </createTable>
+    </changeSet>
+    <changeSet author="mlabio" id="2d4bfb97-6be8-11eb-8ea5-1831bf981123-2">
+        <createIndex indexName="FK_PoapMethodTypes_Poap_PoapId_Idx" tableName="PoapProcedureMethodTypes">
+            <column name="PreOperativeAssessmentId"/>
+        </createIndex>
+    </changeSet>
+    <!-- <changeSet author="mlabio" id="2d4bfb97-6be8-11eb-8ea5-1831bf981123-3">
+        <addForeignKeyConstraint baseColumnNames="PreOperativeAssessmentId" baseTableName="PoapProcedureMethodTypes" constraintName="FK_PoapMethodTypes_Poap_PoapId" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="Id" referencedTableName="Preoperativeassessments"/>
+    </changeSet> -->
+    <changeSet author="mlabio" id="2d4bfb97-6be8-11eb-8ea5-1831bf981123-4">
+        <createIndex indexName="FK_PoapMethodTypes_MT_MethodId_idx" tableName="PoapProcedureMethodTypes">
+            <column name="ProcedureTypeId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="mlabio" id="2d4bfb97-6be8-11eb-8ea5-1831bf981123-5">
+        <addForeignKeyConstraint baseColumnNames="ProcedureTypeId" baseTableName="PoapProcedureMethodTypes" constraintName="FK_PoapMethodTypes_MT_MethodId" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="Id" referencedTableName="ProcedureMethodTypes"/>
+    </changeSet>
+</databaseChangeLog>

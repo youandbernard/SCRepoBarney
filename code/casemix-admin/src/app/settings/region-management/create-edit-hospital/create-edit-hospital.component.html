@@ -1,0 +1,182 @@
+<form class="form-horizontal" autocomplete="off" #createEditHospitalForm="ngForm">
+  <abp-modal-header [title]="'Create Hospital' | localize" (onCloseClick)="onCloseClick()"> </abp-modal-header>
+  <div class="modal-body">
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Hospital_Name">
+        {{ 'Country' | localize }}
+      </label>
+      <div class="col-md-9">
+        <div class="input-group">
+          <input
+            [(ngModel)]="ctyModelName"
+            name="Country_Name"
+            id="Country_Name"
+            [typeahead]="countries"
+            typeaheadOptionField="name"
+            class="form-control"
+            [typeaheadMinLength]="0"
+            (typeaheadOnSelect)="onCountryChange($event)"
+            disabled="true"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Hospital_Name">
+        {{ 'Region' | localize }}
+      </label>
+      <div class="col-md-9">
+        <div class="input-group">
+          <input
+            [(ngModel)]="rgModelName"
+            name="Region_Name"
+            id="Region_Name"
+            [typeahead]="regions"
+            typeaheadOptionField="name"
+            class="form-control"
+            [typeaheadMinLength]="0"
+            (typeaheadOnSelect)="onRegionChange($event)"
+            disabled
+          />
+          <div class="input-group-append">
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Hospital_Name">
+        {{ 'Sub Region' | localize }}
+      </label>
+      <div class="col-md-9">
+        <div class="input-group">
+          <input
+            [(ngModel)]="trustModelName"
+            name="Trust_Name"
+            id="Trust_Name"
+            [typeahead]="trusts"
+            typeaheadOptionField="name"
+            class="form-control"
+            [typeaheadMinLength]="0"
+            (typeaheadOnSelect)="onRegionChange($event)"
+            disabled
+          />
+          <div class="input-group-append">
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row required" *ngIf="ctyModelName === 'United Kingdom'">
+      <label class="col-md-3 col-form-label" for="Hospital_Name">
+        {{ 'ICS' | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          [(ngModel)]="selectedIcs"
+          name="ics_name"
+          id="ics_name"
+          [typeahead]="icsData"
+          typeaheadOptionField="name"
+          class="form-control"
+          [typeaheadMinLength]="0"
+          (typeaheadOnSelect)="onRegionChange($event)"
+          disabled
+        />
+      </div>
+    </div>
+
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Hospital_Name">
+        {{ 'Name' | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="Hospital_Name"
+          id="Hospital_Name"
+          [(ngModel)]="hospital.name"
+          #name="ngModel"
+          #nameEl
+          required
+        />
+        <abp-validation-summary [control]="name" [controlEl]="nameEl"></abp-validation-summary>
+      </div>
+    </div>
+
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Hospital_ID">
+        {{ 'Hospital ID' | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="Hospital_ID"
+          id="Hospital_ID"
+          [(ngModel)]="hospital.id"
+          #id="ngModel"
+          #idEl
+          required
+          [readonly] = "!isNew"
+          maxlength="20"
+          placeholder="Max length of 20 characters"
+        />
+        <abp-validation-summary [control]="id" [controlEl]="idEl"></abp-validation-summary>
+      </div>
+    </div>
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="Hospital_postcode">
+        {{ 'Postcode/ Zip Code' | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="Hospital_Postcode"
+          id="Hospital_Postcode"
+          [(ngModel)]="hospital.postcode"
+          #name="ngModel"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label" for="activeDevMgt">
+        {{ 'Device Management' | localize }}
+      </label>
+       <div class="col-md-9">
+          <label class="switchStatus">Disable</label>
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="hospital.activeDevMgt" name="activeDevMgt" />
+            <span class="slider round"></span>
+          </label>
+          <label class="switchStatus">Enable</label>
+      </div>
+      
+    </div>
+
+    <div class="col-md-12 col-lg-12" *ngIf="hospital.activeDevMgt">
+      <app-set-specialties #setSpecialtiesComponent [hospitalId]="hospital.id"></app-set-specialties>
+    </div>
+    
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default close-btn" (click)="onCloseClick()">Cancel</button>
+    <button class="btn btn-primary" type="submit" (click)="onFormSubmit()">Save</button>
+  </div>
+</form>

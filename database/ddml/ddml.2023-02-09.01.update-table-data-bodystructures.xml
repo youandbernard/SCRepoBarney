@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="55985790-a84b-11ed-a923-089798b0519b-1">
+        <sql>
+            
+            -- Update BodyStructures
+            update bodystructures SET Description = 'BPH-Water Vapor Thermal Therapy (WVTT)' WHERE Id = 266569009;
+            update bodystructures SET Description = 'BPH-Transurethral Resection of Prostate (TURP)' WHERE Id = 90199006;
+
+            -- Insert BodyStructures
+            insert into bodystructures (Id, Description, BodyStructureGroupId, DisplayOrder) values
+            (90470006,'BPH-Simple Prostatectomy', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 3),
+            (56646001,'BPH-Transurethral Incision of the Prostate (TUIP)', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 4),
+            (176288003,'BPH-Transurethral Vaporization of the Prostate', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 5),
+            (725959008,'BPH-Prostatic Urethral Lift (PUL)', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 6),
+            (310816009,'BPH-Transurethral Microwave Therapy (TUMT)', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 7),
+            (699075006,'BPH-Holmium Laser Enucleation (HoLEP)', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 8),
+            (870379008,'BPH-Robotic Waterjet Treatment (RWT)', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 9);            
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

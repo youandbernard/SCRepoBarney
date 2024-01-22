@@ -1,0 +1,73 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="69e8897e-a3b9-11ed-a923-089798b0519b-1">
+        <sql>
+            
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('e8dab7c1-a3ba-11ed-a923-089798b0519b','Angiography','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('ee5092b8-a3ba-11ed-a923-089798b0519b','Angioplasty','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('f4708a8f-a3ba-11ed-a923-089798b0519b','Catheter Kits','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('fc1570c1-a3ba-11ed-a923-089798b0519b','Catheters','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('01d36f45-a3bb-11ed-a923-089798b0519b','Cryoplasty','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('0779eacd-a3bb-11ed-a923-089798b0519b','Drug Eluting Stents','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('0da41f47-a3bb-11ed-a923-089798b0519b','Embolics','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('14394774-a3bb-11ed-a923-089798b0519b','Guidewires','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('1a080e7d-a3bb-11ed-a923-089798b0519b','Metallic Stents','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('1fa2aaea-a3bb-11ed-a923-089798b0519b','Non Vascular intervention','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('270eec26-a3bb-11ed-a923-089798b0519b','Peripheral Cutting Ballon','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('2d733193-a3bb-11ed-a923-089798b0519b','Vascular Intervention','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+            INSERT INTO devicefamily 
+            (DeviceFamilyId, Name, Field1, Field2, Field3, BodyStructureGroupId)
+            VALUES
+            ('328d91a1-a3bb-11ed-a923-089798b0519b','Vena Cava Filter','','','','4ac97ff0-2e7a-11ed-87a9-089798b0519b');
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

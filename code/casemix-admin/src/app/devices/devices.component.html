@@ -1,0 +1,51 @@
+<div [@routerTransition]>
+  <section class="content-header page-header device">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <h3 *ngIf="(isAdmin || isSuperAdmin || isSurgeon)">{{ 'Device Management' | localize }}</h3>          
+          <h2 *ngIf="!(isAdmin || isSuperAdmin || isSurgeon) && isManufacturer">{{ 'Devices ' | localize }}</h2>
+        </div>
+        <div class="col-8" *ngIf="(isAdmin || isSuperAdmin || isSurgeon)">  
+          <div class="heading_margin_auto">
+             <h5>
+                {{ 'Register of Medical Devices: ' | localize }} {{currentHospitalName}}
+              </h5>
+          </div> 
+        </div>
+        <div class="col-4" *ngIf="!(isAdmin || isSuperAdmin || isSurgeon) && isManufacturer">
+        </div>
+        <div class="col-4" *ngIf="!(isAdmin || isSuperAdmin || isSurgeon) && isManufacturer">
+          <div style="float: right !important;">
+            <h1>{{currentManufacturer}}</h1>
+          </div>         
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="px-2">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 settings">
+              <tabset>      
+                <tab *ngIf="!isAdmin && isManufacturer;else NonManufacturer" heading="{{ 'Register of Medical Devices' | localize }}">
+                  <app-device-manufacturer-devices></app-device-manufacturer-devices>
+                </tab>
+                <ng-template #NonManufacturer>
+                  <tab *ngIf="!isManufacturer" heading="{{ 'Register of Medical Devices' | localize }}">
+                    <app-device-management-devices [superAdminUser]="isSuperAdmin"></app-device-management-devices>
+                  </tab>
+                </ng-template>
+                <tab *ngIf="!isAdmin && isManufacturer" heading="{{ 'Import' | localize }}">
+                  <app-device-management-import></app-device-management-import>
+                </tab>
+              </tabset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

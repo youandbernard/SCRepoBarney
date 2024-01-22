@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="danie (generated)" id="1590557267136-1">
+        <createTable tableName="userhospitals">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UserId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HospitalId" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1590557267136-2">
+        <addPrimaryKey columnNames="Id" constraintName="PRIMARY" tableName="userhospitals"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1590557267136-3">
+        <createIndex indexName="FK_UserHospitals_AbpUsers_UserId_idx" tableName="userhospitals">
+            <column name="UserId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1590557267136-4">
+        <createIndex indexName="FK_UserHospitals_Hospitals_HospitalId_idx" tableName="userhospitals">
+            <column name="HospitalId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1590557267136-5">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="userhospitals" constraintName="FK_UserHospitals_AbpUsers_UserId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="abpusers"/>
+    </changeSet>
+    <changeSet author="danie (generated)" id="1590557267136-6">
+        <addForeignKeyConstraint baseColumnNames="HospitalId" baseTableName="userhospitals" constraintName="FK_UserHospitals_Hospitals_HospitalId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="hospitals"/>
+    </changeSet>
+</databaseChangeLog>

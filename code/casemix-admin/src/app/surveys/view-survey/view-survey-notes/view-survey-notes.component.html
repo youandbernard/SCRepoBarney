@@ -1,0 +1,100 @@
+<form class="form-horizontal" autocomplete="off" #viewSurveyNotesForm="ngForm" (ngSubmit)="onModalSubmit()">
+    <abp-modal-header [title]="'Sub Procedure Notes' | localize" (onCloseClick)="onCloseClick()"></abp-modal-header>
+    <div class="modal-body">
+        <div *ngIf="surveyNotesModel.length == 0;else SurveyNotes" style="color:red">
+            <span>Warning:</span>
+            All survey notes will deleted. Click "Save" to proceed.
+        </div>
+        <ng-template #SurveyNotes>
+            <div class="col-md-12 col-lg-12" *ngFor="let n of surveyNotesModel; let i = index">
+                <div class="col-md-12 col-lg-12 form-group" *ngIf="(i+1) == paging">
+                    <div class="text-left">
+                        <h5>{{ n.poapProcedureName }}</h5>
+                    </div>
+                    <tabset>
+                        <tab heading="{{ 'Easy of Use' | localize }}">
+                            <div>
+                                <textarea
+                                    [(ngModel)]="n.tab1noteDescription"
+                                    [id]="'tab1noteDescription_' + i"
+                                    name="tab1noteDescription"
+                                    class="form-control"
+                                    rows="7"
+                                ></textarea>
+                            </div>
+                        </tab>
+                        <tab heading="{{ 'Adverse Event' | localize }}">
+                            <div>
+                                <textarea
+                                    [(ngModel)]="n.tab2noteDescription"
+                                    [id]="'tab2noteDescription_' + i"
+                                    name="tab2noteDescription"
+                                    class="form-control"
+                                    rows="7"
+                                ></textarea>
+                            </div>
+                        </tab>
+                        <tab heading="{{ 'Procedure Complexity' | localize }}">
+                            <div>
+                                <textarea
+                                    [(ngModel)]="n.tab3noteDescription"
+                                    [id]="'tab3noteDescription_' + i"
+                                    name="tab3noteDescription"
+                                    class="form-control"
+                                    rows="7"
+                                ></textarea>
+                            </div>
+                        </tab>
+                        <tab heading="{{ 'Other Notes1' | localize }}">
+                            <div>
+                                <textarea
+                                    [(ngModel)]="n.tab4noteDescription"
+                                    [id]="'tab4noteDescription_' + i"
+                                    name="tab4noteDescription"
+                                    class="form-control"
+                                    rows="7"
+                                ></textarea>
+                            </div>
+                        </tab>
+                        <tab heading="{{ 'Other Notes2' | localize }}">
+                            <div>
+                                <textarea
+                                    [(ngModel)]="n.tab5noteDescription"
+                                    [id]="'tab5noteDescription_' + i"
+                                    name="tab5noteDescription"
+                                    class="form-control"
+                                    rows="7"
+                                ></textarea>
+                            </div>
+                        </tab>
+                    </tabset>
+                </div>
+
+                <div class="col-md-12 col-lg-12" *ngIf="(i+1) == paging">
+                    <div class="justify-content-center row">
+                        <div class="col-lg-4 col-md-4 text-left">
+                            <button type="button" class="btn btn-secondary" (click)="setPrevious()" *ngIf="!isMinPage">
+                                <i class="fas fa-chevron-left"></i>
+                                {{ ' Previous' | localize }}
+                            </button>                    
+                        </div>
+                        <div class="col-lg-4 col-md-4 text-center">
+                            <h5><span>{{ notePaging }}</span></h5>
+                        </div>
+                        <div class="col-lg-4 col-md-4 text-right">                    
+                            <button type="button" class="btn btn-secondary" (click)="setNext()" *ngIf="!isMaxPage">
+                                {{ 'Next ' | localize }}
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </ng-template>
+    </div>
+    <abp-modal-footer 
+        [saveLabel] = "'Save' | localize"
+        (onCancelClick)="onCloseClick()"
+    >
+    </abp-modal-footer>
+</form>

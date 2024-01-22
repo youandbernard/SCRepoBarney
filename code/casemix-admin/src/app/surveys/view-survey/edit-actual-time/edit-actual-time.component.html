@@ -1,0 +1,28 @@
+<form class="form-horizontal" autocomplete="off" #timePickerModal="ngForm" (ngSubmit)="onFormSubmit()">
+  <abp-modal-header [title]="procedure.name" (onCloseClick)="onCloseClick()"></abp-modal-header>
+  <div class="modal-body">
+    <div class="form-group text-center">
+      <button *ngIf="!running" type="button" class="btn btn-xxl btn-success" (click)="onTimerStart()">{{'Start' | localize}}</button>
+      <button *ngIf="running" type="button" class="btn btn-xxl btn-danger" (click)="onTimerStop()">{{'Stop' | localize}}</button>
+      <hr />
+      <h1>
+        {{this.formatDigit(elapsed.hours)}}:{{this.formatDigit(elapsed.minutes)}}:{{this.formatDigit(elapsed.seconds)}}
+      </h1>
+      <div class="custom-control custom-checkbox">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          name="chkaddNotes"
+          [(ngModel)]="isAddNotes"
+          id="chkaddNotes"
+          [disabled] = "disableBox"
+          (change)="onCheckNote($event)"
+        />
+        <label class="custom-control-label" for="chkaddNotes">
+          {{ "Check the box to add note at the end of the survey" | localize }}
+        </label>
+      </div>
+    </div>    
+  </div>
+  <abp-modal-footer [saveHidden]="true" (onCancelClick)="onCloseClick()"></abp-modal-footer>
+</form>

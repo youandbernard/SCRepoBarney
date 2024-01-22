@@ -1,0 +1,79 @@
+<div [@routerTransition]>
+  <section class="content-header page-header settings">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-8">
+          <h1>{{ 'Settings' | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2 home-links">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div [routerLink]="['/app/users']" class="small-box bg-warning">
+            <div class="inner">
+              <h3>{{ 'User Management' | localize }}</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a [routerLink]="['/app/users']" href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+          <div [routerLink]="['/app/region-management']" class="small-box bg-info">
+            <div class="inner">
+              <h3>{{ 'RegionManagement' | localize }}</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a [routerLink]="['/app/region-management']" href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div *ngIf="deviceManagementEnabled || isAdmin" class="col-lg-6 col-md-12">
+          <div [routerLink]="['/app/devices']" class="small-box bg-danger">
+            <div class="inner">
+              <h3>{{ 'Device Management' | localize }}</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a [routerLink]="['/app/devices']" href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div [routerLink]="['/app/hospital-management']" class="small-box" style="background-color: #28a745 !important">
+            <div class="inner">
+              <h3>{{ 'Hospital Management' | localize }}</h3>
+              <p>&nbsp;</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a [routerLink]="['/app/hospital-management']" href="javascript:;" class="small-box-footer">
+              More info
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

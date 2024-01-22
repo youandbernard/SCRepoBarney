@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="bnavarro" id="e2f252f2-70a3-11ed-b4fb-089798b0519b-1">
+        <createTable tableName="deviceshospital">			
+            <column autoIncrement="true" name="Id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+        	</column>
+            <column name="DeviceId" type="INT">
+            	<constraints nullable="false"/>
+        	</column>
+            <column name="HospitalId" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="UserId" type="BIGINT">
+                <constraints nullable="false"/>
+        	</column>
+            <column name="CreatedDate" type="DATETIME">
+                <constraints nullable="false"/>
+        	</column>                      
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

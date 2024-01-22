@@ -1,0 +1,120 @@
+<form #fileForm="ngForm" (ngSubmit)="uploadFile()" class="content">
+    <abp-modal-header [title]="'Import Devices' | localize" (onCloseClick)="oncloseCLick()"></abp-modal-header>
+        <div class="modal-body ajax-dt">
+            <div class="import-header col-md-12">
+                <div class="col-md-12" style="float: right !important;">
+                    <div class="ih2 mb-2">
+                        <div class="row">
+                            <div class="row col-md-12 align-self-center" required>
+                                <label for="BodyStructure" class="col-form-label col-md-3 label-default-fs">{{ 'Specialty:' | localize }}</label>
+                                <select [(ngModel)]="selectedSpeciality" (change)="onSelectSpecialty($event.target.value)"
+                                    class="form-control col-md-9 form-control-sm select-default-fs" id="BodyStructure" name="Specialty" required>
+                                    <option *ngFor="let sp of specialties" [value]="sp.id">
+                                        {{ sp.name }}                    
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="row col-md-12 mt-2 align-self-center" required>
+                                <label for="DeviceFamily" class="col-form-label col-md-3 label-default-fs">{{ 'Device Family:' | localize }}</label>
+                                <select [(ngModel)]="selectedFamily"
+                                    class="form-control col-md-9 form-control-sm select-default-fs" id="DeviceFamily" name="Family" required>
+                                    <option *ngFor="let df of deviceFamily" [value]="df.id">
+                                        {{ df.name }}       
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="row col-md-12 mt-2 align-self-center" required>
+                                <label for="DeviceClass" class="col-form-label col-md-3 label-default-fs">{{ 'Medical Class:' | localize }}</label>
+                                <select [(ngModel)]="selectedClass"
+                                    class="form-control col-md-9 form-control-sm select-default-fs" id="DeviceClass" name="Class" required>
+                                    <option *ngFor="let dc of deviceClass" [value]="dc.id">
+                                        Class {{ dc.class }}       
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="col-md-12" style="float: left !important;">
+                    <div class="ih1 mt-2 mb-3">
+                        <input 
+                            id="file-upload" 
+                            name="file-upload"
+                            type="file" 
+                            (change)="changeListener($event.target.files)"
+                            data-browse-on-zone-click="true" 
+                            #fileInput
+                        >
+                        <button (click)="fileInput.click()" class="btn btn-secondary"> Choose File
+                        </button>
+                        <span class="ml-2">{{files.length > 0 ? files[0].fileName: ""}}</span>
+                    </div>                    
+                </div>
+            </div>
+            
+            <div class="import-table row">
+                <div class="card col-md-12 col-lg-12 mt-20">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                        {{ 'File validation' | localize }}
+                        </h6>
+                    </div>
+                    <div class="card-body ajax-dt table-responsive">
+                        <div class="basic-errors form-group row" *ngIf="showBasicValidated && !basicValidatePass">
+                            <div class="col-md-12" *ngFor="let error of basicErrors.errors;">
+                                 <label class="custom-control-label text-danger">
+                                    {{ error.message }}
+                                </label>
+                            </div>
+                            <label class="custom-control-label text-danger mt-2">
+                                {{ 'Basic validation failed.' | localize}}
+                            </label>
+                        </div>
+                        <div class="basic-errors form-group row" *ngIf="showBasicValidated && basicValidatePass">                            
+                            <label class="custom-control-label text-success">
+                                {{ 'Basic validation is passed.' | localize}}
+                            </label>
+                        </div>
+                         <div class="file-errors form-group row mt-5" *ngIf="showFileValidated && !dataValidatePass">
+                            <div class="col-md-12" *ngFor="let fileError of fileErrors.errors;">
+                                 <label class="custom-control-label text-danger">
+                                    {{ fileError.message }}
+                                </label>                                 
+                            </div>
+                            <label class="custom-control-label text-danger mt-2">
+                                {{ 'Data file validation failed.' | localize}}
+                            </label>
+                        </div>
+                        <div class="file-errors form-group row" *ngIf="showFileValidated && dataValidatePass">                            
+                            <label class="custom-control-label text-success">
+                                {{ 'File has passed the validation, ' | localize}} {{numRows}} {{' rows checked ' | localize}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="col-md-12 col-lg-12 row">
+                            <div class="col-md-6 col-lg-6 text-left">
+                                <button type="button" class="btn btn-success" (click)="validateFile()">
+                                    {{ isValidating? 'Validating file . . .': 'Start validate' | localize }}
+                                    <span *ngIf="isValidating" class="fa fa-spinner fa-pulse ml-2"></span>
+                                </button>
+                            </div>
+                            <div class="col-md-6 col-lg-6 text-left" style="margin-top: 5px !important" *ngIf="isUploading">
+                                <label class="text-info">
+                                    {{ 'Uploading data . . .' | localize}}
+                                </label>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>  
+            </div>
+        </div>
+    <abp-modal-footer 
+        [saveLabel] = "'Upload' | localize"
+        (onCancelClick)="oncloseCLick()"
+        [saveDisabled] = "!basicValidatePass || !dataValidatePass || isUploading"
+        [cancelDisabled]="isUploading || isValidating"
+    >
+    </abp-modal-footer>
+</form>

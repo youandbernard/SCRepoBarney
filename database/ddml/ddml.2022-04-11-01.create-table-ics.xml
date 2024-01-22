@@ -1,0 +1,187 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="35c208fb-b92d-11ec-9e49-1831bf981123-1">
+        <createTable tableName="ics">
+			<column name="Id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Region" type="VARCHAR(256)" />
+            <column name="Ics" type="VARCHAR(256)" />
+            <column name="GroupTrust" type="LONGTEXT" />
+            <column name="TrustWebsite" type="LONGTEXT" />
+             <column name="InnovationTeamContactName" type="LONGTEXT" />
+            <column name="InnovationTeamWebsite" type="LONGTEXT" />
+            <column name="ContactRole" type="VARCHAR(256)" />
+            <column name="ContactNumber" type="VARCHAR(256)" />
+            <column name="ContactEmail" type="VARCHAR(256)" />
+            <column name="Contacted" type="bit" />
+        </createTable>
+    </changeSet>
+
+     <changeSet author="mel (generated)" id="35c208fb-b92d-11ec-9e49-1831bf981123-2">
+        <sql>
+                INSERT INTO `ics` VALUES (1,'East of England','Bedfordshire, Luton and Milton Keynes ICS','Bedfordshire Hospitals NHS Foundation Trust','https://www.bedfordshirehospitals.nhs.uk/','https://www.bedfordshirehospitals.nhs.uk/corporate-information/sustainability-and-transformation-plan-stp/','Josh Chandler','Chief Digital Transformation Officer','01908 996217','Joshua.Chandler@bedfordhospital.nhs.uk',0);
+                INSERT INTO `ics` VALUES (2,'East of England','Bedfordshire, Luton and Milton Keynes ICS','Milton Keynes University Hospital NHS Foundation Trust','https://www.mkuh.nhs.uk/','Unavailable','Lauren Davis','Transformation Project Manager',' 01908 660033','Unavailable',0);
+                INSERT INTO `ics` VALUES (3,'East of England','Herts and West Essex ICS','East and North Hertfordshire NHS Trust','https://www.enherts-tr.nhs.uk/','https://www.enherts-tr.nhs.uk/about/research/','Rishma Bhatti','Research and Development Manager','01438 314333','Unavailable',0);
+                INSERT INTO `ics` VALUES (4,'East of England','Herts and West Essex ICS','Hertfordshire Community NHS Trust','https://www.hct.nhs.uk/','Unavailable','Simon Carey','Deputy Director Technology &#38; Innovation','01707 388000','scarey@nhs.net',0);
+                INSERT INTO `ics` VALUES (5,'East of England','Herts and West Essex ICS','Hertfordshire Partnership University NHS Foundation Trust','https://www.hpft.nhs.uk/','https://improvements.hpft.nhs.uk/','Unavailable','Unavailable','01707 253800','hpft.qualityimprovement@nhs.net',0);
+                INSERT INTO `ics` VALUES (6,'East of England','Herts and West Essex ICS','West Hertfordshire Hospitals NHS Trust','https://www.westhertshospitals.nhs.uk/default.asp','https://www.westhertshospitals.nhs.uk/about/redevelopment/','Duane Passman','Acute Redevelopment Programme Director','Unavailable','westherts.redevelopment@nhs.net',0);
+                INSERT INTO `ics` VALUES (7,'East of England','Cambridgeshire and Peterborough ICS','Cambridge University Hospitals NHS Foundation Trust','https://www.cuh.nhs.uk/','https://www.cuh.nhs.uk/our-research/research-facilities/clinical-engineering/','Daniel Marsden','Clinical Engineer','01223 216719','clinical.engineering@addenbrookes.nhs.uk',0);
+                INSERT INTO `ics` VALUES (8,'East of England','Cambridgeshire and Peterborough ICS','Cambridgeshire and Peterborough NHS Foundation Trust','https://www.cpft.nhs.uk/','https://www.cpft.nhs.uk/research/','Debbie Smith','Director of Operations and System Partnerships','01223 219474','debbie.smith@cpft.nhs.uk',0);
+                INSERT INTO `ics` VALUES (9,'East of England','Cambridgeshire and Peterborough ICS','North West Anglia NHS Foundation Trust','https://www.nwangliaft.nhs.uk/','Unavailable','Steve Want','Senior IT Project Manager','tel:01733 678000','Unavailable',0);
+                INSERT INTO `ics` VALUES (10,'East of England','Cambridgeshire and Peterborough ICS','Royal Papworth Hospital NHS Foundation Trust','https://royalpapworth.nhs.uk','https://royalpapworth.nhs.uk/research-and-development','Dr Vikki Hughes','Senior Research and Development Manager','tel:01223 638000','victoria.hughes1@nhs.net',0);
+                INSERT INTO `ics` VALUES (12,'East of England','Mid and South Essex ICS','Mid and South Essex Hospitals NHS Foundation Trust, incorporating','https://www.mse.nhs.uk/','https://www.mse.nhs.uk/innovation-at-mse','Professor Tony Young','Associate Clinical Director of Innovation','01702 435555 / 07766 070693  (secretary)','jon.green@aru.ac.uk',0);
+                INSERT INTO `ics` VALUES (16,'East of England','Norfolk and Waveney ICS','Norfolk Community Health and Care NHS Trust','https://www.norfolkcommunityhealthandcare.nhs.uk/','https://www.norfolkcommunityhealthandcare.nhs.uk/research-and-development/','Unavailable','Unavailable','01603 272251','research@nchc.nhs.uk',0);
+                INSERT INTO `ics` VALUES (17,'East of England','Norfolk and Waveney ICS','Norfolk and Norwich University Hospitals NHS Foundation Trust','https://www.nnuh.nhs.uk/','https://www.nnuh.nhs.uk/research-and-innovation/','Professor Kristian Bowles','Associate Medical Director of Research','01603 289979','kristian.bowles@nnuh.nhs.uk',0);
+                INSERT INTO `ics` VALUES (19,'East of England','Norfolk and Waveney ICS','James Paget University Hospitals NHS Foundation Trust','https://www.jpaget.nhs.uk/','https://www.jpaget.nhs.uk/education-research/research-and-development/','Professor Ben Burton','Clinical Research &#38; Development Director','01493 453054','Unavailable',0);
+                INSERT INTO `ics` VALUES (20,'East of England','Norfolk and Waveney ICS','The Queen Elizabeth Hospital Kings Lynn NHS Foundation Trust','http://www.qehkl.nhs.uk/','http://www.qehkl.nhs.uk/CriticalCareInventions.asp','Unavailable','Unavailable','01553 613613','Unavailable',0);
+                INSERT INTO `ics` VALUES (21,'East of England','Suffolk and North East Essex ICS','West Suffolk NHS Foundation Trust','https://www.wsh.nhs.uk/Home.aspx','Unavailable','Emma Cameron','Clinical Innovation Lead ','01284 713000','Pals@wsh.nhs.uk',0);
+                INSERT INTO `ics` VALUES (22,'East of England','Suffolk and North East Essex ICS','Essex Partnership University NHS Foundation Trust','https://eput.nhs.uk/','https://eput.nhs.uk/about-us/research/','David Ho','Head of Research and Innovation','01268 568092','David.ho@nhs.net',0);
+                INSERT INTO `ics` VALUES (23,'East of England','Suffolk and North East Essex ICS','East Suffolk and North Essex NHS Foundation Trust','https://www.esneft.nhs.uk/','https://www.esneft.nhs.uk/about-us/research-innovation-and-development/our-research-teams/','Dr Shane Gordon','Director of Strategy Research and Innovation','Unavailable','shane.gordon@ESNEFT.nhs.uk',0);
+                INSERT INTO `ics` VALUES (25,'East of England','NULL','North East London NHS Foundation Trust','https://www.nelft.nhs.uk/','https://www.elft.nhs.uk/Research','Unavailable','Unavailable','020 7655 4000','elft.researchoffice@nhs.net',0);
+                INSERT INTO `ics` VALUES (26,'London','NULL','Barking, Havering and Redbridge University Hospitals NHS Trust','https://www.bhrhospitals.nhs.uk/','https://www.bhrhospitals.nhs.uk/research-and-innovation','Unavailable','Unavailable','01708 435 000 ext. 3711','bhrut.research.development@nhs.net',0);
+                INSERT INTO `ics` VALUES (27,'London','NULL','Barts Health NHS Trust','https://www.bartshealth.nhs.uk/','Unavailable','Ralph Coulbeck','Group Director of Strategy','0207 3777 000','r.coulbeck@nhs.net',0);
+                INSERT INTO `ics` VALUES (28,'London','NULL','Chelsea and Westminster Hospital NHS Foundation Trust','https://www.chelwest.nhs.uk/','https://www.chelwest.nhs.uk/about-us/research-innovation-and-quality-improvement-riqi/cw-innovation','Unavailable','Unavailable','020 3315 6825','research.development@chelwest.nhs.uk',0);
+                INSERT INTO `ics` VALUES (29,'London','NULL','Croydon Health Services NHS Trust','https://www.croydonhealthservices.nhs.uk/','Unavailable','Louise Cretton','Non-executive Director','020 8401 3000','Unavailable',0);
+                INSERT INTO `ics` VALUES (30,'London','NULL','Epsom and St Helier University Hospitals NHS Trust','https://www.epsom-sthelier.nhs.uk/','https://www.epsom-sthelier.nhs.uk/research-and-development','Unavailable','Unavailable','020 8296 4698','esth.research@nhs.net',0);
+                INSERT INTO `ics` VALUES (31,'London','NULL','Guy?s and St Thomas? NHS Foundation Trust','https://www.guysandstthomas.nhs.uk/Home.aspx','https://www.kingshealthpartners.org/','Joseph Casey','Director of Partnerships and Programmes','Unavailable','kingshealthpartners@kcl.ac.uk',0);
+                INSERT INTO `ics` VALUES (32,'London','NULL','Homerton University Hospital NHS Foundation Trust','https://www.homerton.nhs.uk/','https://www.homerton.nhs.uk/research-development','Lyndsay Johnson','Research and Innovation Lead','020 8510 5555','huh-tr.Enquiries@nhs.net',0);
+                INSERT INTO `ics` VALUES (33,'London','NULL','Imperial College Healthcare NHS Trust','https://www.imperial.nhs.uk/','https://www.imperial.nhs.uk/research','Dr Bob Klaber OBE','Director of Strategy Research and Innovation','020 3312 2310','Unavailable',0);
+                INSERT INTO `ics` VALUES (34,'London','NULL','King?s College Hospital NHS Foundation Trust','https://www.kch.nhs.uk/','https://www.kch.nhs.uk/research','Unavailable','Unavailable','020 3299 1980','kch-tr.research@nhs.net',0);
+                INSERT INTO `ics` VALUES (35,'London','NULL','Kingston Hospital NHS Foundation Trust','https://kingstonhospital.nhs.uk/','https://kingstonhospital.nhs.uk/departments-services/support-services/research-innovation/','Jennifer Crooks','Head of Research and Innovation','020 8546 7711','Unavailable',0);
+                INSERT INTO `ics` VALUES (36,'London','NULL','Lewisham and Greenwich NHS Trust','https://www.lewishamandgreenwich.nhs.uk/','https://www.lewishamandgreenwich.nhs.uk/research-and-development/','Unavailable','Unavailable','020 8836 6811  /  020 8836 6790','LH.RD@nhs.net',0);
+                INSERT INTO `ics` VALUES (37,'London','NULL','London North West University Healthcare NHS Trust','https://www.lnwh.nhs.uk/','https://www.lnwh.nhs.uk/research/?','Unavailable','Unavailable','020 8869 5829','LNWH-tr.Research@nhs.net',0);
+                INSERT INTO `ics` VALUES (38,'London','NULL','North Middlesex University Hospital NHS Trust','https://www.northmid.nhs.uk/','https://www.northmid.nhs.uk/research/','Deborah McCartney','Research governance facilitator','0208 887 3715 / 3356','deborah.mccartney2@nhs.net',0);
+                INSERT INTO `ics` VALUES (39,'London','NULL','Royal Free London NHS Foundation Trust','https://www.royalfree.nhs.uk/','https://www.royalfree.nhs.uk/news-media/news/nhs-innovation-accelerator-programme-launched/','James Davis','Director of Innovation','020 7794 0500','Unavailable',0);
+                INSERT INTO `ics` VALUES (40,'London','NULL','St George?s University Hospitals NHS Foundation Trust','https://www.stgeorges.nhs.uk/','https://www.stgeorges.nhs.uk/education-and-research/research/','Mark Cranmer	','Director, Joint Research and Enterprise Services	','020 8725 4376','mcranmer@sgul.ac.uk',0);
+                INSERT INTO `ics` VALUES (41,'London','NULL','The Hillingdon Hospitals NHS Foundation Trust','https://www.thh.nhs.uk/','https://www.thh.nhs.uk/services/research/','Dr Simon Dubrey','Research and Development Director','01895 279 021','thh.research.hillingdon@nhs.net',0);
+                INSERT INTO `ics` VALUES (42,'London','NULL','The Whittington Hospital NHS Trust','https://www.whittington.nhs.uk/','https://www.whittington.nhs.uk/default.asp?c=27324','Unavailable','Unavailable','020 7272 3070','https://www.whittington.nhs.uk/default.asp?c=41330',0);
+                INSERT INTO `ics` VALUES (43,'London','NULL','University College London Hospitals NHS Foundation Trust','https://www.uclh.nhs.uk/','https://www.uclh.nhs.uk/research/about-research','Prof. Folkert Asselbergs','Clinical Research and Informatics Unit Director','Unavailable','uclh.criu@nhs.net',0);
+                INSERT INTO `ics` VALUES (44,'London','NULL','Great Ormond Street Hospital for Children NHS Foundation Trust','https://www.gosh.nhs.uk/','https://www.gosh.nhs.uk/our-research/our-vision/','Laura Turner','Deputy Director of Operations, NIHR GOSH Biomedical Research Centre','0207 905 2271','Laura.Turner@gosh.nhs.uk ',0);
+                INSERT INTO `ics` VALUES (45,'London','NULL','Moorfields Eye Hospital NHS Foundation Trust','https://www.moorfields.nhs.uk/','https://www.moorfields.nhs.uk/research-and-innovation/about-our-research','Unavailable','Unavailable','020 7253 3411','Unavailable',0);
+                INSERT INTO `ics` VALUES (46,'London','NULL','Royal National Orthopaedic Hospital NHS Trustÿ','https://www.rnoh.nhs.uk/','https://www.rnoh.nhs.uk/research-and-innovation','Professor John Skinner','Director of the Research and Innovation Centre','020 8909 5825','rnoh.research@nhs.net',0);
+                INSERT INTO `ics` VALUES (47,'London','NULL','The Royal Marsden NHS Foundation Trust','https://www.royalmarsden.nhs.uk/','https://www.royalmarsden.nhs.uk/about-royal-marsden/our-research','Unavailable','Unavailable','tel: 02073528171','https://www.royalmarsden.nhs.uk/get_in_touch',0);
+                INSERT INTO `ics` VALUES (48,'Midlands','Birmingham and Solihull','Birmingham Community Healthcare NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (49,'Midlands','Birmingham and Solihull','Birmingham and Solihull Mental Health NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (50,'Midlands','Birmingham and Solihull','Birmingham Women?s and Children?s NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (51,'Midlands','Birmingham and Solihull','The Royal Orthopaedic Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (52,'Midlands','Birmingham and Solihull','University Hospitals Birmingham NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (53,'Midlands','Black Country and West Birmingham','Black Country Healthcare NHS Foundation Trustÿ','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (54,'Midlands','Black Country and West Birmingham','The Dudley Group NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (55,'Midlands','Black Country and West Birmingham','The Royal Wolverhampton NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (56,'Midlands','Black Country and West Birmingham','Sandwell and West Birmingham Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (57,'Midlands','Black Country and West Birmingham','Walsall Healthcare NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (58,'Midlands','Coventry and Warwickshire','Coventry and Warwickshire Partnership NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (59,'Midlands','Coventry and Warwickshire','George Eliot Hospital NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (60,'Midlands','Coventry and Warwickshire','South Warwickshire NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (61,'Midlands','Coventry and Warwickshire','University Hospitals Coventry and Warwickshire NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (62,'Midlands','Derbyshire','Chesterfield Royal Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (63,'Midlands','Derbyshire','Derbyshire Community Health Services NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (64,'Midlands','Derbyshire','Derbyshire Healthcare NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (65,'Midlands','Derbyshire','University Hospitals of Derby and Burton NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (66,'Midlands','Herefordshire and Worcestershire','Gloucestershire Health and Care NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (67,'Midlands','Herefordshire and Worcestershire','Worcestershire Acute Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (68,'Midlands','Herefordshire and Worcestershire','Worcestershire Health and Care NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (69,'Midlands','Herefordshire and Worcestershire','Wye Valley NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (70,'Midlands','Leicester, Leicestershire and Rutland','Leicestershire Partnership NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (71,'Midlands','Leicester, Leicestershire and Rutland','University Hospitals of Leicester NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (72,'Midlands','Lincolnshire','Lincolnshire Community Health Services NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (73,'Midlands','Lincolnshire','Lincolnshire Partnership NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (74,'Midlands','Lincolnshire','United Lincolnshire Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (75,'Midlands','Northamptonshire','Kettering General Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (76,'Midlands','Northamptonshire','Northampton General Hospital NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (77,'Midlands','Northamptonshire','Northamptonshire Healthcare NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (78,'Midlands','Nottinghamshire','Nottingham University Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (79,'Midlands','Nottinghamshire','Nottinghamshire Healthcare NHS Foundation Trus','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (80,'Midlands','Nottinghamshire','Sherwood Forest Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (81,'Midlands','Shropshire and Telford and Wrekin','The Robert Jones and Agnes Hunt Orthopaedic Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (82,'Midlands','Shropshire and Telford and Wrekin','Shrewsbury and Telford Hospital NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (83,'Midlands','Shropshire and Telford and Wrekin','Shropshire Community Health NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (84,'Midlands','Staffordshire and Stoke-on-Trent','North Staffordshire Combined Healthcare NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (85,'Midlands','Staffordshire and Stoke-on-Trent','Midlands Partnership NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (86,'Midlands','Staffordshire and Stoke-on-Trent','University Hospitals of North Midlands NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (87,'North East and Yorkshire','NULL','Sheffield Children?s NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (88,'North East and Yorkshire','NULL','Airedale NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (89,'North East and Yorkshire','NULL','Barnsley Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (90,'North East and Yorkshire','NULL','Bradford Teaching Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (91,'North East and Yorkshire','NULL','Calderdale &#38; Huddersfield NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (92,'North East and Yorkshire','NULL','City Hospitals Sunderland NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (93,'North East and Yorkshire','NULL','County Durham &#38; Darlington NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (94,'North East and Yorkshire','NULL','Doncaster and Bassetlaw Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (95,'North East and Yorkshire','NULL','Gateshead Health NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (96,'North East and Yorkshire','NULL','Harrogate and District NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (97,'North East and Yorkshire','NULL','Hull &#38; East Yorkshire Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (98,'North East and Yorkshire','NULL','Leeds Teaching Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (99,'North East and Yorkshire','NULL','Mid Yorkshire Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (100,'North East and Yorkshire','NULL','Newcastle Upon Tyne Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (101,'North East and Yorkshire','NULL','North Cumbria University Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (102,'North East and Yorkshire','NULL','Northumbria Health Care NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (103,'North East and Yorkshire','NULL','Northern Lincolnshire &#38; Goole NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (104,'North East and Yorkshire','NULL','North Tees and Hartlepool NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (105,'North East and Yorkshire','NULL','Sheffield Teaching Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (106,'North East and Yorkshire','NULL','South Tees Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (107,'North East and Yorkshire','NULL','South Tyneside NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (108,'North East and Yorkshire','NULL','The Rotherham NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (109,'North East and Yorkshire','NULL','York Teaching Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (110,'North West','NULL','Alder Hey Children?s Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (111,'North West','NULL','The Christie NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (112,'North West','NULL','The Clatterbridge Cancer Centre NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (113,'North West','NULL','The Walton CentreÿNHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (114,'North West','NULL','Blackpool Teaching Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (115,'North West','NULL','Bolton NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (116,'North West','NULL','Countess of Chester Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (117,'North West','NULL','East Cheshire NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (118,'North West','NULL','East Lancashire Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (119,'North West','NULL','Liverpool Heart and Chest NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (120,'North West','NULL','Liverpool Women?s NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (121,'North West','NULL','Manchester University NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (122,'North West','NULL','Mid Cheshire Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (123,'North West','NULL','Pennine Acute Hospitals NHS Trust','https://www.penninecare.nhs.uk/','https://www.ncaresearch.org.uk/','Natalie Garratt','Head of Innovation','0161 206 5203','natalie.garratt@srft.nhs.uk',1);
+                INSERT INTO `ics` VALUES (124,'North West','NULL','Royal Liverpool and Broadgreen University Hospitals Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (125,'North West','NULL','Salford Royal NHS Foundation Trust','https://www.srft.nhs.uk/','https://www.ncaresearch.org.uk/','Natalie Garratt','Head of Innovation','0161 206 5203','natalie.garratt@srft.nhs.uk',1);
+                INSERT INTO `ics` VALUES (126,'North West','NULL','Southport &#38; Ormskirk Hospital NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (127,'North West','NULL','St Helens and Knowsley Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (128,'North West','NULL','Stockport NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (129,'North West','NULL','Tameside Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (130,'North West','NULL','University Hospitals of Morecambe Bay NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (131,'North West','NULL','Warrington and Halton Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (132,'North West','NULL','Wirral University Teaching Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (133,'North West','NULL','Wrightington, Wigan &#38; Leigh NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (134,'South East','NULL','Ashford andÿSt Peter?s Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (135,'South East','NULL','BuckinghamshireÿHealthcareÿNHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (136,'South East','NULL','Dartford and GraveshamÿNHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (137,'South East','NULL','East Kent HospitalsÿNHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (138,'South East','NULL','East Sussex Healthcare NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (139,'South East','NULL','Frimley Health NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (140,'South East','NULL','Hampshire Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (141,'South East','NULL','Isle of Wight NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (142,'South East','NULL','Maidstone and Tunbridge WellsÿNHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (143,'South East','NULL','Medway NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (144,'South East','NULL','Oxford University Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (145,'South East','NULL','Portsmouth Hospitals University NHS Trustÿ','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (146,'South East','NULL','Queen Victoria Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (147,'South East','NULL','Royal Berkshire Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (148,'South East','NULL','Royal Surrey County Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (149,'South East','NULL','Surrey and Sussex Healthcare NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (150,'South East','NULL','University Hospital Southampton NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (151,'South East','NULL','University Hospitals Sussex NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (152,'South West','NULL','Cornwall Partnership NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (153,'South West','NULL','Dorset County Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (154,'South West','NULL','Gloucestershire Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (155,'South West','NULL','Great Western Hospitals NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (156,'South West','NULL','North Bristol NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (157,'South West','NULL','Northern Devon Healthcare NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (158,'South West','NULL','Royal Cornwall Hospitals NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (159,'South West','NULL','Royal Devon and Exeter NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (160,'South West','NULL','Royal United Hospitals Bath NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (161,'South West','NULL','Salisbury NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (162,'South West','NULL','Somerset NHS Foundation Trustÿ(this includes the merged Taunton and Somerset NHS Foundation Trust and Somerset Partnership NHS Foundation Trust)','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (163,'South West','NULL','Torbay and South Devon Healthcare NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (164,'South West','NULL','University Hospitals Bristol and Weston NHS Foundation Trustÿ(this includes the merged University Hospitals Bristol NHS Foundation Trust and Weston Area Health NHS Trust)','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (165,'South West','NULL','University Hospitals Dorset NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (166,'South West','NULL','University Hospitals Plymouth NHS Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+                INSERT INTO `ics` VALUES (167,'South West','NULL','Yeovil District Hospital NHS Foundation Trust','NULL','NULL','NULL','NULL','NULL','NULL',0);
+          
+        </sql>
+    </changeSet>
+</databaseChangeLog>

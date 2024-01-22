@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body ajax-dt">
+    <table [busy]="isLoading" 
+      datatable [dtOptions]="dtOptions" 
+      [dtTrigger]="dtTrigger"
+      class="table table-bordered table-striped table-hover text-nowrap" 
+      id="devices-manufacturer">
+      <thead>
+        <tr>
+          <td>{{ 'ID' | localize }}</td>
+          <td>{{ 'GMDN Term Code' | localize }}</td>
+          <td class="fixed-width">{{ 'Name' | localize }}</td>
+          <td>{{ 'Specialty' | localize }}</td>
+          <td>{{ 'Medical Class' | localize }}</td>
+          <td>{{ 'Brandname' | localize }}</td>
+          <td>{{ 'Model' | localize }}</td>
+          <td>{{ 'Date Created' | localize }}</td>
+          <td>{{ 'Status' | localize }}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let device of devices">
+          <td>{{ device.id }}</td>
+          <td><span (click)="getgmdnTermCode(device.gmdnTermCode)" class="term-code text-decoration-none">{{
+              device.gmdnTermCode }}</span></td>
+          <td class="fixed-width" title="{{device.deviceName}}">{{ (device.deviceName.length > 25)? (device.deviceName |
+            slice:0:25) + '...': (device.deviceName) }}</td>
+          <td>{{ device.bodyStructureGroup && device.bodyStructureGroup.name }}</td>
+          <td>{{ device.deviceClass && device.deviceClass.class }}</td>
+          <td>{{ device.brandName }}</td>
+          <td>{{ device.model }}</td>
+          <td>{{ device.createdDate | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
+          <td class="fixed-width2">{{ device.status == 1 ? 'Enabled': 'Disabled'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+
+  </div>
+</div>

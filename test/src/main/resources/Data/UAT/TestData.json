@@ -1,0 +1,23 @@
+{
+	"urls": {
+		"UI": "http://admin-uat.casemix-dev.co.uk/",
+		"API": ""
+	},
+	"credentials": {
+		"admin": {
+			"username": "automationAdmin",
+			"password": "Admin@123",
+			"email": "admin@test.com"
+		},
+		"surgeon": {
+			"username": "automationSurgeon",
+			"password": "Surgeon@123",
+			"email": "surgeon@test.com"
+		},
+		"anaesthetist": {
+			"username": "automationAnaesthetist",
+			"password": "Anaesthetist@123",
+			"email": "anaesthetist@test.com"
+		}
+	}
+}

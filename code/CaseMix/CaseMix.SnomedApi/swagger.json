@@ -1,0 +1,3255 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "SNOMED CT Terminology Server REST API",
+    "version": "4.10.1",
+    "title": "Snowstorm",
+    "contact": {
+      "name": "SNOMED International",
+      "url": "https://github.com/IHTSDO/snowstorm"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "browser.ihtsdotools.org",
+  "basePath": "/snowstorm/snomed-ct",
+  "tags": [
+    {
+      "name": "Validation",
+      "description": "Drools"
+    },
+    {
+      "name": "Descriptions",
+      "description": "-"
+    },
+    {
+      "name": "MultiSearch",
+      "description": "-"
+    },
+    {
+      "name": "Relationships",
+      "description": "-"
+    },
+    {
+      "name": "Version",
+      "description": "Build Version"
+    },
+    {
+      "name": "Refset Members",
+      "description": "-"
+    },
+    {
+      "name": "Authoring Stats",
+      "description": "-"
+    },
+    {
+      "name": "Branching",
+      "description": "-"
+    },
+    {
+      "name": "Code Systems",
+      "description": "-"
+    },
+    {
+      "name": "MRCM",
+      "description": "-"
+    },
+    {
+      "name": "Concepts",
+      "description": "-"
+    }
+  ],
+  "paths": {
+    "/branches": {
+      "get": {
+        "tags": [ "Branching" ],
+        "summary": "Retrieve all branches",
+        "operationId": "retrieveAllBranchesUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Branch" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/branches/{path}": {
+      "get": {
+        "tags": [ "Branching" ],
+        "summary": "Retrieve a single branch",
+        "operationId": "retrieveBranchUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "description": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "includeInheritedMetadata",
+            "in": "query",
+            "description": "includeInheritedMetadata",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/BranchPojo" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/branches/{path}/children": {
+      "get": {
+        "tags": [ "Branching" ],
+        "summary": "Retrieve branch descendants",
+        "operationId": "retrieveBranchDescendantsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "description": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "immediateChildren",
+            "in": "query",
+            "description": "immediateChildren",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "size",
+            "required": false,
+            "type": "integer",
+            "default": 100,
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Branch" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/concepts": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "Load concepts in the browser format.",
+        "description": "When enabled 'searchAfter' can be used for unlimited pagination. Load the first page then take the 'searchAfter' value from the response and use that as a parameter in the next page request instead of 'number'.",
+        "operationId": "getBrowserConceptsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptIds",
+            "in": "query",
+            "description": "conceptIds",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "description": "number",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "size",
+            "required": false,
+            "type": "integer",
+            "default": 100,
+            "format": "int32"
+          },
+          {
+            "name": "searchAfter",
+            "in": "query",
+            "description": "searchAfter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«Concept»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/concepts/bulk/{bulkChangeId}": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "Fetch the status of a bulk concept creation or update.",
+        "operationId": "getConceptBulkChangeUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bulkChangeId",
+            "in": "path",
+            "description": "bulkChangeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/AsyncConceptChangeBatch" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/concepts/{conceptId}": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "Load a concept in the browser format.",
+        "description": "During content authoring previous versions of the concept can be loaded from version control.\nTo do this use the branch path format {branch@yyyy-MM-ddTHH:mm:ss.SSSZ} or {branch@epoch_milliseconds}.\nThe version of the concept when the branch was created can be loaded using {branch@-}.",
+        "operationId": "findBrowserConceptUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "descendantCountForm",
+            "in": "query",
+            "description": "If this parameter is set a descendantCount will be included in the response using stated/inferred as requested.",
+            "required": false,
+            "type": "string",
+            "enum": [ "inferred", "stated", "additional" ]
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ConceptView" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/concepts/{conceptId}/ancestors": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConceptAncestors",
+        "operationId": "findConceptAncestorsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "form",
+            "in": "query",
+            "description": "form",
+            "required": false,
+            "type": "string",
+            "default": "inferred",
+            "enum": [ "inferred", "stated", "additional" ]
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Collection«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/concepts/{conceptId}/children": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConceptChildren",
+        "operationId": "findConceptChildrenUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "form",
+            "in": "query",
+            "description": "form",
+            "required": false,
+            "type": "string",
+            "default": "inferred",
+            "enum": [ "inferred", "stated", "additional" ]
+          },
+          {
+            "name": "includeDescendantCount",
+            "in": "query",
+            "description": "includeDescendantCount",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Collection«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/concepts/{conceptId}/parents": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConceptParents",
+        "operationId": "findConceptParentsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "form",
+            "in": "query",
+            "description": "form",
+            "required": false,
+            "type": "string",
+            "default": "inferred",
+            "enum": [ "inferred", "stated", "additional" ]
+          },
+          {
+            "name": "includeDescendantCount",
+            "in": "query",
+            "description": "includeDescendantCount",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Collection«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/descriptions": {
+      "get": {
+        "tags": [ "Descriptions" ],
+        "summary": "Search for concept descriptions.",
+        "description": "The Accept-Language header is used to specify the user's preferred language, 'en' is always added as a fallback if not already included in the list. Each language is used as an optional clause for matching and will include the correct character folding behaviour for that language. The Accept-Language header list is also used to chose the best translated FSN and PT values in the response.",
+        "operationId": "findBrowserDescriptionsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "term",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "module",
+            "in": "query",
+            "description": "module",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Set of two character language codes to match. The English language code 'en' will not be added automatically, in contrast to the Accept-Language header which always includes it. Accept-Language header still controls result FSN and PT language selection.",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Set of description types to include. Pick descendants of '900000000000446008 | Description type (core metadata concept) |'.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "semanticTag",
+            "in": "query",
+            "description": "semanticTag",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "semanticTags",
+            "in": "query",
+            "description": "Set of semantic tags.",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "preferredIn",
+            "in": "query",
+            "description": "Set of description language reference sets. The description must be preferred in at least one of these to match.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "acceptableIn",
+            "in": "query",
+            "description": "Set of description language reference sets. The description must be acceptable in at least one of these to match.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "preferredOrAcceptableIn",
+            "in": "query",
+            "description": "Set of description language reference sets. The description must be preferred OR acceptable in at least one of these to match.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "conceptActive",
+            "in": "query",
+            "description": "conceptActive",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "conceptRefset",
+            "in": "query",
+            "description": "conceptRefset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "groupByConcept",
+            "in": "query",
+            "description": "groupByConcept",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "searchMode",
+            "in": "query",
+            "description": "searchMode",
+            "required": false,
+            "type": "string",
+            "default": "STANDARD",
+            "enum": [ "STANDARD", "REGEX" ]
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Page«BrowserDescriptionSearchResult»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/browser/{branch}/members": {
+      "get": {
+        "tags": [ "Refset Members" ],
+        "summary": "Search for reference set ids.",
+        "operationId": "findBrowserReferenceSetMembersWithAggregationsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "referenceSet",
+            "in": "query",
+            "description": "A reference set identifier or ECL expression can be used to limit the reference sets searched. Example: <723564002",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "referencedComponentId",
+            "in": "query",
+            "description": "referencedComponentId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 10,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/RefSetMemberPageWithBucketAggregations«ReferenceSetMember»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/codesystems": {
+      "get": {
+        "tags": [ "Code Systems" ],
+        "summary": "Retrieve all code systems",
+        "operationId": "findAllUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«CodeSystem»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/codesystems/{shortName}": {
+      "get": {
+        "tags": [ "Code Systems" ],
+        "summary": "Retrieve a code system",
+        "operationId": "findCodeSystemUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "shortName",
+            "in": "path",
+            "description": "shortName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CodeSystem" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/codesystems/{shortName}/versions": {
+      "get": {
+        "tags": [ "Code Systems" ],
+        "summary": "Retrieve all code system versions",
+        "operationId": "findAllVersionsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "shortName",
+            "in": "path",
+            "description": "shortName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "showFutureVersions",
+            "in": "query",
+            "description": "showFutureVersions",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«CodeSystemVersion»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/mrcm/{branch}/attribute-values/{attributeId}": {
+      "get": {
+        "tags": [ "MRCM" ],
+        "summary": "Retrieve valid values for the given attribute and term prefix.",
+        "operationId": "retrieveAttributeValuesUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "contentType",
+            "required": false,
+            "type": "string",
+            "default": "NEW_PRECOORDINATED",
+            "enum": [ "PRECOORDINATED", "NEW_PRECOORDINATED", "POSTCOORDINATED", "ALL" ]
+          },
+          {
+            "name": "attributeId",
+            "in": "path",
+            "description": "attributeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "termPrefix",
+            "in": "query",
+            "description": "termPrefix",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/mrcm/{branch}/domain-attributes": {
+      "get": {
+        "tags": [ "MRCM" ],
+        "summary": "Retrieve MRCM domain attributes applicable for the given stated parents.",
+        "description": "The parentIds must be the set ids of stated parents. If creating post-coordinated expressions be sure to set the content type to POSTCOORDINATED.",
+        "operationId": "retrieveDomainAttributesUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "parentIds",
+            "in": "query",
+            "description": "parentIds",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "proximalPrimitiveModeling",
+            "in": "query",
+            "description": "proximalPrimitiveModeling",
+            "required": false,
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "contentType",
+            "required": false,
+            "type": "string",
+            "default": "NEW_PRECOORDINATED",
+            "enum": [ "PRECOORDINATED", "NEW_PRECOORDINATED", "POSTCOORDINATED", "ALL" ]
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/multisearch/concepts": {
+      "get": {
+        "tags": [ "MultiSearch" ],
+        "summary": "Search concepts across multiple Code Systems.",
+        "operationId": "findConceptsUsingGET_1",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "conceptIds",
+            "in": "query",
+            "description": "conceptIds",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/multisearch/descriptions": {
+      "get": {
+        "tags": [ "MultiSearch" ],
+        "summary": "Search descriptions across multiple Code Systems.",
+        "operationId": "findDescriptionsUsingGET_1",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "description": "term",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "module",
+            "in": "query",
+            "description": "module",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Set of two character language codes to match. The English language code 'en' will not be added automatically, in contrast to the Accept-Language header which always includes it. Accept-Language header still controls result FSN and PT language selection.",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Set of description types to include. Pick descendants of '900000000000446008 | Description type (core metadata concept) |'.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "conceptActive",
+            "in": "query",
+            "description": "conceptActive",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "contentScope",
+            "in": "query",
+            "description": "contentScope",
+            "required": false,
+            "type": "string",
+            "default": "ALL_PUBLISHED_CONTENT",
+            "enum": [ "ALL_PUBLISHED_CONTENT" ]
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«BrowserDescriptionSearchResult»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/version": {
+      "get": {
+        "tags": [ "Version" ],
+        "summary": "Software build version and timestamp.",
+        "operationId": "getBuildInformationUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/BuildVersion" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "Calculate statistics for unreleased/unversioned content to be used in daily build browser.",
+        "description": "Does not work on versioned content.",
+        "operationId": "getStatsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/AuthoringStatsSummary" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats/changed-fully-specified-names": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "getChangedFSNs",
+        "operationId": "getChangedFSNsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ConceptMicro" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats/inactivated-concepts": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "getInactivatedConcepts",
+        "operationId": "getInactivatedConceptsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ConceptMicro" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats/inactivated-synonyms": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "getInactivatedSynonyms",
+        "operationId": "getInactivatedSynonymsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ConceptMicro" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats/new-concepts": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "getNewConcepts",
+        "operationId": "getNewConceptsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ConceptMicro" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats/new-synonyms-on-existing-concepts": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "getNewSynonymsOnExistingConcepts",
+        "operationId": "getNewSynonymsOnExistingConceptsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ConceptMicro" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats/reactivated-concepts": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "getReactivatedConcepts",
+        "operationId": "getReactivatedConceptsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ConceptMicro" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/authoring-stats/reactivated-synonyms": {
+      "get": {
+        "tags": [ "Authoring Stats" ],
+        "summary": "getReactivatedSynonyms",
+        "operationId": "getReactivatedSynonymsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ConceptMicro" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConcepts",
+        "operationId": "findConceptsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json", "text/csv" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "activeFilter",
+            "in": "query",
+            "description": "activeFilter",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "definitionStatusFilter",
+            "in": "query",
+            "description": "definitionStatusFilter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "term",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "termActive",
+            "in": "query",
+            "description": "termActive",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Set of two character language codes to match. The English language code 'en' will not be added automatically, in contrast to the Accept-Language header which always includes it. Accept-Language header still controls result FSN and PT language selection.",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "preferredIn",
+            "in": "query",
+            "description": "Set of description language reference sets. The description must be preferred in at least one of these to match.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "acceptableIn",
+            "in": "query",
+            "description": "Set of description language reference sets. The description must be acceptable in at least one of these to match.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "preferredOrAcceptableIn",
+            "in": "query",
+            "description": "Set of description language reference sets. The description must be preferred OR acceptable in at least one of these to match.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "ecl",
+            "in": "query",
+            "description": "ecl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "statedEcl",
+            "in": "query",
+            "description": "statedEcl",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptIds",
+            "in": "query",
+            "description": "conceptIds",
+            "required": false,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          },
+          {
+            "name": "searchAfter",
+            "in": "query",
+            "description": "searchAfter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language header can take the format en-x-900000000000508004 which sets the language reference set to use in the results.",
+            "required": false,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts/{conceptId}": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConcept",
+        "operationId": "findConceptUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json", "text/csv" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ConceptMini" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts/{conceptId}/authoring-form": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "getConceptAuthoringForm",
+        "operationId": "getConceptAuthoringFormUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Expression" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts/{conceptId}/descendants": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConceptDescendants",
+        "operationId": "findConceptDescendantsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stated",
+            "in": "query",
+            "description": "stated",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«ConceptMini»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts/{conceptId}/descriptions": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConceptDescriptions",
+        "operationId": "findConceptDescriptionsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ConceptDescriptionsResult" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts/{conceptId}/inbound-relationships": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "findConceptInboundRelationships",
+        "operationId": "findConceptInboundRelationshipsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/InboundRelationshipsResult" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts/{conceptId}/normal-form": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "getConceptNormalForm",
+        "operationId": "getConceptNormalFormUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "statedView",
+            "in": "query",
+            "description": "statedView",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "includeTerms",
+            "in": "query",
+            "description": "includeTerms",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ExpressionStringPojo" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/concepts/{conceptId}/references": {
+      "get": {
+        "tags": [ "Concepts" ],
+        "summary": "Find concepts which reference this concept in the inferred or stated form (including stated axioms).",
+        "description": "Pagination works on the referencing concepts. A referencing concept may have one or more references of different types.",
+        "operationId": "findConceptReferencesUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptId",
+            "in": "path",
+            "description": "conceptId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "stated",
+            "in": "query",
+            "description": "stated",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 1000,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ConceptReferencesResult" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/descriptions": {
+      "get": {
+        "tags": [ "Descriptions" ],
+        "summary": "findDescriptions",
+        "operationId": "findDescriptionsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concept",
+            "in": "query",
+            "description": "The concept id to match",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«Description»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/descriptions/semantictags": {
+      "get": {
+        "tags": [ "Descriptions" ],
+        "summary": "List semantic tags of all active concepts together with a count of concepts using each.",
+        "operationId": "countSemanticTagsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/descriptions/{descriptionId}": {
+      "get": {
+        "tags": [ "Descriptions" ],
+        "summary": "fetchDescription",
+        "operationId": "fetchDescriptionUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "descriptionId",
+            "in": "path",
+            "description": "descriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Description" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/members": {
+      "get": {
+        "tags": [ "Refset Members" ],
+        "summary": "Search for reference set members.",
+        "operationId": "findRefsetMembersUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "referenceSet",
+            "in": "query",
+            "description": "A reference set identifier or ECL expression can be used to limit the reference sets searched. Example: <723564002",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "referencedComponentId",
+            "in": "query",
+            "description": "referencedComponentId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "targetComponent",
+            "in": "query",
+            "description": "targetComponent",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "mapTarget",
+            "in": "query",
+            "description": "mapTarget",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "owlExpression.conceptId",
+            "in": "query",
+            "description": "Search by concept identifiers within an owlExpression.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "owlExpression.gci",
+            "in": "query",
+            "description": "Return axiom members with a GCI owlExpression.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«ReferenceSetMember»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/members/{uuid}": {
+      "get": {
+        "tags": [ "Refset Members" ],
+        "summary": "fetchMember",
+        "operationId": "fetchMemberUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "uuid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ReferenceSetMember" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/relationships": {
+      "get": {
+        "tags": [ "Relationships" ],
+        "summary": "findRelationships",
+        "operationId": "findRelationshipsUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "module",
+            "in": "query",
+            "description": "module",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "effectiveTime",
+            "in": "query",
+            "description": "effectiveTime",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "source",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "description": "destination",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "characteristicType",
+            "in": "query",
+            "description": "characteristicType",
+            "required": false,
+            "type": "string",
+            "enum": [ "STATED_RELATIONSHIP", "INFERRED_RELATIONSHIP", "ADDITIONAL_RELATIONSHIP" ]
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "description": "group",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "type": "integer",
+            "default": 50,
+            "format": "int32"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ItemsPage«Relationship»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/relationships/{relationshipId}": {
+      "get": {
+        "tags": [ "Relationships" ],
+        "summary": "fetchRelationship",
+        "operationId": "fetchRelationshipUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "relationshipId",
+            "in": "path",
+            "description": "relationshipId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Relationship" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/{branch}/report/inactive-concepts-without-association": {
+      "get": {
+        "tags": [ "Validation" ],
+        "summary": "Find inactive concepts with no historical association grouped by inactivation type.",
+        "operationId": "findInactiveConceptsWithNoHistoricalAssociationByInactivationTypeUsingGET",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "branch",
+            "in": "path",
+            "description": "branch",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "conceptEffectiveTime",
+            "in": "query",
+            "description": "conceptEffectiveTime",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/InactivationTypeAndConceptIdList" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Collection«Relationship»": { "type": "object" },
+    "Collection«ConceptMini»": { "type": "object" },
+    "ConceptMicro": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "primitive": { "type": "boolean" },
+        "term": { "type": "string" }
+      }
+    },
+    "Description": {
+      "type": "object",
+      "properties": {
+        "acceptabilityMap": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "acceptabilityMapFromLangRefsetMembers": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "active": { "type": "boolean" },
+        "associationTargets": {
+          "type": "object",
+          "additionalProperties": { "type": "object" }
+        },
+        "caseSignificance": { "type": "string" },
+        "caseSignificanceId": { "type": "string" },
+        "conceptId": { "type": "string" },
+        "descriptionId": { "type": "string" },
+        "effectiveTime": { "type": "string" },
+        "effectiveTimeI": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inactivationIndicator": { "type": "string" },
+        "internalId": { "type": "string" },
+        "lang": { "type": "string" },
+        "languageCode": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "path": { "type": "string" },
+        "releaseHash": { "type": "string" },
+        "released": { "type": "boolean" },
+        "releasedEffectiveTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tag": { "type": "string" },
+        "term": { "type": "string" },
+        "termFolded": { "type": "string" },
+        "termLen": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": { "type": "string" },
+        "typeId": { "type": "string" }
+      }
+    },
+    "ConceptDescriptionsResult": {
+      "type": "object",
+      "properties": {
+        "conceptDescriptions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Description" }
+        }
+      }
+    },
+    "ExpressionStringPojo": {
+      "type": "object",
+      "properties": { "expression": { "type": "string" } }
+    },
+    "ItemsPage«ReferenceSetMember»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«ReferenceSetMember»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "TermLangPojo": {
+      "type": "object",
+      "properties": {
+        "lang": { "type": "string" },
+        "term": { "type": "string" }
+      }
+    },
+    "Collection«Concept»": { "type": "object" },
+    "TypeReferences": {
+      "type": "object",
+      "properties": {
+        "referenceType": { "$ref": "#/definitions/ConceptMini" },
+        "referencingConcepts": { "$ref": "#/definitions/Collection«ConceptMini»" }
+      }
+    },
+    "Collection«TypeReferences»": { "type": "object" },
+    "ItemsPage«BrowserDescriptionSearchResult»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«BrowserDescriptionSearchResult»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "ItemsPage«Relationship»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«Relationship»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "BrowserDescriptionSearchResult": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "concept": { "$ref": "#/definitions/ConceptMini" },
+        "languageCode": { "type": "string" },
+        "module": { "type": "string" },
+        "term": { "type": "string" }
+      }
+    },
+    "BranchPojo": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "baseTimestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "containsContent": { "type": "boolean" },
+        "creation": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creationTimestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "head": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "headTimestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "locked": { "type": "boolean" },
+        "metadata": { "type": "object" },
+        "path": { "type": "string" },
+        "state": {
+          "type": "string",
+          "enum": [ "UP_TO_DATE", "FORWARD", "BEHIND", "DIVERGED" ]
+        },
+        "versionsReplacedCounts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "ItemsPage«Concept»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«Concept»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "ConceptMini": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "conceptId": { "type": "string" },
+        "definitionStatus": { "type": "string" },
+        "descendantCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "effectiveTime": { "type": "string" },
+        "fsn": { "$ref": "#/definitions/TermLangPojo" },
+        "id": { "type": "string" },
+        "isLeafInferred": { "type": "boolean" },
+        "isLeafStated": { "type": "boolean" },
+        "moduleId": { "type": "string" },
+        "pt": { "$ref": "#/definitions/TermLangPojo" }
+      }
+    },
+    "ReferenceSetMember": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "additionalFields": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "conceptId": { "type": "string" },
+        "effectiveTime": { "type": "string" },
+        "effectiveTimeI": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "internalId": { "type": "string" },
+        "memberId": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "path": { "type": "string" },
+        "referencedComponent": { "$ref": "#/definitions/ConceptMini" },
+        "referencedComponentId": { "type": "string" },
+        "refsetId": { "type": "string" },
+        "releaseHash": { "type": "string" },
+        "released": { "type": "boolean" },
+        "releasedEffectiveTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Branch": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "baseTimestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "containsContent": { "type": "boolean" },
+        "creation": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creationTimestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "head": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "headTimestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lastPromotion": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "locked": { "type": "boolean" },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "path": { "type": "string" },
+        "state": {
+          "type": "string",
+          "enum": [ "UP_TO_DATE", "FORWARD", "BEHIND", "DIVERGED" ]
+        },
+        "versionsReplacedCounts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "ItemsPage«Description»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«Description»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "ItemsPage«CodeSystemVersion»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«CodeSystemVersion»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "BuildVersion": {
+      "type": "object",
+      "properties": {
+        "time": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "InactivationTypeAndConceptIdList": {
+      "type": "object",
+      "properties": {
+        "conceptIds": { "$ref": "#/definitions/Collection«long»" },
+        "inactivationIndicator": { "$ref": "#/definitions/ConceptMini" }
+      }
+    },
+    "ConceptReferencesResult": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "referencesByType": { "$ref": "#/definitions/Collection«TypeReferences»" },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "RefSetMemberPageWithBucketAggregations«ReferenceSetMember»": {
+      "type": "object",
+      "properties": {
+        "first": { "type": "boolean" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ReferenceSetMember" }
+        },
+        "last": { "type": "boolean" },
+        "memberCountsByReferenceSet": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "number": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfElements": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "referenceSets": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/ConceptMini" }
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Axiom": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "axiomId": { "type": "string" },
+        "definitionStatus": { "type": "string" },
+        "definitionStatusId": { "type": "string" },
+        "effectiveTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "relationships": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Relationship" }
+        },
+        "released": { "type": "boolean" }
+      }
+    },
+    "InboundRelationshipsResult": {
+      "type": "object",
+      "properties": {
+        "inboundRelationships": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Relationship" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Concept": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "activeDescriptions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Description" }
+        },
+        "allOwlAxiomMembers": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ReferenceSetMember" }
+        },
+        "associationTargets": {
+          "type": "object",
+          "additionalProperties": { "type": "object" }
+        },
+        "classAxioms": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Axiom" }
+        },
+        "conceptId": { "type": "string" },
+        "definitionStatus": { "type": "string" },
+        "definitionStatusId": { "type": "string" },
+        "descendantCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "descriptions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Description" }
+        },
+        "effectiveTime": { "type": "string" },
+        "effectiveTimeI": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "fsn": { "$ref": "#/definitions/TermLangPojo" },
+        "gciAxioms": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Axiom" }
+        },
+        "inactivationIndicator": { "type": "string" },
+        "internalId": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "path": { "type": "string" },
+        "primitive": { "type": "boolean" },
+        "pt": { "$ref": "#/definitions/TermLangPojo" },
+        "relationships": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Relationship" }
+        },
+        "releaseHash": { "type": "string" },
+        "released": { "type": "boolean" },
+        "releasedEffectiveTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "AsyncConceptChangeBatch": {
+      "type": "object",
+      "properties": {
+        "conceptIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": { "type": "string" },
+        "message": { "type": "string" },
+        "secondsDuration": {
+          "type": "number",
+          "format": "float"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "enum": [ "RUNNING", "COMPLETED", "FAILED" ]
+        }
+      }
+    },
+    "ConceptView": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "classAxioms": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Axiom" }
+        },
+        "conceptId": { "type": "string" },
+        "definitionStatusId": { "type": "string" },
+        "descriptions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Description" }
+        },
+        "effectiveTime": { "type": "string" },
+        "fsn": { "$ref": "#/definitions/TermLangPojo" },
+        "gciAxioms": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Axiom" }
+        },
+        "moduleId": { "type": "string" },
+        "pt": { "$ref": "#/definitions/TermLangPojo" },
+        "relationships": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Relationship" }
+        }
+      }
+    },
+    "AuthoringStatsSummary": {
+      "type": "object",
+      "properties": {
+        "changedFsnCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "executionTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inactivatedConceptsCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "inactivatedSynonymsCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "newConceptsCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "newSynonymsForExistingConceptsCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reactivatedConceptsCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reactivatedSynonymsCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": { "type": "string" }
+      }
+    },
+    "ExpressionGroup": {
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ExpressionAttribute" }
+        }
+      }
+    },
+    "Collection«BrowserDescriptionSearchResult»": { "type": "object" },
+    "Collection«CodeSystemVersion»": { "type": "object" },
+    "CodeSystem": {
+      "type": "object",
+      "properties": {
+        "branchPath": { "type": "string" },
+        "countryCode": { "type": "string" },
+        "dailyBuildAvailable": { "type": "boolean" },
+        "defaultLanguageCode": { "type": "string" },
+        "defaultLanguageReferenceSets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "dependantVersionEffectiveTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "languages": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "latestVersion": { "$ref": "#/definitions/CodeSystemVersion" },
+        "modules": { "$ref": "#/definitions/Collection«ConceptMini»" },
+        "name": { "type": "string" },
+        "shortName": { "type": "string" }
+      }
+    },
+    "CodeSystemVersion": {
+      "type": "object",
+      "properties": {
+        "branchPath": { "type": "string" },
+        "description": { "type": "string" },
+        "effectiveDate": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "importDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "parentBranchPath": { "type": "string" },
+        "shortName": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "Collection«CodeSystem»": { "type": "object" },
+    "ItemsPage«CodeSystem»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«CodeSystem»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "Expression": {
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ExpressionAttribute" }
+        },
+        "concepts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ConceptMicro" }
+        },
+        "groups": { "$ref": "#/definitions/Collection«ExpressionGroup»" }
+      }
+    },
+    "ExpressionAttribute": {
+      "type": "object",
+      "properties": {
+        "type": { "$ref": "#/definitions/ConceptMicro" },
+        "value": { "$ref": "#/definitions/ConceptMicro" }
+      }
+    },
+    "Relationship": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "characteristicType": { "type": "string" },
+        "characteristicTypeId": { "type": "string" },
+        "destinationId": { "type": "string" },
+        "effectiveTime": { "type": "string" },
+        "effectiveTimeI": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "groupId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "grouped": { "type": "boolean" },
+        "id": { "type": "string" },
+        "internalId": { "type": "string" },
+        "modifier": { "type": "string" },
+        "modifierId": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "path": { "type": "string" },
+        "relationshipGroup": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "relationshipId": { "type": "string" },
+        "releaseHash": { "type": "string" },
+        "released": { "type": "boolean" },
+        "releasedEffectiveTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "source": { "$ref": "#/definitions/ConceptMini" },
+        "sourceId": { "type": "string" },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "target": { "$ref": "#/definitions/ConceptMini" },
+        "type": { "$ref": "#/definitions/ConceptMini" },
+        "typeId": { "type": "string" }
+      }
+    },
+    "Collection«ReferenceSetMember»": { "type": "object" },
+    "Collection«long»": { "type": "object" },
+    "Collection«ExpressionGroup»": { "type": "object" },
+    "Page«BrowserDescriptionSearchResult»": {
+      "type": "object",
+      "properties": {
+        "first": { "type": "boolean" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/BrowserDescriptionSearchResult" }
+        },
+        "last": { "type": "boolean" },
+        "number": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfElements": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Collection«Description»": { "type": "object" },
+    "ItemsPage«ConceptMini»": {
+      "type": "object",
+      "properties": {
+        "items": { "$ref": "#/definitions/Collection«ConceptMini»" },
+        "limit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "searchAfter": { "type": "string" },
+        "searchAfterArray": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

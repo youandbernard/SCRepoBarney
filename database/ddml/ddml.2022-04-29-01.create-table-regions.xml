@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="f180c1ad-c74a-11ec-b893-1831bf981123-1">
+        <createTable tableName="ukregions">
+			<column name="Id" type="INT" autoIncrement="true">				
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IsEnabled" type="BIT" />			
+        </createTable>
+    </changeSet>
+    <changeSet author="mlabio (generated)" id="f180c1ad-c74a-11ec-b893-1831bf981123-2">
+        <sql>
+            insert into ukregions(Name, IsEnabled) values ('North East and Yorkshire', 1);
+            insert into ukregions(Name, IsEnabled) values ('North West', 1);
+            insert into ukregions(Name, IsEnabled) values ('Midlands', 1);
+            insert into ukregions(Name, IsEnabled) values ('East of England', 1);
+            insert into ukregions(Name, IsEnabled) values ('South West', 1);
+            insert into ukregions(Name, IsEnabled) values ('South East', 1);
+            insert into ukregions(Name, IsEnabled) values ('London', 1);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

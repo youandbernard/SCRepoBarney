@@ -1,0 +1,10 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="179353a1-4fb0-11ed-8816-089798b0519b-1">
+        <sql>
+            
+            INSERT INTO bodystructurequeries VALUES
+            ('4841cd69-4faf-11ed-8816-089798b0519b','Main Query','734271006 |Intermedullary nailing|','133860004',0,734271006)
+        </sql>
+    </changeSet>
+</databaseChangeLog>

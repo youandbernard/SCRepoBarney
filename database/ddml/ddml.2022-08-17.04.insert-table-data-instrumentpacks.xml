@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="8c5c02a8-1d2a-11ed-a062-089798b0519b-1">
+        <sql>
+            insert into instrumentpacks 
+            (InstrumentPackId, PackName, PackType, EmbodiedCarbon, Specialty, Company) values 
+            ('860326f5-1e2e-11ed-a062-089798b0519b', 'BASIC SET-20', 1, 12.123, 'Orthopaedic', 'Surgical Holdings'),
+            ('8dca7aaf-1e2e-11ed-a062-089798b0519b', 'BASIC HIP TRAY-15', 1, 13.234, 'Orthopaedic', 'Surgical Holdings'),
+            ('17d832c5-1e2f-11ed-a062-089798b0519b', 'HIP EXTRAS-10', 1, 15.678, 'Orthopaedic', 'Surgical Holdings'),
+            ('1cdb7313-1e2f-11ed-a062-089798b0519b', 'K201-14001', 2, 10.7387, 'Cardiology', 'Kimal');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

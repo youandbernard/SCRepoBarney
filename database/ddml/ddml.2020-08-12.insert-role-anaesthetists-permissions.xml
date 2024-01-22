@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Gilbert.Damo" id="CD498552-1164-4B39-9FDD-CFAFE82D295C">
+        <insert tableName="abppermissions">
+            <column name="CreationTime" value="2020-08-12"/>
+            <column name="TenantId" value="1"/>
+            <column name="Name" value="Pages.Dashboard"/>
+            <column name="IsGranted" valueBoolean="true"/>
+            <column name="Discriminator" value="RolePermissionSetting"/>
+            <column name="RoleId" valueComputed="(SELECT Id FROM abproles WHERE Name = 'Anaesthetists' LIMIT 1)"/>
+        </insert>
+         <insert tableName="abppermissions">
+            <column name="CreationTime" value="2020-08-12"/>
+            <column name="TenantId" value="1"/>
+            <column name="Name" value="Pages.Poaps"/>
+            <column name="IsGranted" valueBoolean="true"/>
+            <column name="Discriminator" value="RolePermissionSetting"/>
+            <column name="RoleId" valueComputed="(SELECT Id FROM abproles WHERE Name = 'Anaesthetists' LIMIT 1)"/>
+        </insert>
+         <insert tableName="abppermissions">
+            <column name="CreationTime" value="2020-08-12"/>
+            <column name="TenantId" value="1"/>
+            <column name="Name" value="Pages.Surveys"/>
+            <column name="IsGranted" valueBoolean="true"/>
+            <column name="Discriminator" value="RolePermissionSetting"/>
+            <column name="RoleId" valueComputed="(SELECT Id FROM abproles WHERE Name = 'Anaesthetists' LIMIT 1)"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

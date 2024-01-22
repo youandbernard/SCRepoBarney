@@ -1,0 +1,109 @@
+<div class="card">
+    <div class="card-body">
+      <table [busy]="isLoading" 
+        datatable
+        [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger"
+        class="table table-bordered table-striped table-hover text-nowrap" 
+        id="devices">
+            <thead>
+                <tr>
+                  <td></td>
+                  <td>{{ 'ID' | localize }}</td>
+                  <td>{{ 'GMDN Term Code' | localize }}</td>
+                  <td class="fixed-width">{{ 'Name' | localize }}</td>
+                  <td class="fixed-width">{{ 'Manufacturer' | localize }}</td>
+                  <td>{{ 'Specialty' | localize }}</td>
+                  <td>{{ 'Medical Class' | localize }}</td>
+                  <td>{{ 'GTIN Code' | localize }}</td>
+                  <td>{{ 'Brand' | localize }}</td>
+                  <td>{{ 'Model' | localize }}</td>
+                  <td>{{ 'Created' | localize }}</td>
+                  <td>{{ 'Imported' | localize }}</td>
+                  <!--<td>{{ 'Status' | localize }}</td>-->
+                  <td *ngIf="superAdminUser">{{ 'Status' | localize }}</td>
+                  <td *ngIf="!superAdminUser">{{ 'Available' | localize }}</td>
+                  <!--<td width="1%" class="text-center" *ngIf="(adminUser || surgeonUser || superAdminUser) && !manufacturerUser">{{ 'Actions' | localize }}</td>-->
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>                   
+                    <td></td>
+                    <td class="fixed-width"></td>
+                    <td class="fixed-width"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="fixed-width2"></td>
+                    <td class="fixed-width2"></td>
+                    <td class="fixed-width2" *ngIf="superAdminUser"></td>
+                    <td class="fixed-width2" *ngIf="!superAdminUser"></td>
+                    <!--<td width="1%" class="text-center" *ngIf="(adminUser || surgeonUser || superAdminUser) && !manufacturerUser"></td>-->
+                  </tr>
+            </thead>                      
+        </table>
+    </div>
+    <div class="card-footer">
+       <ng-container>
+          <div class="col-lg-12 col-md-12">
+            <div class="justify-content-center row">
+                <div class="col-lg-9 col-md-9 text-left" *ngIf="superAdminUser">
+                  <button type="button" class="btn btn-default" (click)="EnableOrDisableDevices(1)">
+                    {{ 'Enable Selected' | localize }}
+                  </button>
+
+                  <button type="button" style="margin-left: 20px !important;" class="btn btn-default" (click)="EnableOrDisableDevices(0)">
+                    {{ 'Disable Selected' | localize }}
+                  </button>
+                </div>
+
+                <div class="col-lg-6 col-md-6 text-left" *ngIf="!superAdminUser">
+                  <button type="button" class="btn btn-default" (click)="MakeAvailableDevices(1)">
+                    {{ 'Make Available' | localize }}
+                  </button>
+
+                  <button type="button" style="margin-left: 20px !important;" class="btn btn-default" (click)="MakeAvailableDevices(0)">
+                    {{ 'Make UnAvailable' | localize }}
+                  </button>
+                </div>
+
+                <div class="col-lg-3 col-md-3 text-right" *ngIf="superAdminUser">
+
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" 
+                      class="custom-control-input" 
+                      name="chkShowDisabled"
+                      id="chkShowDisabled"
+                      [(ngModel)]="disabledOnly"
+                      (change)="showDisabled($event)"
+                    />
+                     <label for="chkShowDisabled" class="custom-control-label" *ngIf="superAdminUser">
+                      {{ "Show only disabled" | localize }}
+                    </label>
+                  </div>
+                  
+                </div>  
+
+                <div class="col-lg-6 col-md-6 text-right" *ngIf="!superAdminUser">
+
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" 
+                      class="custom-control-input" 
+                      name="chkShowUnAvailable"
+                      id="chkShowUnAvailable"
+                      [(ngModel)]="unavailableOnly"
+                      (change)="showUnAvailable($event)"
+                    />
+                     <label for="chkShowUnAvailable" class="custom-control-label" *ngIf="!superAdminUser">
+                      {{ "Show only devices that are unavailable in my hospital" | localize }}
+                    </label>
+                  </div>
+                  
+                </div>     
+            </div>                       
+          </div>
+        </ng-container>
+    </div>
+</div>

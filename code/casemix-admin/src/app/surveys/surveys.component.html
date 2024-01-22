@@ -1,0 +1,60 @@
+<div [@routerTransition]>
+  <section class="content-header page-header survey">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ 'Surveys' | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-check mb-3">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="checkboxDisplayforCompletedSurveyd"
+              [(ngModel)]="isDisplayCompletedSurveys"
+              (change)="refreshDataTable()"
+            />
+            <label class="form-check-label" for="checkboxDisplayforCompletedSurveyd">Display Completed Surveys</label>
+          </div>
+          <table
+            [busy]="isSurveysLoading"
+            datatable
+            [dtOptions]="dtOptions"
+            [dtTrigger]="dtTrigger"
+            class="table table-bordered table-striped table-hover text-nowrap"
+            id="surveys"
+          >
+            <thead>
+              <tr>
+                <td>{{ 'SurgeryDate' | localize }}</td>
+                <td>{{ 'PatientId' | localize }}</td>
+                <td style="width: 100px !important;">{{ 'Surgeon' | localize }}</td>
+                <td>{{ 'TheaterName' | localize }}</td>
+                <td>{{ 'Specialty' | localize }}</td>
+                <td style="width: 70px !important;">{{ 'PredictedTime' | localize }}</td>
+                <td>{{ 'WeekOfYear' | localize }}</td>
+                <td width="1%" class="text-center">{{ 'Actions' | localize }}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td style="width: 100px !important;"></td>
+                <td></td>
+                <td></td>
+                <td style="width: 7px !important;"></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

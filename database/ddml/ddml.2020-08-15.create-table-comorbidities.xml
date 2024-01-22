@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="159342107685-1">
+        <createTable tableName="comorbidities">
+			<column name="Id" type="int" autoIncrement="true">
+            	<constraints primaryKey="true" nullable="false"/>
+        	</column>
+            <column name="SnomedId" type="INT" />				
+            <column name="Description" type="VARCHAR(250)" />
+			<column name="ComorbidityGroupId" type="INT"/>
+        </createTable>
+    </changeSet>
+	<changeSet author="mel (generated)" id="159342107685-2">
+        <addForeignKeyConstraint baseColumnNames="ComorbidityGroupId" baseTableName="comorbidities" constraintName="FK_Comorbidities_ComorbidityGroup_Id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="Id" referencedTableName="comorbiditygroups"/>
+    </changeSet>
+	<changeSet author="mel (generated)" id="159342107685-3">
+		<loadData 
+				commentLineStartsWith="//"
+				encoding="UTF-8"  
+				file="csv/comorbidities.csv"  
+				quotchar="'" 
+				relativeToChangelogFile="true" 
+				separator=";" 
+				tableName="comorbidities"> 
+		  <column header="SnomedId"  
+					 type="NUMERIC"/> 
+		  <column header="Description"  
+					 type="STRING"/>
+		  <column header="ComorbidityGroupId" 
+		  			 type="NUMERIC" />
+		</loadData>
+	</changeSet>
+</databaseChangeLog>

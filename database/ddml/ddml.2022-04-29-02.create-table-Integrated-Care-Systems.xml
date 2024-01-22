@@ -1,0 +1,67 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="b6620522-c7b7-11ec-b893-1831bf981123-1">
+        <createTable tableName="integratedcaresystems">
+			<column name="Id" type="INT" autoIncrement="true">				
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+             <column name="UkRegionId" type="INT"/>		
+        </createTable>
+    </changeSet>
+    <changeSet author="mlabio (generated)" id="b6620522-c7b7-11ec-b893-1831bf981123-2">
+        <sql>
+            
+            insert into integratedcaresystems(Name, UkRegionId) values ('Humber, Coast and Vale', 1);
+            insert into integratedcaresystems(Name, UkRegionId) values ('North East and North Cumbria', 1);
+            insert into integratedcaresystems(Name, UkRegionId) values ('South Yorkshire and Bassetlaw Integrated Care System', 1);
+            insert into integratedcaresystems(Name, UkRegionId) values ('West Yorkshire and Harrogate Health and Care Partnership', 1);
+            
+            insert into integratedcaresystems(Name, UkRegionId) values ('Cheshire and Merseyside Health and Care Partnership', 2);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Greater Manchester Health and Social Care Partnership', 2);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Lancashire and South Cumbria', 2);
+
+            insert into integratedcaresystems(Name, UkRegionId) values ('Coventry and Warwickshire', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Herefordshire and Worcestershire', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Joined up care Derbyshire', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Leicester, Leicestershire and Rutland', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Lincolnshire', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Live Healthy Live Happy Birmingham and Solihull', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Northamptonshire Health and Care Partnership', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Shropshire and Telford and Wrekin', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('The Black Country', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Together were better Staffordshire and Stoke-on-Trent', 3);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Lancashire and South Cumbria', 3);
+
+            insert into integratedcaresystems(Name, UkRegionId) values ('Bedfordshire, Luton and Milton Keynes', 4);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Cambridgeshire and Peterborough', 4);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Hertfordshire and West Essex', 4);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Mid and South Essex Health and Care Partnership', 4);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Norfolk and Waveney Health and Care Partnership', 4);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Suffolk and North East Essex', 4);
+
+            insert into integratedcaresystems(Name, UkRegionId) values ('Bath and North East Somerset, Swindon and Wiltshire', 5);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Cornwall and the Isles of Scilly Health and Care Partnership', 5);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Healthier Together Bristol, North Somerset and South Gloucestershire', 5);
+            insert into integratedcaresystems(Name, UkRegionId) values ('One Gloucestershire', 5);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Our Dorset', 5);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Somerset', 5);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Devon', 5);
+
+            insert into integratedcaresystems(Name, UkRegionId) values ('Buckinghamshire, Oxfordshire and Berkshire West', 6);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Frimley Health and Care', 6);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Hampshire and the Isle of Wight', 6);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Kent and Medway', 6);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Surrey Heartlands Health and Care Partnership', 6);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Sussex Health and Care Partnership', 6);
+
+            insert into integratedcaresystems(Name, UkRegionId) values ('North Central London Partners in health and care', 7);
+            insert into integratedcaresystems(Name, UkRegionId) values ('North East London Health and Care Partnership', 7);
+            insert into integratedcaresystems(Name, UkRegionId) values ('North West London', 7);
+            insert into integratedcaresystems(Name, UkRegionId) values ('Our Healthier South East London', 7);
+            insert into integratedcaresystems(Name, UkRegionId) values ('South West London Health and Care Partnership', 7);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

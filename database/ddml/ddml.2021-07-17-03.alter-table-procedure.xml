@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mlabio" id="bf671b90-e6c3-11eb-95fa-1831bf981123-1">
+        <createTable tableName="Procedure">
+            <column name="Id" type="INT">				
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Status" type="INT"/>
+			<column name="StatusReason" type="VARCHAR(250)"/>
+			<column name="Category" type="VARCHAR(250)"/>
+			<column name="Code" type="VARCHAR(250)"/>
+			<column name="Subject" type="VARCHAR(50)"/>
+			<column name="PerformedPeriod" type="varchar(250)"/>
+			<column name="ReasonCode" type="VARCHAR(100)"/>
+			<column name="Bodysite" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+	<changeSet author="mlabio" id="bf671b90-e6c3-11eb-95fa-1831bf981123-2">
+		<loadData 
+				commentLineStartsWith="//"
+				encoding="UTF-8"  
+				file="csv/procedure.csv"  
+				quotchar="'" 
+				relativeToChangelogFile="true" 
+				separator="," 
+				tableName="procedure"> 
+		  <column header="Id"  
+					 type="NUMERIC"/> 
+		  <column header="Description"  
+					 type="STRING"/>
+		</loadData>
+	</changeSet>
+</databaseChangeLog>

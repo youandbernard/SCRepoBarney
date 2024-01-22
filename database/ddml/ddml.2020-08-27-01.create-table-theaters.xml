@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="root (generated)" id="1598523540893-1">
+        <createTable tableName="theaters">
+            <column name="Id" type="CHAR(36)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="TheaterId" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HospitalId" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="root (generated)" id="1598523540893-2">
+        <createIndex indexName="FK_Theaters_Hospital_HosiptalId_idx" tableName="theaters">
+            <column name="HospitalId"/>
+        </createIndex>
+    </changeSet>
+    <!-- <changeSet author="root (generated)" id="1598523540893-3">
+        <addForeignKeyConstraint baseColumnNames="HospitalId" baseTableName="theaters" constraintName="FK_Theaters_Hospital_HosiptalId" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="Id" referencedTableName="hospitals" validate="true"/>
+    </changeSet> -->
+</databaseChangeLog>

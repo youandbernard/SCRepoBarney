@@ -1,0 +1,1249 @@
+<div [@routerTransition]>
+  <section class="content-header page-header poap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ 'CreateAssessment' | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="card" [busy]="isLoading">
+        <div class="card-body">
+          <tabset #wizardTabs>
+            <tab [heading]="'Patient' | localize">
+              <form action="" autocomplete="off" #patientForm="ngForm">
+                <div class="row justify-content-center">
+                  <div class="col-lg-6 col-md-6 margin-patients-table" *ngIf="riskMappingSetting">
+                    <h4 class="patients-table-header">PATIENT TARGET LIST</h4>
+                    <div class="form-group patients-table">
+                      <table class="table table-bordered table-hover">
+                        <thead> 
+                          <tr>
+                            <th class="patient-header"></th>
+                            <th class="patient-header">Patient ID</th>
+                            <th class="patient-header">DOB Year</th>
+                            <th class="patient-header">Gender </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let patient of patients">
+                            <td><input type="radio" (change)="onPatientSelectedRiskMapping(patient)" [value]="patient.id" name="patientId" [(ngModel)]="preOperativeAssessment.patientId"></td>
+                            <td> {{ patient.id }} </td>
+                            <td> {{ patient.dobYear}} </td>
+                            <td> {{ patient.gender == 0 ? 'Male' : 'Female' }} </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="form-group" *ngIf="riskMappingSetting">
+                      <button class="btn btn-secondary" (click)="confirmPatientDetails()" [disabled]="!patientForm.valid">
+                        Confirm Patient  
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 colmd-6" *ngIf="!riskMappingSetting">
+                    <div class="form-group">
+                      <label for="PatientId" class="col-form-label">{{ 'PatientId' | localize }} *</label>
+                      <div class="input-group">
+                        <input
+                          [(ngModel)]="preOperativeAssessment.patientId"
+                          name="patientId"
+                          id="patientId"
+                          [typeahead]="patients"
+                          typeaheadOptionField="id"
+                          class="form-control"
+                          [typeaheadMinLength]="0"
+                          (typeaheadOnSelect)="onPatientSelected($event)"
+                        />
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="PatientDobYear" class="col-form-label">{{ 'PatientDobYear' | localize }} *</label>
+                      <input
+                        [(ngModel)]="preOperativeAssessment.dateOfBirthYear"
+                        type="number"
+                        min="1900"
+                        class="form-control"
+                        id="PatientDobYear"
+                        name="PatientDobYear"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="PatientGender" class="col-form-label">{{ 'Gender' | localize }} *</label>
+                      <select
+                        [(ngModel)]="preOperativeAssessment.gender"
+                        class="form-control"
+                        id="PatientGender"
+                        name="PatientGender"
+                        required
+                      >
+                        <option></option>
+                        <option value="0">{{ 'Male' | localize }} {{ 'MaleSnomedId' | localize }}</option>
+                        <option value="1">{{ 'Female' | localize }} {{ 'FemaleSnomedId' | localize }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="form-group">
+                      <label for="AssessmentDate" class="col-form-label">{{ 'AssessmentDateTime' | localize }} *</label>
+                      <div class="input-group datetimepicker-group" (click)="onChangeAssessmentDateClick()">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [value]="formatDateTime(preOperativeAssessment.assessmentDate)"
+                          readonly
+                          disabled
+                        />
+                        <input
+                          type="hidden"
+                          id="AssessmentDate"
+                          name="AssessmentDate"
+                          [(ngModel)]="preOperativeAssessment.assessmentDate"
+                          required
+                        />
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-calendar-alt"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="SurgeryDate" class="col-form-label">{{ 'SurgeryDateTime' | localize }} *</label>
+                      <div class="input-group datetimepicker-group" (click)="onChangeSurgeryDateClick()">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [value]="formatDateTime(preOperativeAssessment.surgeryDate)"
+                          readonly
+                          disabled
+                        />
+                        <input
+                          type="hidden"
+                          id="SurgeryDate"
+                          name="SurgeryDate"
+                          [(ngModel)]="preOperativeAssessment.surgeryDate"
+                          required
+                        />
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-calendar-alt"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="EthnicityID" class="col-form-label">{{ 'Ethnicity' | localize }} *</label>
+                      <select
+                        class="form-control"
+                        id="EthnicityID"
+                        [(ngModel)]="preOperativeAssessment.ethnicityId"
+                        name="EthnicityID"
+                        required
+                      >
+                        <option *ngFor="let ethnicity of ethnicities" [ngValue]="ethnicity.id">
+                          {{ ethnicity.description }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                  <div class="col-lg-12 col-md-12 text-right">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(1, 0)" [disabled]="!patientForm.valid">
+                      Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </tab>
+
+            <tab [heading]="'MedicalTeam' | localize" [disabled]="isTabRestrictionEnforced">
+              <form action="" autocomplete="off" #medicalTeamForm="ngForm">
+                <div class="row justify-content-center">
+                  <div class="col-lg-4 col-md-12">
+                    <div class="form-group">
+                      <label for="Specialty" class="col-form-label">{{ 'Specialty' | localize }}</label>
+                      <select
+                        class="form-control"
+                        id="Specialty"
+                        name="Specialty"
+                        (change)="onSurgeonSelect($event)"
+                        [(ngModel)]="preOperativeAssessment.bodyStructureGroupId"
+                        [disabled]="specialtyDisabled"
+                        required
+                      >
+                        <option *ngFor="let specialty of specialties" [value]="specialty.id">
+                          {{ specialty.name }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="SurgeonName" class="col-form-label">{{ 'SurgeonName' | localize }} *</label>
+                      <div class="input-group">
+                        <input
+                          [(ngModel)]="preOperativeAssessment.surgeonName"
+                          name="SurgeonName"
+                          id="SurgeonName"
+                          [typeahead]="surgeons"
+                          typeaheadOptionField="fullName"
+                          class="form-control"
+                          [typeaheadMinLength]="0"
+                          (typeaheadOnSelect)="onSurgeonSelected($event)"
+                          required
+                        />
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="SugeonExperience" class="col-form-label">{{ 'Experience' | localize }}</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="SugeonExperience"
+                        name="SugeonExperience"
+                        [value]="
+                          preOperativeAssessment.surgeonExperience || preOperativeAssessment.surgeonExperience == 0
+                            ? ('Experience' + preOperativeAssessment.surgeonExperience | localize)
+                            : ''
+                        "
+                        readonly
+                        disabled
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="AnesthetistName" class="col-form-label">{{ 'AnesthetistName' | localize }} *</label>
+                      <div class="input-group">
+                        <input
+                          [(ngModel)]="preOperativeAssessment.anesthetistName"
+                          name="AnesthetistName"
+                          id="AnesthetistName"
+                          [typeahead]="anaethetists"
+                          typeaheadOptionField="fullName"
+                          class="form-control"
+                          [typeaheadMinLength]="0"
+                          (typeaheadOnSelect)="onAnesthetistSelected($event)"
+                        />
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="TheaterId" class="col-form-label">{{ 'Theater' | localize }} *</label>
+                      <div class="input-group">
+                        <input
+                          [(ngModel)]="preOperativeAssessment['theaterName']"
+                          id="TheaterId"
+                          name="TheaterId"
+                          class="form-control"
+                          typeaheadOptionField="description"
+                          [typeahead]="theaters"
+                          [typeaheadMinLength]="0"
+                          (typeaheadOnSelect)="onTheaterSelected($event)"
+                          required
+                        />
+                        <div class="input-group-append">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                  <div class="col-lg-6 col-md-6 text-left">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(0, 1)"><i class="fas fa-chevron-left"></i> Previous</button>
+                  </div>
+                  <div class="col-lg-6 col-md-6 text-right">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(2, 1)" [disabled]="!medicalTeamForm.valid">
+                      Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </tab>
+
+            <tab [heading]="'Risks1' | localize" [disabled]="isTabRestrictionEnforced">
+              <form action="" autocomplete="off" #risks1Form="ngForm">
+                <div *ngIf="preOperativeAssessment.risks.length > 0" class="row justify-content-center">
+                  <ng-container *ngIf="!riskMappingSetting">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <h3 class="col-title">{{ 'Anesthesia' | localize }}</h3>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                              <div class="form-group">
+                                <label for="Risk_BloodPressure_Value" class="col-form-label">{{ 'BloodPressure' | localize }}</label>
+                                <select
+                                  [(ngModel)]="preOperativeAssessment.risks[0].value"
+                                  class="form-control"
+                                  id="Risk_BloodPressure_Value"
+                                  name="Risk_BloodPressure_Value"
+                                  required
+                                >
+                                  <option>Normal</option>
+                                  <option>Elevated</option>
+                                  <option>Hypertension Stage 1</option>
+                                  <option>Hypertension Stage 2</option>
+                                  <option>Hypertensive Crisis</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_BloodPressure_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [(ngModel)]="preOperativeAssessment.risks[0].meanTime"
+                                  id="Risk_BloodPressure_MeanTime"
+                                  name="Risk_BloodPressure_MeanTime"
+                                  min="0"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_BloodPressure_StandardDeviation" class="col-form-label">
+                                  {{ 'StdDeviation' | localize }}</label
+                                >
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[0].standardDeviation"
+                                  id="Risk_BloodPressure_StandardDeviation"
+                                  name="Risk_BloodPressure_StandardDeviation"
+                                  min="0"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <h3 class="col-title">{{ 'Surgery' | localize }}</h3>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                              <div class="form-group">
+                                <label for="Risk_BMI_Value" class="col-form-label">{{ 'BMI' | localize }}</label>
+                                <select
+                                  [(ngModel)]="preOperativeAssessment.risks[1].value"
+                                  class="form-control"
+                                  id="Risk_BMI_Value"
+                                  name="Risk_BMI_Value"
+                                  required
+                                >
+                                  <option>{{ '<18.5' }}</option>
+                                  <option>{{ '18.5-25' }}</option>
+                                  <option>{{ '25-30' }}</option>
+                                  <option>{{ '30-35' }}</option>
+                                  <option>{{ '35-40' }}</option>
+                                  <option>{{ '>40' }}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_BMI_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [(ngModel)]="preOperativeAssessment.risks[1].meanTime"
+                                  id="Risk_BMI_MeanTime"
+                                  name="Risk_BMI_MeanTime"
+                                  min="0"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_BMI_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[1].standardDeviation"
+                                  id="Risk_BMI_StandardDeviation"
+                                  name="Risk_BMI_StandardDeviation"
+                                  min="0"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                              <div class="form-group">
+                                <label for="Risk_Gender_Value" class="col-form-label">{{ 'Gender' | localize }}</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[2].value"
+                                  id="Risk_Gender_Value"
+                                  name="Risk_Gender_Value"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Gender_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [(ngModel)]="preOperativeAssessment.risks[2].meanTime"
+                                  id="Risk_Gender_MeanTime"
+                                  name="Risk_Gender_MeanTime"
+                                  min="0"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Gender_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[2].standardDeviation"
+                                  id="Risk_Gender_StandardDeviation"
+                                  name="Risk_Gender_StandardDeviation"
+                                  min="0"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                              <div class="form-group">
+                                <label for="Risk_Age_Value" class="col-form-label">{{ 'Age' | localize }}</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[3].value"
+                                  id="Risk_Age_Value"
+                                  name="Risk_Age_Value"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Age_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [(ngModel)]="preOperativeAssessment.risks[3].meanTime"
+                                  id="Risk_Age_MeanTime"
+                                  name="Risk_Age_MeanTime"
+                                  min="0"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Age_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[3].standardDeviation"
+                                  id="Risk_Age_StandardDeviation"
+                                  name="Risk_Age_StandardDeviation"
+                                  min="0"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                              <div class="form-group">
+                                <label for="Risk_Ethnicity_Value" class="col-form-label">{{ 'Ethnicity' | localize }}</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[4].value"
+                                  id="Risk_Ethnicity_Value"
+                                  name="Risk_Ethnicity_Value"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Ethnicity_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [(ngModel)]="preOperativeAssessment.risks[4].meanTime"
+                                  id="Risk_Ethnicity_MeanTime"
+                                  name="Risk_Ethnicity_MeanTime"
+                                  min="0"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Ethnicity_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [value]="preOperativeAssessment.risks[3].standardDeviation"
+                                  id="Risk_Ethnicity_StandardDeviation"
+                                  name="Risk_Ethnicity_StandardDeviation"
+                                  min="0"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                              <div class="form-group">
+                                <!--<label for="Risk_Ethnicity_MeanTime" class="col-form-label"> {{ 'Smoker' | localize }}</label>
+                                <div>
+                                  <label class="switchStatus">No</label>
+                                  <label class="switch">
+                                    <input type="checkbox" [(ngModel)]="preOperativeAssessment.isSmoker" name="isSmoker" />
+                                    <span class="slider round"></span>
+                                  </label>
+                                  <label class="switchStatus">Yes</label>
+                                </div>-->
+
+                                <label for="Smoker" class="col-form-label">{{ 'Smoker' | localize }}</label>
+                                <select
+                                  [(ngModel)]="selectedSmoker"
+                                  class="form-control"
+                                  id="Smoker"
+                                  name="Smoker"
+                                  (change)="onSelectSmoker($event.target.value)"
+                                  required
+                                >
+                                  <option (value)='Yes'>{{ 'Yes' }}</option>
+                                  <option (value)='No'>{{ 'No' }}</option>
+                                </select>                                
+                              </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Ethnicity_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [(ngModel)]="risksOneExtras[0].meanTime"
+                                  id="Risk_Ethnicity_MeanTime"
+                                  name="Risk_Ethnicity_MeanTime"
+                                  min="0"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12" hidden="true">
+                              <div class="form-group">
+                                <label for="Risk_Ethnicity_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  [value]="risksOneExtras[0].standardDeviation"
+                                  id="Risk_Ethnicity_StandardDeviation"
+                                  name="Risk_Ethnicity_StandardDeviation"
+                                  min="0"
+                                  readonly
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="riskMappingSetting">
+                    <div class="col-lg-6 col-md-6">
+                      <div class="card match-demographic">
+                        <div class="card-body">
+                          <h3 class="col-title"> {{ 'Match Demographic' }} </h3>
+                          <div class="form-group">
+                            <label for="Risk_Gender_Value" class="col-form-label">{{ 'PatientID' | localize }}</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              [value]="preOperativeAssessment.patientId"
+                              id="Risk_PatientId_Value"
+                              name="Risk_PatientID_Value"
+                              readonly
+                              disabled
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="Risk_BloodPressure_Value" class="col-form-label">{{ 'BloodPressure' | localize }}</label>
+                            <input
+                              [(ngModel)]="preOperativeAssessment.risks[0].value"
+                              class="form-control"
+                              id="Risk_BloodPressure_Value"
+                              name="Risk_BloodPressure_Value"
+                              required
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="Risk_BMI_Value" class="col-form-label">{{ 'BMI' | localize }}</label>
+                            <input
+                              [(ngModel)]="preOperativeAssessment.risks[1].value"
+                              class="form-control"
+                              id="Risk_BMI_Value"
+                              name="Risk_BMI_Value"
+                              required
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="Risk_Gender_Value" class="col-form-label">{{ 'Gender' | localize }}</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              [value]="preOperativeAssessment.risks[2].value"
+                              id="Risk_Gender_Value"
+                              name="Risk_Gender_Value"
+                              readonly
+                              disabled
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="Risk_Age_Value" class="col-form-label">{{ 'Age' | localize }}</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              [value]="preOperativeAssessment.risks[3].value"
+                              id="Risk_Age_Value"
+                              name="Risk_Age_Value"
+                              readonly
+                              disabled
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="Risk_Ethnicity_Value" class="col-form-label">{{ 'Ethnicity' | localize }}</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              [value]="preOperativeAssessment.risks[4].value"
+                              id="Risk_Ethnicity_Value"
+                              name="Risk_Ethnicity_Value"
+                              readonly
+                              disabled
+                            />
+                          </div>
+                          <div class="form-group">
+                            <!--<label for="Risk_Ethnicity_MeanTime" class="col-form-label"> {{ 'Smoker' | localize }}</label>
+                            <div>
+                              <label class="switchStatus">No</label>
+                              <label class="switch">
+                                <input type="checkbox" [(ngModel)]="preOperativeAssessment.isSmoker" name="isSmoker" />
+                                <span class="slider round"></span>
+                              </label>
+                              <label class="switchStatus">Yes</label>
+                            </div>-->
+
+                            <label for="selectedSmoker" class="col-form-label">{{ 'Smoker' | localize }}</label>
+                            <input
+                              [(ngModel)]="selectedSmoker"
+                              class="form-control"
+                              id="selectedSmoker"
+                              name="selectedSmoker"
+                              required
+                              type="text"
+                            />
+                          </div>
+                          <div class="form-group" *ngIf="riskMappingSetting">
+                            <button class="btn btn-secondary" (click)="saveDemographic()">
+                              Save 
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <div class="card">
+                        <div class="card-body"></div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="row justify-content-center mt-5">
+                  <div class="col-lg-6 col-md-6 text-left">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(1, 2)"><i class="fas fa-chevron-left"></i> Previous</button>
+                  </div>
+                  <div class="col-lg-6 col-md-6 text-right">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(3, 2)">Next <i class="fas fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </form>
+            </tab>
+
+            <tab [heading]="'Risks2' | localize" [disabled]="isTabRestrictionEnforced">
+              <form action="" autocomplete="off" #risks2Form="ngForm">
+                <div *ngIf="riskMappingSetting" class="row">
+                  <div class="col-lg-6 col-md-6">
+                    <div class="form-group save-diagnostic-report-btn" *ngIf="riskMappingSetting">
+                      <button class="btn btn-secondary" (click)="clearDiagnosticSelection()">
+                        Clear Diagnostic Selection  
+                      </button>
+                    </div>
+                    <table class="table table-bordered table-hover">
+                      <thead> 
+                        <tr>
+                          <th></th>
+                          <th>Diagnostic</th>
+                          <th>Description Id</th>
+                          <th>Description </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let diagnosticReport of diagnosticReports" [class]="(saveDiagnosticClicked && selectedDiagnostic === diagnosticReport.id) || (preOperativeAssessment.diagnosticReportId === selectedDiagnostic && preOperativeAssessment.diagnosticReportId === diagnosticReport.id) ? 'diagnostic-report-selected': ''">
+                          <td><input type="radio" (change)="handleDiagnosticReportChange($event)" [value]="diagnosticReport.id" name="diagnosticReportId" [(ngModel)]="selectedDiagnostic"></td>
+                          <td> {{ diagnosticReport.conclusion}} </td>
+                          <td> {{ diagnosticReport.conclusionCode}} </td>
+                          <td> {{ diagnosticReport.conclusion }} </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="form-group save-diagnostic-report-btn" *ngIf="riskMappingSetting">
+                      <button class="btn btn-secondary" (click)="saveDiagnosticReport()">
+                        Save  
+                      </button>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6 col-md-6 text-left">
+                    <div class="co-morbidity-tree-actions">
+                      <button *ngIf="riskMappingSetting" class="btn btn-sm btn-primary" type="button" (click)="clearSelection()">
+                        <i class="fa fa-search"></i>
+                        {{ 'Clear Risk Factors Selection' | localize }}
+                      </button>
+                      <button class="btn btn-sm btn-primary" type="button" (click)="onExpandAllClick()">
+                        <i class="fa fa-angle-double-down"></i>
+                        {{ 'ExpandAll' | localize }}
+                      </button>
+                      <button class="btn btn-sm btn-primary" type="button" (click)="onCollapseAllClick()">
+                        <i class="fa fa-angle-double-up"></i>
+                        {{ 'CollapseAll' | localize }}
+                      </button>
+                    </div>
+                    <p-tree
+                      [value]="coMorbidityNodes"
+                      [filter]="true"
+                      [propagateSelectionDown]="true"
+                      [(selection)]="selectedCoMorbidityNodes"
+                      selectionMode="checkbox"
+                      (click)="onCheckSelectAllClick()"
+                    >
+                    </p-tree>
+                  </div>
+                </div>
+
+                <div *ngIf="!riskMappingSetting" class="row">
+                  <div class="col-lg-12 col-md-12 text-left">
+                    <div class="co-morbidity-tree-actions">
+                      <button class="btn btn-sm btn-primary" type="button" (click)="onExpandAllClick()">
+                        <i class="fa fa-angle-double-down"></i>
+                        {{ 'ExpandAll' | localize }}
+                      </button>
+                      <button class="btn btn-sm btn-primary" type="button" (click)="onCollapseAllClick()">
+                        <i class="fa fa-angle-double-up"></i>
+                        {{ 'CollapseAll' | localize }}
+                      </button>
+                    </div>
+                    <p-tree
+                      [value]="coMorbidityNodes"
+                      [filter]="true"
+                      [propagateSelectionDown]="true"
+                      [(selection)]="selectedCoMorbidityNodes"
+                      selectionMode="checkbox"
+                      (click)="onCheckSelectAllClick()"
+                    >
+                    </p-tree>
+                  </div>
+                </div>
+                
+                <div class="row justify-content-center mt-5">
+                  <div class="col-lg-6 col-md-6 text-left">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(2, 3)"><i class="fas fa-chevron-left"></i> Previous</button>
+                  </div>
+                  <div class="col-lg-6 col-md-6 text-right">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(4, 3)">
+                      <span *ngIf="!preOperativeAssessment.awaitingRiskCompletion || preOperativeAssessment.awaitingRiskCompletion == 0">
+                        Next
+                      </span> 
+                      <span *ngIf="preOperativeAssessment.awaitingRiskCompletion == 1">
+                        Risk Complete
+                      </span> 
+                      <i class="fas fa-chevron-right"></i>
+                  </button>
+                    <!-- <button class="btn btn-secondary" (click)="onTabChangeClick(4, 3)">Next <i class="fas fa-chevron-right"></i></button> -->
+                  </div>
+                </div>
+              </form>
+            </tab>
+
+            <tab [heading]="'PatientPreparation' | localize" [disabled]="isTabRestrictionEnforced">
+              <form action="" autocomplete="off" #patientPreparationForm="ngForm">
+                <div *ngIf="preOperativeAssessment.risks.length > 0" class="row justify-content-center">
+                  <div class="col-lg-6 col-md-12">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_WHOCheckList_Value" class="col-form-label">&nbsp;</label>
+                          <input type="text" class="form-control" [value]="'WHOCheckList' | localize" readonly disabled />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_WHOCheckList_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="patientPreparations[0].meanTime"
+                            id="Risk_WHOCheckList_MeanTime"
+                            name="Risk_WHOCheckList_MeanTime"
+                            min="0"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_WHOCheckList_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [value]="patientPreparations[0].standardDeviation"
+                            id="Risk_WHOCheckList_StandardDeviation"
+                            name="Risk_WHOCheckList_StandardDeviation"
+                            min="0"
+                            readonly
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_PatientPositioning_Value" class="col-form-label">&nbsp;</label>
+                          <input type="text" class="form-control" [value]="'PatientPositioning' | localize" readonly disabled />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_PatientPositioning_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="patientPreparations[1].meanTime"
+                            id="Risk_PatientPositioning_MeanTime"
+                            name="Risk_PatientPositioning_MeanTime"
+                            min="0"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_PatientPositioning_StandardDeviation" class="col-form-label">
+                            {{ 'StdDeviation' | localize }}</label
+                          >
+                          <input
+                            type="number"
+                            class="form-control"
+                            [value]="patientPreparations[1].standardDeviation"
+                            id="Risk_PatientPositioning_StandardDeviation"
+                            name="Risk_PatientPositioning_StandardDeviation"
+                            min="0"
+                            readonly
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Draping_Value" class="col-form-label">&nbsp;</label>
+                          <input type="text" class="form-control" [value]="'Draping' | localize" readonly disabled />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Draping_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="patientPreparations[2].meanTime"
+                            id="Risk_Draping_MeanTime"
+                            name="Risk_Draping_MeanTime"
+                            min="0"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Draping_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [value]="patientPreparations[2].standardDeviation"
+                            id="Risk_Draping_StandardDeviation"
+                            name="Risk_Draping_StandardDeviation"
+                            min="0"
+                            readonly
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Scrub_Value" class="col-form-label">&nbsp;</label>
+                          <input type="text" class="form-control" [value]="'Scrub' | localize" readonly disabled />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Scrub_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="patientPreparations[3].meanTime"
+                            id="Risk_Draping_MeanTime"
+                            name="Risk_Draping_MeanTime"
+                            min="0"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Scrub_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [value]="patientPreparations[3].standardDeviation"
+                            id="Risk_Scrub_StandardDeviation"
+                            name="Risk_Scrub_StandardDeviation"
+                            min="0"
+                            readonly
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Identification_Value" class="col-form-label">&nbsp;</label>
+                          <input type="text" class="form-control" [value]="'Identification' | localize" readonly disabled />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Identification_MeanTime" class="col-form-label"> {{ 'MeanTime' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="patientPreparations[4].meanTime"
+                            id="Risk_Identification_MeanTime"
+                            name="Risk_Identification_MeanTime"
+                            min="0"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-12">
+                        <div class="form-group">
+                          <label for="Risk_Identification_StandardDeviation" class="col-form-label"> {{ 'StdDeviation' | localize }}</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            [value]="patientPreparations[4].standardDeviation"
+                            id="Risk_Identification_StandardDeviation"
+                            name="Risk_Identification_StandardDeviation"
+                            min="0"
+                            readonly
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12 total-time">
+                        <label for="">
+                          {{ 'TotalTime' | localize }}
+                        </label>
+                      </div>
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                          <input
+                            type="number"
+                            class="form-control"
+                            [value]="getTotalPredictedTime()"
+                            id="Risk_Identification_StandardDeviation"
+                            name="Risk_Identification_StandardDeviation"
+                            min="0"
+                            readonly
+                            disabled
+                          />
+                          <!-- <label for="Risk_Identification_MeanTime" class="col-form-label">  </label> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                  <div class="col-lg-6 col-md-6 text-left">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(3, 4)"><i class="fas fa-chevron-left"></i> Previous</button>
+                  </div>
+                  <div class="col-lg-6 col-md-6 text-right">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(5, 4)">Next <i class="fas fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </form>
+            </tab>
+
+            <tab [heading]="'Procedure' | localize" [disabled]="isTabRestrictionEnforced">
+              <form action="" autocomplete="off" #procedureForm="ngForm">
+                <div class="row">
+                  <div class="col-lg-3 col-md-12">
+                    <div class="form-group">
+                      <label for="BodyStructure" class="col-form-label">{{ 'Sub-Specialty' | localize }} *</label>
+                      <select
+                        [(ngModel)]="preOperativeAssessment.bodyStructureId"
+                        class="form-control"
+                        id="BodyStructure"
+                        name="BodyStructure"
+                        required
+                      >
+                        <optgroup *ngFor="let bodyStructureGroup of bodyStructureGroups" [label]="bodyStructureGroup.name">
+                          <option *ngFor="let bodyStructure of bodyStructureGroup.bodyStructures" [value]="bodyStructure.id">
+                            {{ bodyStructure.description }}
+                          </option>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="ProcedureMethodType" class="col-form-label">{{ 'ProcedureMethodType' | localize }} *</label><br>
+                      <input
+                          class="list-search form-control"
+                          [(ngModel)]="procedureMethodTypeName"
+                          name="procedureMethodTypeName"
+                          id="procedureMethodTypeName"
+                          [typeahead]="procedureMethodTypes"
+                          typeaheadOptionField="description"
+                          class="form-control"
+                          [typeaheadMinLength]="0"
+                          (typeaheadOnSelect)="setSelectedItem($event)"
+                          style="margin-bottom: 20px;"
+                        />
+                        <div 
+                        *ngFor="let selected of selectedProcedureMethodTypes"
+                        class="alert alert-primary" 
+                        role="alert">
+                          {{ selected.description }}
+                          <button
+                          type="button"
+                          class="close"
+                          data-dismiss="alert"
+                          aria-label="Close"
+                          (click)="$event.preventDefault(); onRemoveClick(selected)"
+                        >
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="InstrumentPacks" class="col-form-label">{{ 'InstrumentPacks' | localize }} *</label><br>
+                        <input
+                            class="list-search form-control"
+                            [(ngModel)]="instrumentPacksTraysName"
+                            name="instrumentPacksTraysName"
+                            id="instrumentPacksTraysName"
+                            [typeahead]="instrumentPacks"
+                            typeaheadOptionField="packName"
+                            class="form-control"
+                            [typeaheadMinLength]="0"
+                            (typeaheadOnSelect)="setSelectedPackItem($event)"
+                            style="margin-bottom: 20px;"
+                        />
+                        <div 
+                          *ngFor="let selected of selectedinstrumentPacks"
+                          class="alert alert-primary instrumentpack" 
+                          (click)="$event.preventDefault(); showInstruments(selected)"
+                          role="alert">
+                            {{ selected.packName }} ({{ selected.embodiedCarbon }} kgCO2)                            
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="alert"
+                              aria-label="Close"
+                              (click)="$event.preventDefault(); onRemovePackClick(selected)"
+                            >
+                              <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-9 col-md-12">
+                    <label for="float-left" class="col-form-label">{{ 'SubProcedure' | localize }}</label>
+                    <div class="float-right mb-1">
+                      <button (click)="onAddProcedureClick()" class="btn btn-success btn-sm">
+                        <i class="fas fa-plus"></i> {{ 'Add' | localize }}
+                      </button>
+                    </div>
+                    <p-table
+                      [value]="preOperativeAssessment.procedures"
+                      [autoLayout]="true"
+                      dataKey="name"
+                      editMode="row"
+                      [reorderableColumns]="true"
+                    >
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <th width="1%">&nbsp;</th>
+                          <th>Snomed Id</th>
+                          <th>Description</th>
+                          <th>Predicted Time</th>
+                          <th>Std Deviation</th>
+                          <th width="1%" class="text-center">
+                            {{ 'Actions' | localize }}
+                          </th>
+                        </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-procedure let-isEditing="editing" let-i="rowIndex">
+                        <tr *ngIf="!procedure.isRisk || !procedure.name.toLowerCase().startsWith('risk -')" [pEditableRow]="procedure" [pReorderableRow]="i" [pReorderableRowDisabled]="procedure.isRisk">
+                          <td>
+                            <i *ngIf="procedure.isRisk" class="fas fa-bars disabled"></i>
+                            <i *ngIf="!procedure.isRisk" class="fas fa-bars move" pReorderableRowHandle></i>
+                          </td>
+                          <td>{{ procedure.snomedId }}</td>
+                          <td>{{ procedure.name }}</td>
+                          <td>
+                            <p-cellEditor>
+                              <ng-template pTemplate="input">
+                                <input
+                                  pInputText
+                                  type="number"
+                                  [(ngModel)]="procedure.meanTime"
+                                  [id]="'MeanTime_' + i"
+                                  [name]="'MeanTime_' + i"
+                                  class="edit-procedure-input"
+                                  min="0"
+                                />
+                              </ng-template>
+                              <ng-template pTemplate="output"> {{ procedure.meanTime }} {{ 'Min' | localize }} </ng-template>
+                            </p-cellEditor>
+                          </td>
+                          <td>
+                            {{ procedure.standardDeviation }}
+                            {{ 'Min' | localize }}
+                          </td>
+                          <td class="text-nowrap">
+                            <button
+                              pButton
+                              *ngIf="isEditing"
+                              type="button"
+                              class="btn btn-sm bg-secondary"
+                              pSaveEditableRow
+                              (click)="onApplyProcedureChangesClick(procedure)"
+                            >
+                              <i class="fas fa-check"></i>
+                            </button>
+                            
+                            <button
+                              pButton
+                              *ngIf="!isEditing"
+                              type="button"
+                              class="btn btn-sm bg-secondary"
+                              pInitEditableRow
+                              (click)="onProcedureEditClick(procedure)"
+                            >
+                              <i class="fas fa-pencil-alt"></i>
+                            </button>
+
+                            <button
+                              pButton
+                              *ngIf="(isSurgeon || isAdmin) && procedure.showButtonDevProc"
+                              type="button"
+                              class="btn btn-sm bg-success mx-2"
+                              (click)="onApplyDevice(procedure)"
+                            >
+                              <i class="fas fa-procedures"></i>
+                            </button> 
+
+                            <button
+                              pButton
+                              *ngIf="!procedure.isRisk"
+                              type="button"
+                              class="btn btn-sm bg-danger mx-2"
+                              (click)="onRemoveProcedureClick(procedure.name)"
+                            >
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </ng-template>
+                      <ng-template pTemplate="footer">
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td colspan="2" class="text-right">
+                            <b>{{ 'TotalProcedureTime' | localize }}</b>
+                          </td>
+                          <td>{{ getMeanTimeSum() }}</td>
+                          <td>{{ getStandardDeviationSum() }}</td>
+                          <td>&nbsp;</td>
+                        </tr>
+                      </ng-template>
+                    </p-table>
+                  </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                  <div class="col-lg-6 col-md-6 text-left">
+                    <button class="btn btn-secondary" (click)="onTabChangeClick(4, 5)"><i class="fas fa-chevron-left"></i> Previous</button>
+                  </div>
+                  <div class="col-lg-6 col-md-6 text-right">
+                    <button class="btn btn-primary" (click)="onSaveClick()"><i class="fas fa-check"></i> Save</button>
+                  </div>
+                </div>
+              </form>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

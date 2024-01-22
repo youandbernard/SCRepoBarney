@@ -1,0 +1,157 @@
+<form class="form-horizontal" autocomplete="off" #createEditRegionForm="ngForm">
+  <abp-modal-header
+    [title]="(region.type === 'Region' ? 'Create Region' : region.type === 'Trust' ? 'Create Sub Region' : 'Create Country') | localize"
+    (onCloseClick)="onCloseClick()"
+  >
+  </abp-modal-header>
+  <div class="modal-body modal-md">
+    <div class="form-group row required" *ngIf="region.type === 'Region'">
+      <label class="col-md-3 col-form-label" for="Region_Name">
+        {{ 'Name' | localize }}
+      </label>
+      <div class="col-md-9" *ngIf="ctryName !== 'United Kingdom'">
+        <input
+          type="text"
+          class="form-control"
+          name="Region_Name"
+          id="Region_Name"
+          [(ngModel)]="region.name"
+          #name="ngModel"
+          #nameEl
+          required
+          maxlength="50"
+        />
+        <abp-validation-summary [control]="name" [controlEl]="nameEl"></abp-validation-summary>
+      </div>
+
+      <div class="col-md-9" *ngIf="ctryName === 'United Kingdom'">
+        <div class="input-group">
+          <input
+            [(ngModel)]="region.name"
+            name="Region_Name"
+            id="Region_Name"
+            [typeahead]="ukRegions"
+            typeaheadOptionField="name"
+            class="form-control"
+            [typeaheadMinLength]="0"
+            (typeaheadOnSelect)="onCountryChange($event)"
+            reguired
+          />
+          <div class="input-group-append">
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="region.type === 'Country'">
+      <label for="regionName" class="col-form-label">{{ 'Country' | localize }} *</label>
+      <div class="input-group">
+        <input
+          [(ngModel)]="region.name"
+          name="Region_Name"
+          id="Region_Name"
+          [typeahead]="countries"
+          typeaheadOptionField="name"
+          class="form-control"
+          [typeaheadMinLength]="0"
+          (typeaheadOnSelect)="onCountryChange($event)"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-default" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row required" *ngIf="region.type === 'Trust'">
+      <label class="col-md-3 col-form-label" for="Region_Name">
+        {{ 'Country Name' | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="ctryName"
+          id="ctryName"
+          [(ngModel)]="ctryName"
+          #name="ngModel"
+          #nameEl
+          required
+          maxlength="50"
+          disabled
+        />
+      </div>
+    </div>
+
+    <div class="form-group row required" *ngIf="region.type === 'Trust'">
+      <label class="col-md-3 col-form-label" for="Region_Name">
+        {{ 'Region Name' | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="rgName"
+          id="rgName"
+          [(ngModel)]="rgName"
+          #name="ngModel"
+          #nameEl
+          required
+          maxlength="50"
+          disabled
+        />
+      </div>
+    </div>
+
+    <div class="form-group row" *ngIf="region.type === 'Trust'">
+      <label class="col-md-3 col-form-label" for="Hospital_Name">
+        {{ 'Sub Region' | localize }}
+      </label>
+      <div class="col-md-9">
+        <div class="input-group">
+          <input
+            [(ngModel)]="region.name"
+            name="Region_Name"
+            id="Region_Name"
+            [typeahead]="trusts"
+            typeaheadOptionField="groupTrust"
+            class="form-control"
+            [typeaheadMinLength]="0"
+            (typeaheadOnSelect)="onTrustChange($event)"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row required" *ngIf="region.type === 'Trust' && ctryName === 'United Kingdom'">
+      <label class="col-md-3 col-form-label" for="Hospital_Name">
+        {{ 'ICS' | localize }}
+      </label>
+      <div class="col-md-9">
+        <p-multiSelect
+          [options]="icsData"
+          [(ngModel)]="selectedIcs"
+          defaultLabel="Select an ics"
+          optionLabel="name"
+          display="chip"
+          [style]="{ minWidth: '100%' }"
+          (onChange)="onChangeIcs($event)"
+          name="regionsMultiselect"
+        ></p-multiSelect>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button [class]="hideDeleteButton === true? 'btn btn-default close-btn': 'btn btn-default close-btn2'" (click)="onCloseClick()">Cancel</button>
+    <button *ngIf="hideDeleteButton" class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
+    <button class="btn btn-primary" type="submit" (click)="onFormSubmit()">Save</button>
+  </div>
+</form>

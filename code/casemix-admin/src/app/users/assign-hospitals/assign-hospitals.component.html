@@ -1,0 +1,11 @@
+<div class="form-group row">
+  <div class="col-md-12" *ngFor="let userHospital of userHospitals; let i = index">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" [id]="'Hospital_IsSelected_' + i"
+        [(ngModel)]="userHospitals[i].isSelected" />
+      <label class="custom-control-label" [for]="'Hospital_IsSelected_' + i">
+        {{ hospitals[userHospital.hospitalId].name }}
+      </label>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1173 @@
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6 instrument-header">
+            <img
+                src="assets/img/PredictOR.JPG"
+                alt="PredictOR"
+                style="opacity: 0.8; margin-right: 10px;"
+                width="160px"
+                height="80px"
+            />
+            <h4>{{ instrumentPack.packName }}</h4>
+        </div>
+    </div>
+    <div *ngIf="hipExras" class="card-body ajax-dt">
+        <table 
+            class="table table-bordered table-striped table-hover" 
+            id="instruments">
+            <thead>
+                <tr>
+                <td>Name</td>
+                <td>Qty</td>
+                <td>Ave. Weight</td>
+                <td>Ave. CO2/kgs</td>
+                <td>CO2 per kg</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DIN BASKET</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR J.R.I. NARROW 10-22-07</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR J.R.I. BROAD 10-43-08</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR COBRA  GV-680-57-N</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>HUTCHYS CUP INTRODUCER 9626-28</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>SOCKET PUSHER 962607000 WITH BLACK 28 HEAD</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SWAN NECK FLARED GOUGE</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>SPOON SMALL</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>                
+                <tr>
+                    <td>SPOON MEDIUM</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>SPOON LARGE</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>ACETABULAR DRILL BIT  9623-90</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>ACETABULAR T-HANDLE</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>IMPACTOR  GB-315-40-L</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>BRISTOL GUY DISSECTOR</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>PHANTOMS  40MM</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>PHANTOMS  43MM</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>PHANTOMS  47MM</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>PHANTOMS  50MM</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+                <tr>
+                    <td>PHANTOMS  53MM</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000556</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+     <div *ngIf="basicHipTray" class="card-body ajax-dt">
+        <table 
+            class="table table-bordered table-striped table-hover" 
+            id="instruments">
+            <thead>
+                <tr>
+                <td>Name</td>
+                <td>Qty</td>
+                <td>Ave. Weight</td>
+                <td>Ave. CO2/kgs</td>
+                <td>CO2 per kg</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DIN BASKET</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>KNIFE HANDLE NO.4</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>KNIFE HANDLE NO.4</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>KNIFE HANDLE NO. 4 (LONG HANDLED)</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCISSORS MAYO STRAIGHT</td>
+                    <td>1</td>
+                    <td>0.20</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCISSORS MAYO CURVED</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCISSORS SHARP/BLUNT</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS PLAIN DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS LANES TOOTHED DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS LANES TOOTHED DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ADSONS TOOTHED DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>VOLKMANN SCOOP</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY KOCHERS</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS RAMPLEYS SPONGE HOLDER</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS RAMPLEYS SPONGE HOLDER</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>                
+                <tr>
+                    <td>FORCEPS RAMPLEYS SPONGE HOLDER</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>NEEDLE HOLDER MAYO</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>NEEDLE HOLDER MAYO</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCISSORS KNEE</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>HEATHS HAMMER</td>
+                    <td>1</td>
+                    <td>0.50</td>
+                    <td>0.00278</td>
+                    <td>0.00139</td>
+                </tr>
+                <tr>
+                    <td>TUFNOL MALLET</td>
+                    <td>1</td>
+                    <td>0.30</td>
+                    <td>0.00278</td>
+                    <td>0.000834</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR NORFOLK & NORWICH S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR NORFOLK & NORWICH S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR TRAVERS S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>BONE NIBBLER GLASGOW PATTERN</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>ELEVATOR BRISTOWS</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>MITCHELLS PERIOSTEAL ELEVATOR</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>BONE LEVER TRETHOWAN</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>BONE LEVER TRETHOWAN</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>BONE HOOK</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK MEDIUM</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK LARGE</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS DIATHERMY SPICERS</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="basicSet20" class="card-body ajax-dt">
+        <table 
+            class="table table-bordered table-striped table-hover" 
+            id="instruments">
+            <thead>
+                <tr>
+                <td>Name</td>
+                <td>Qty</td>
+                <td>Ave. Weight</td>
+                <td>Ave. CO2/kgs</td>
+                <td>CO2 per kg</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DIN BASKET</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                     <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>NEEDLE HOLDER CAIRNS</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>NEEDLE HOLDER MAYO</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY KOCHERS STRAIGHT</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY KOCHERS STRAIGHT</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS RAMPLEYS SPONGE HOLDER</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS RAMPLEYS SPONGE HOLDER</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS RAMPLEYS SPONGE HOLDER</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>                
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>TOWEL CLIPS BALL AND SOCKET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>KNIFE HANDLE NO.3</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>KNIFE HANDLE NO.4</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>KNIFE HANDLE NO.4</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCISSORS MAYO STRAIGHT</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCISSORS MAYO CURVED</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCISSORS MCINDOES CURVED</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS TREVES TOOTHED DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS LANES TOOTHED DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS DISSECTING GILLIES TOOTHED</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS PLAIN DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>DISSECTOR MACDONALD PH493505</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>DISSECTORS BRISTOL GUY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>SCOOP VOLKMANN</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>MITCHEL ROUGINE</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>BONE HOOK</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>BONE CURRETTE</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>HOWARTHS ELEVATOR</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS ARTERY FRAZER KELLY</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS TISSUE LANES</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS TISSUE LANES</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS TISSUE ALLIS</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS TISSUE ALLIS</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>ELEVATORS TRETHOWANS RING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>ELEVATORS TRETHOWANS RING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>ELEVATORS TRETHOWANS RING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>ELEVATORS TRETHOWANS RING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>ELEVATOR BRISTOW</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK LARGE</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK LARGE</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK MEDIUM</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK MEDIUM</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK SMALL</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LANGENBECK SMALL</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR TRAVERS S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR JACKSON BURROWS S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR WEST S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LAMINECTOMY S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>RETRACTOR LAMINECTOMY S.R.</td>
+                    <td>1</td>
+                    <td>0.25</td>
+                    <td>0.00278</td>
+                    <td>0.000695</td>
+                </tr>
+                <tr>
+                    <td>MALLET</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>FORCEPS DIATHERMY DISSECTING</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>DIATHERMY NEEDLE</td>
+                    <td>1</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.000417</td>
+                </tr>
+                <tr>
+                    <td>NON CODED INSTRUMENT PIN</td>
+                    <td>3</td>
+                    <td>0.15</td>
+                    <td>0.00278</td>
+                    <td>0.001251</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="kimal" class="card-body ajax-dt">
+        <table 
+            class="table table-bordered table-striped table-hover" 
+            id="instruments">
+            <thead>
+                <tr>
+                <td>Part Description</td>
+                <td>Qty</td>
+                <td>Ind. Weight</td>
+                <td>Total Weight</td>
+                <td>Plastic Weight</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Scalpel No.11</td>
+                    <td>1</td>
+                    <td>0.00525</td>
+                    <td>0.00525</td>
+                    <td>0.00525</td>
+                </tr>
+                <tr>
+                    <td>Scalpel No.11</td>
+                    <td>1</td>
+                    <td>0.00175</td>
+                    <td>0.00175</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Needle 21G x 3.8cm Hypo Green</td>
+                    <td>1</td>
+                    <td>0.00025</td>
+                    <td>0.00025</td>
+                    <td>0.00025</td>
+                </tr>
+                <tr>
+                    <td>Needle 21G x 3.8cm Hypo Green</td>
+                    <td>1</td>
+                    <td>0.00075</td>
+                    <td>0.00075</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Needle 23G x 3cm Hypo Blue</td>
+                    <td>1</td>
+                    <td>0.00025</td>
+                    <td>0.00025</td>
+                    <td>0.00025</td>
+                </tr>
+                <tr>
+                    <td>Needle 23G x 3cm Hypo Blue</td>
+                    <td>1</td>
+                    <td>0.00075</td>
+                    <td>0.00075</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Needle 19G x 7cm Sing Wall Cordis A4</td>
+                    <td>1</td>
+                    <td>0.00017</td>
+                    <td>0.00017</td>
+                    <td>0.00017</td>
+                </tr>
+                <tr>
+                    <td>Needle 19G x 7cm Sing Wall Cordis A5</td>
+                    <td>1</td>
+                    <td>0.00150</td>
+                    <td>0.00150</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Needle 19G x 7cm Sing Wall Cordis A6</td>
+                    <td>1</td>
+                    <td>0.00017</td>
+                    <td>0.00017</td>
+                    <td>0.00017</td>
+                </tr>
+                <tr>
+                    <td>Needle 19G x 7cm Sing Wall Cordis A7</td>
+                    <td>1</td>
+                    <td>0.00017</td>
+                    <td>0.00017</td>
+                    <td>0.00017</td>
+                </tr>
+                <tr>
+                    <td>Wing For 6280, 6281, 6282, 6285</td>
+                    <td>1</td>
+                    <td>0.02500</td>
+                    <td>0.02500</td>
+                    <td>0.02500</td>
+                </tr>
+                <tr>
+                    <td>Swab Gauze 10 x 10cm 12Ply 5 Pack</td>
+                    <td>4</td>
+                    <td>0.00100</td>
+                    <td>0.00400</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Cover Fluoro Medium Blue</td>
+                    <td>1</td>
+                    <td>0.03000</td>
+                    <td>0.03000</td>
+                    <td>0.03000</td>
+                </tr>
+                <tr>
+                    <td>Label Set New Colours</td>
+                    <td>1</td>
+                    <td>0.00700</td>
+                    <td>0.00700</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Syringe 20ml L/L</td>
+                    <td>1</td>
+                    <td>0.05000</td>
+                    <td>0.05000</td>
+                    <td>0.05000</td>
+                </tr>
+                <tr>
+                    <td>Syringe 20ml L/L</td>
+                    <td>1</td>
+                    <td>0.05000</td>
+                    <td>0.05000</td>
+                    <td>0.05000</td>
+                </tr>
+                <tr>
+                    <td>Syringe 10ml L/S</td>
+                    <td>4</td>
+                    <td>0.05000</td>
+                    <td>0.20000</td>
+                    <td>0.20000</td>
+                </tr>
+                <tr>
+                    <td>Syringe 10ml L/S</td>
+                    <td>4</td>
+                    <td>0.05000</td>
+                    <td>0.20000</td>
+                    <td>0.20000</td>
+                </tr>
+                <tr>
+                    <td>Syringe 5ml L/S</td>
+                    <td>1</td>
+                    <td>0.00500</td>
+                    <td>0.00500</td>
+                    <td>0.00500</td>
+                </tr>
+                <tr>
+                    <td>Sponge Stick Medium 15cm</td>
+                    <td>2</td>
+                    <td>0.00800</td>
+                    <td>0.01600</td>
+                    <td>0.01200</td>
+                </tr>
+                <tr>
+                    <td>Cover 102 x 102cm</td>
+                    <td>1</td>
+                    <td>0.00900</td>
+                    <td>0.00900</td>
+                    <td>0.00900</td>
+                </tr>
+                <tr>
+                    <td>Cover Trolley 140 x 140cm</td>
+                    <td>1</td>
+                    <td>0.05500</td>
+                    <td>0.05500</td>
+                    <td>0.05500</td>
+                </tr>
+                <tr>
+                    <td>Cover Trolley 140 x 140cm</td>
+                    <td>1</td>
+                    <td>0.05500</td>
+                    <td>0.05500</td>
+                    <td>0.05500</td>
+                </tr>
+                <tr>
+                    <td>Bowl Sponge 500ml</td>
+                    <td>2</td>
+                    <td>0.02000</td>
+                    <td>0.04000</td>
+                    <td>0.04000</td>
+                </tr>
+                <tr>
+                    <td>Bowl Denture Cup 250ml</td>
+                    <td>2</td>
+                    <td>0.02000</td>
+                    <td>0.04000</td>
+                    <td>0.04000</td>
+                </tr>
+                <tr>
+                    <td>DFU System And Procedure Packs</td>
+                    <td>0.17</td>
+                    <td>0.01675</td>
+                    <td>0.00279</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Bag Breather 485mm x 625mm</td>
+                    <td>1</td>
+                    <td>0.10000</td>
+                    <td>0.10000</td>
+                    <td>0.09000</td>
+                </tr>
+                <tr>
+                    <td>Label Kimal Outer Shipper Blue</td>
+                    <td>0.17</td>
+                    <td>0.00284</td>
+                    <td>0.00284</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Label Trolley Cover Pack Printed</td>
+                    <td>1</td>
+                    <td>0.00065</td>
+                    <td>0.00065</td>
+                    <td>0.00000</td>
+                </tr>
+                <tr>
+                    <td>Box Kit 586x386x424mm Printed</td>
+                    <td>0.17</td>
+                    <td>1.37600</td>
+                    <td>1.37600</td>
+                    <td>0.00000</td>
+                </tr>                
+                <tr>
+                    <td>Sollution Guidewire Bowl</td>
+                    <td>1</td>
+                    <td>1.38000</td>
+                    <td>1.38000</td>
+                    <td>1.38000</td>
+                </tr>
+                <tr>
+                    <td>Syringe P.C 10ml L/L White</td>
+                    <td>1</td>
+                    <td>0.01000</td>
+                    <td>0.01000</td>
+                    <td>0.01000</td>
+                </tr>
+                <tr>
+                    <td>Sharps Pad</td>
+                    <td>1</td>
+                    <td>0.01000</td>
+                    <td>0.01000</td>
+                    <td>0.01000</td>
+                </tr>
+                <tr>
+                    <td>Drape Angio Femoral 200x300cm 2Fen 14cm Partial Incise Reinf surgiguard blue</td>
+                    <td>1</td>
+                    <td>0.54000</td>
+                    <td>0.54000</td>
+                    <td>0.54000</td>
+                </tr>
+                <tr>
+                    <td>A4 Patient Label Blank</td>
+                    <td>1</td>
+                    <td>0.00910</td>
+                    <td>0.00910</td>
+                    <td>0.00000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <button type="button" class="btn btn-default" (click)="onCloseClick()">
+            {{ 'Close' | localize }}
+        </button>
+    </div>
+</div>

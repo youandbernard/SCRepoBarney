@@ -1,0 +1,19 @@
+{
+  "remoteServiceBaseUrl": "https://api-casemix-staging.casemix-dev.co.uk/staging",
+  "appBaseUrl": "https://casemix-staging.casemix-dev.co.uk",
+  "localeMappings": [
+    {
+      "from": "pt-BR",
+      "to": "pt"
+    },
+    {
+      "from": "zh-CN",
+      "to": "zh"
+    },
+    {
+      "from": "he-IL",
+      "to": "he"
+    }
+  ],
+  "importFile_URL": "https://casemix-staging-assets.s3.eu-west-2.amazonaws.com/"
+}

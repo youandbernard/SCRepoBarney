@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="mel (generated)" id="0359410a-cd9b-11ec-afe3-1831bf981123-1">
+        <sql>
+            alter table regions
+            drop column icsId;
+
+            alter table hospitals
+            drop column RegionId;
+
+            alter table hospitals
+            drop column IcsId;
+
+            update hospitals
+            set trustId = '';
+
+            drop table trusts;
+
+            RENAME TABLE  `Ics` TO  `Trusts`;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

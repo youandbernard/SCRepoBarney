@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="mlabio" id="4238c1d5-e6c4-11eb-95fa-1831bf981123-1">
+        <createTable tableName="Observation">
+            <column name="Id" type="INT">				
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Status" type="INT"/>
+			<column name="Subject" type="VARCHAR(250)"/>
+			<column name="Issued" type="VARCHAR(250)"/>
+			<column name="Code" type="VARCHAR(250)"/>
+			<column name="ValueCodeableConcept" type="VARCHAR(50)"/>
+			<column name="ValueQuantity" type="VARCHAR(250)"/>
+        </createTable>
+    </changeSet>
+	<changeSet author="mlabio" id="4238c1d5-e6c4-11eb-95fa-1831bf981123-2">
+		<loadData 
+				commentLineStartsWith="//"
+				encoding="UTF-8"  
+				file="csv/observation.csv"  
+				quotchar="'" 
+				relativeToChangelogFile="true" 
+				separator="," 
+				tableName="observation"> 
+		  <column header="Id"  
+					 type="NUMERIC"/> 
+		  <column header="Description"  
+					 type="STRING"/>
+		</loadData>
+	</changeSet>
+</databaseChangeLog>

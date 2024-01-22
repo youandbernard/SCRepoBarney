@@ -1,0 +1,110 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Bernard (generated)" id="a2ee559a-0ce3-11ed-84b6-089798b0519b-1">
+        <sql>
+            -- Clean-up deviceprocedures
+            delete from deviceprocedures;
+
+
+            -- Remove General Surgery            
+            delete from bodystructuregroups where Id='25717923-e753-4d3c-8f68-241378012c48';
+
+            
+            -- BodyStructureGroups
+            update bodystructuregroups SET Name = 'General Surgery (Colorectal)', DisplayOrder=1 WHERE Id = 'e52f4011-e8fb-475b-b89e-da8548c18989';
+            update bodystructuregroups SET Name = 'General Surgery (Upper GI / General)', DisplayOrder=2 WHERE Id = '9e5feb25-e6c5-11eb-95fa-1831bf981123';
+
+            insert into bodystructuregroups (Id, Name, DisplayOrder) values 
+            ('b28e9d35-0cd1-11ed-84b6-089798b0519b', 'General Surgery (Upper GI /Bariatric)', 3),
+            ('b7eed7fd-0cd1-11ed-84b6-089798b0519b', 'General Surgery (Urology)', 4);
+
+            update bodystructuregroups SET Name = 'Orthopedic (Knee)', DisplayOrder=5 WHERE Id = '29bcdb34-a792-4f9f-a84d-b76ab8e49e04';
+
+            insert into bodystructuregroups (Id, Name, DisplayOrder) values 
+            ('236d7234-0cd2-11ed-84b6-089798b0519b', 'Orthopedic (Hips)', 6),
+            ('32de14ce-0cd2-11ed-84b6-089798b0519b', 'Orthopedic (Trauma)', 7),
+            ('4286c90b-0cd2-11ed-84b6-089798b0519b', 'Orthopedic (Minor Procedures)', 8);
+
+
+            -- BodyStructures
+            insert into bodystructures (Id, Description, BodyStructureGroupId, DisplayOrder) values
+            (470413006,'Gastric Band', 'b28e9d35-0cd1-11ed-84b6-089798b0519b', 1),
+            (173747005,'Roux-en-Y gastric bypass', 'b28e9d35-0cd1-11ed-84b6-089798b0519b', 2),
+            (307297004,'OAGB / MGB', 'b28e9d35-0cd1-11ed-84b6-089798b0519b', 3),
+            (266569009,'Benign Prostatic Hyperplasia (BPH)', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 1),
+            (90199006,'Transurethral Resection of Prostate (TURP)', 'b7eed7fd-0cd1-11ed-84b6-089798b0519b', 2);
+
+            -- Orthopedic (Hips)
+            update bodystructures SET BodyStructureGroupId='236d7234-0cd2-11ed-84b6-089798b0519b' where Id=278728008;            
+            insert into bodystructures (Id, Description, BodyStructureGroupId, DisplayOrder) values
+            (47458006,'Total Endoprosthesis Placement', '236d7234-0cd2-11ed-84b6-089798b0519b', 1);
+
+            -- Orthopedic (Trauma)
+            update bodystructures SET BodyStructureGroupId='32de14ce-0cd2-11ed-84b6-089798b0519b' where Id=72010008;
+            update bodystructures SET BodyStructureGroupId='32de14ce-0cd2-11ed-84b6-089798b0519b' where Id=734271006;
+            update bodystructures SET BodyStructureGroupId='32de14ce-0cd2-11ed-84b6-089798b0519b' where Id=118635009;
+            update bodystructures SET BodyStructureGroupId='32de14ce-0cd2-11ed-84b6-089798b0519b' where Id=55244002;
+            update bodystructures SET BodyStructureGroupId='32de14ce-0cd2-11ed-84b6-089798b0519b' where Id=16210001;
+            update bodystructures SET BodyStructureGroupId='32de14ce-0cd2-11ed-84b6-089798b0519b' where Id=178156005;
+            update bodystructures SET BodyStructureGroupId='32de14ce-0cd2-11ed-84b6-089798b0519b' where Id=239613002;
+
+            -- Orthopedic (Minor Procedures)
+            update bodystructures SET BodyStructureGroupId='4286c90b-0cd2-11ed-84b6-089798b0519b' where Id=13714004;
+            update bodystructures SET BodyStructureGroupId='4286c90b-0cd2-11ed-84b6-089798b0519b' where Id=47534009;
+            update bodystructures SET BodyStructureGroupId='4286c90b-0cd2-11ed-84b6-089798b0519b' where Id=10000001;
+            update bodystructures SET BodyStructureGroupId='4286c90b-0cd2-11ed-84b6-089798b0519b' where Id=118441006;
+            update bodystructures SET BodyStructureGroupId='4286c90b-0cd2-11ed-84b6-089798b0519b' where Id=38663004;
+            update bodystructures SET BodyStructureGroupId='4286c90b-0cd2-11ed-84b6-089798b0519b' where Id=392033004;
+
+
+            -- BodyStructuresSubProcedures
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES 
+            ('34896006', 'Incision', 470413006),
+            ('178274007', 'Incision of muscle', 470413006),
+            ('51241000', 'Control of hemorrhage', 470413006),
+            ('446743009', 'Endoscopy of uppear gastrointestinal tract and banding of varix of stomach', 470413006),
+            ('51686005', 'Banding', 470413006),
+            ('18557009', 'Closure by suture', 470413006),
+            ('58828004', 'Application of sterile dressing', 470413006);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES 
+            ('34896006', 'Incision', 173747005),
+            ('178274007', 'Incision of muscle', 173747005),
+            ('51241000', 'Control of hemorrhage', 173747005),
+            ('387867004', 'Incision of Stomach', 173747005),
+            ('287871002', 'Exploration of stomach', 173747005),            
+            ('116249002', 'Gastrointestinal tract incision', 173747005),
+            ('235279008', 'Gastrointestinal tract anastomosis - esophagus, stomach and duodenum', 173747005),
+            ('118154005', 'Gastrointestinal tract closure', 173747005),
+            ('119883002', 'Stomach closure', 173747005),
+            ('18557009', 'Closure by suture', 173747005),
+            ('58828004', 'Application of sterile dressing', 173747005);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES 
+            ('34896006', 'Incision', 307297004),
+            ('178274007', 'Incision of muscle', 307297004),
+            ('387867004', 'Incision of Stomach', 307297004),
+            ('287871002', 'Exploration of stomach', 307297004),            
+            ('116249002', 'Gastrointestinal tract incision', 307297004),
+            ('235279008', 'Gastrointestinal tract anastomosis - esophagus, stomach and duodenum', 307297004),
+            ('118154005', 'Gastrointestinal tract closure', 307297004),
+            ('119883002', 'Stomach closure', 307297004),
+            ('18557009', 'Closure by suture', 307297004);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES 
+            ('A-870379008-1', 'Power-up Rezum [™] Generator', 266569009),
+            ('A-870379008-2', 'Prepare sterile saline bag', 266569009),
+            ('A-870379008-3', 'Set-up Rezum [™] Delivery Device', 266569009),
+            ('24139008', 'Perform the pre-treatment vapour cycle', 266569009),
+            ('2413900', 'Perform the Rezum [™] vapour treatment', 266569009),
+            ('A-24139008-2', 'Post-therapy procedure', 266569009);
+
+            INSERT INTO BodyStructureSubprocedures (SnomedId, Description, BodyStructureId) VALUES 
+            ('A409056005-1', 'Identification of the femoral head and associated structures (procedure)', 47458006),
+            ('A409056005-2', 'Preparation of the femoral marrow (procedure)', 47458006),
+            ('A67270000-1', 'Test neck and head (procedure)', 47458006),
+            ('A409056005-3', 'Fixation of the prosthetic neck and head (Cement or Non-cement (procedure)', 47458006);
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

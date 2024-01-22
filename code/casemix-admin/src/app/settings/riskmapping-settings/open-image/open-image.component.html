@@ -1,0 +1,10 @@
+    <abp-modal-header (onCloseClick)="onCloseClick()">
+    </abp-modal-header>
+    <div class="modal-body">
+        <carousel [startFromIndex]="currentSlideIndex" [itemsPerSlide]="1.000001">
+            <slide *ngFor="let slide of list;" >
+              <img [src]="slide.imageUrl" alt="image slide" style="display: block; width: 100%;">
+            </slide>
+          </carousel>
+          <br/>
+    </div>
